@@ -1,0 +1,22 @@
+<div
+  [ngClass]="{
+    'mobile-public-event-dates': device === deviceTypes.mobile,
+    'desktop-public-event-dates': device === deviceTypes.desktop,
+  }">
+  @if (eventDatesTokens.length === 0) {
+    <div class="no-dates">
+      <p>{{ 'public-event-profile.no-dates' | translate }}</p>
+    </div>
+  } @else {
+    <div class="events-dates-list">
+      @for (dateToken of eventDatesTokens; track dateToken) {
+        <Tsk-public-event-date-plac
+          [dateToken]="dateToken"
+          [profileImage]="profileImage"
+          (placAction)="
+            displayDateDetails($event)
+          "></Tsk-public-event-date-plac>
+      }
+    </div>
+  }
+</div>

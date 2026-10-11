@@ -1,0 +1,29 @@
+<div
+  [ngClass]="{
+    'mobile-public-event-name': device === deviceTypes.mobile,
+    'desktop-public-event-name': device === deviceTypes.desktop,
+  }">
+  <div id="event-categories">
+    <mat-select
+      [value]="publicEventCategory"
+      (valueChange)="eventCategorySelection($event)">
+      @for (category of publicEventCategories; track category) {
+        <mat-option [value]="category[0]">
+          {{ category[1] | translate }}
+        </mat-option>
+      }
+    </mat-select>
+  </div>
+
+  <Tsk-public-event-plac
+    [publicEventToken]="publicEventToken"
+    (placAction)="uploadPublicEventPoster()"></Tsk-public-event-plac>
+
+  <form class="event-name-entry" [formGroup]="nameForm">
+    <Tsk-input-component
+      [label]="'create-event.enter-name' | translate"
+      [align]="'center'"
+      formControlName="eventName">
+    </Tsk-input-component>
+  </form>
+</div>

@@ -1,0 +1,43 @@
+<div
+  [ngClass]="{
+    'mobile-create-private-event': device === deviceTypes.mobile,
+    'desktop-create-private-event': device === deviceTypes.desktop,
+  }">
+  <div id="public-events-link">
+    <button mat-icon-button [routerLink]="['../public-event']">
+      <mat-icon [svgIcon]="publicEventsIcon"> </mat-icon>
+    </button>
+  </div>
+
+  <div id="create-event">
+    <Tsk-controls
+      [eventType]="eventType"
+      [pageControls]="pageControls"></Tsk-controls>
+
+    <div id="create-event-display">
+      @if (displayPanel === createEventPanel.name_profileImage) {
+        <Tsk-name-preview></Tsk-name-preview>
+      }
+
+      @if (displayPanel === createEventPanel.media_invitation) {
+        <Tsk-poster-invitation></Tsk-poster-invitation>
+      }
+
+      @if (displayPanel === createEventPanel.date_location) {
+        <Tsk-private-event-location></Tsk-private-event-location>
+      }
+
+      @if (displayPanel === createEventPanel.event_staff) {
+        <Tsk-private-event-staff></Tsk-private-event-staff>
+      }
+
+      @if (displayPanel === createEventPanel.event_guests) {
+        <Tsk-private-event-guests> </Tsk-private-event-guests>
+      }
+
+      @if (displayPanel === createEventPanel.preview_create) {
+        <Tsk-event-complete></Tsk-event-complete>
+      }
+    </div>
+  </div>
+</div>

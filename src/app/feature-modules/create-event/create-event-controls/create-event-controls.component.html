@@ -1,0 +1,20 @@
+<div
+  [ngClass]="{
+    'mobile-controls': device === deviceTypes.mobile,
+    'desktop-controls': device === deviceTypes.desktop,
+  }">
+  @for (control of pageControls; track control; let index = $index) {
+    <div>
+      <button
+        mat-icon-button
+        [ngClass]="{
+          'display-control': control.displayPanel === displayPanel,
+        }"
+        (click)="switchDisplayPanel(control)">
+        <mat-icon
+          [fontIcon]="control.icon"
+          class="material-symbols-outlined"></mat-icon>
+      </button>
+    </div>
+  }
+</div>

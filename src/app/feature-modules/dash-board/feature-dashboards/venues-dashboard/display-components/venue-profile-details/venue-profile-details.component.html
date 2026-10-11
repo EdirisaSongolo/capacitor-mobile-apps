@@ -1,0 +1,38 @@
+<div
+  [ngClass]="{
+    'mobile-venues-dashboard': device === deviceTypes.mobile,
+    'desktop-venues-dashboard': device === deviceTypes.desktop,
+  }">
+  @if (detailsDisplay === detailsDisplayOptions.UPDATE_DETAILS) {
+    <div
+      class="profile-image"
+      [style.background]="venueProfileImage"
+      (click)="updateVenueProfileImage()"></div>
+  }
+
+  <form
+    [formGroup]="venueDetailsForm"
+    (ngSubmit)="submitVenueProfileDetailsForm()">
+    <Tsk-input-component
+      [label]="'venues-dashboard.venue-details.form.venue-name' | translate"
+      formControlName="venueName">
+    </Tsk-input-component>
+
+    <Tsk-location-input-component
+      [label]="'venues-dashboard.venue-details.form.venue-location' | translate"
+      [suggestions]="possibleLocations | async"
+      formControlName="venueLocation">
+    </Tsk-location-input-component>
+
+    <textarea
+      formControlName="venueDescription"
+      [placeholder]="
+        'venues-dashboard.venue-details.form.venue-description' | translate
+      ">
+    </textarea>
+
+    <button mat-raised-button class="raised-button" type="submit">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  </form>
+</div>

@@ -1,0 +1,193 @@
+@use 'src/styles-app' as *;
+
+.mobile-chat,
+.desktop-chat {
+  display: flex;
+  width: 90%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  margin-top: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+
+  .text-pad {
+    display: flex;
+    height: 35rem;
+    margin: auto;
+    margin-top: 0rem;
+    padding: 0rem;
+    flex: 1;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: $card-shadow;
+
+    #contact {
+      display: flex;
+      width: 100%;
+      height: auto;
+      margin: auto;
+      margin-top: 0.2rem;
+      margin-bottom: 0.1rem;
+      padding: 0rem;
+      flex: 0 0 auto;
+      justify-content: flex-start;
+      align-items: center;
+
+      #profile-image {
+        width: 2.5rem;
+        height: 3.5rem;
+        margin: auto;
+        margin-left: 0.2rem;
+        margin-right: 0.2rem;
+        padding: 0rem;
+        border: 0.5px solid;
+        border-color: $foreground;
+        border-radius: 0.5rem;
+      }
+
+      #profile-name {
+        display: flex;
+        height: 3.5rem;
+        margin-left: 0.5rem;
+        margin-bottom: 0rem;
+        justify-content: center;
+        align-items: flex-end;
+
+        p {
+          margin-top: 0.5rem;
+          margin-bottom: 0rem;
+        }
+      }
+    }
+
+    #messages {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      margin-top: 0.1rem;
+      padding: 0rem;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      scrollbar-width: none;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    #messages::-webkit-scrollbar {
+      display: none;
+    }
+
+    form {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0rem;
+      padding: 0rem;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      flex: 0 0 auto;
+
+      textarea {
+        display: flex;
+        width: 78%;
+        max-width: 15rem;
+        height: auto;
+        max-height: 6rem;
+        margin: auto;
+        margin-bottom: 1.1rem;
+        padding: 0.1rem, 0.2rem, 0.1rem, 0.2rem;
+        outline: none;
+        justify-self: flex-end;
+        border: 1px solid;
+        border-color: $foreground;
+        border-radius: 0.5rem;
+      }
+
+      button {
+        display: flex;
+        width: 2rem;
+        height: 2rem;
+        margin: auto;
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        padding: 0.2rem;
+        justify-content: center;
+        align-items: center;
+        color: $foreground;
+        border: 0.5px solid;
+        border-color: $foreground;
+        border-radius: 100%;
+      }
+    }
+  }
+}
+
+.mobile-chat {
+  .text-pad {
+    width: 100%;
+
+    form {
+      height: auto;
+      min-height: 3rem;
+
+      textarea {
+        min-height: 3rem;
+      }
+    }
+  }
+}
+
+.desktop-chat {
+  .text-pad {
+    width: 60%;
+    min-width: 19rem;
+    max-width: 20rem;
+
+    form {
+      height: auto;
+      min-height: 2rem;
+
+      textarea {
+        min-height: 2rem;
+      }
+    }
+  }
+}
+
+.user-message {
+  width: auto;
+  max-width: 15rem;
+  margin: auto;
+  margin-top: 0.2rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.2rem;
+  padding: 0.4rem;
+  border: 1px solid;
+  border-color: $accent-color;
+  border-radius: 0.6rem;
+}
+
+.contact-message {
+  width: auto;
+  max-width: 15rem;
+  margin: auto;
+  margin-top: 0.2rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.2rem;
+  padding: 0.4rem;
+  border: 1px solid;
+  border-color: $foreground;
+  border-radius: 0.6rem;
+}
+
+:host ::ng-deep .mat-mdc-icon-button {
+  width: auto;
+  height: auto;
+  padding: 0rem;
+  list-style: none;
+}

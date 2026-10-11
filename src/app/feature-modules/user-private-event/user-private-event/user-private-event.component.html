@@ -1,0 +1,59 @@
+<div
+  [ngClass]="{
+    'mobile-user-private-events': device === deviceTypes.mobile,
+    'desktop-user-private-events': device === deviceTypes.desktop,
+  }">
+  <div class="profile-image" [style.background]="profileImage"></div>
+  <div class="event-name">{{ eventName }}</div>
+  <div class="event-location">
+    <div class="location-components venue-details">
+      @if (venueType === venueOptions.public_venue) {
+        <Tsk-venue-plac
+          class="profile-reference"
+          [venueToken]="venueToken"></Tsk-venue-plac>
+      }
+
+      @if (venueType === venueOptions.private_venue) {
+        home icon here
+      }
+    </div>
+    <div class="location-components event-details">
+      <p>{{ eventDate }}</p>
+      <p>{{ eventTime }}</p>
+      <p>{{ venueAddress }}</p>
+    </div>
+  </div>
+
+  <div class="display-controls">
+    @for (control of userEventControls; track control) {
+      <button
+        class="control"
+        mat-icon-button
+        (click)="switchUserEventsDisplay(control.display)">
+        <mat-icon
+          [fontIcon]="control.icon"
+          class="material-symbols-outlined"></mat-icon>
+      </button>
+    }
+  </div>
+
+  <div class="private-event-display">
+    @if (userEventDisplay === displayOptions.media) {
+      <Tsk-profile-media></Tsk-profile-media>
+    }
+
+    @if (userEventDisplay === displayOptions.messaging) {
+      <Tsk-event-posts
+        [eventType]="eventTypes.privateEvent"
+        [eventReferenceId]="eventId"></Tsk-event-posts>
+    }
+
+    @if (userEventDisplay === displayOptions.guests) {
+      <Tsk-event-guests></Tsk-event-guests>
+    }
+
+    @if (userEventDisplay === displayOptions.providers) {
+      <Tsk-event-features></Tsk-event-features>
+    }
+  </div>
+</div>

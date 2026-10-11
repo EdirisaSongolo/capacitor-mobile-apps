@@ -1,0 +1,15 @@
+<mat-toolbar
+  [ngClass]="{
+    'mobile-header': device === deviceTypes.mobile,
+    'desktop-header': device === deviceTypes.desktop,
+  }">
+  <div id="company-icon"><img src="/assets/icon/icon-transparent.png" /></div>
+  <div id="company-name" class="mat-headline-5">
+    <a [routerLink]="['']"> Tuuska </a>
+  </div>
+  <button id="menu-icon" (click)="openSideNavigation()">
+    <mat-icon>
+      {{ menuIcon }}
+    </mat-icon>
+  </button>
+</mat-toolbar>

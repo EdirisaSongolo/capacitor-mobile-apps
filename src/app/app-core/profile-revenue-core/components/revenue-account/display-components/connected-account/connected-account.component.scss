@@ -1,0 +1,182 @@
+@use 'src/styles-app' as *;
+
+.mobile-connected-account,
+.desktop-connected-account {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  .control {
+    display: flex;
+    min-height: 2rem;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .no-account-on-file {
+    margin: auto;
+    padding: 0.1rem;
+    text-align: center;
+  }
+
+  .account-on-file {
+    display: flex;
+    min-height: 10rem;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .account-header {
+      width: 90%;
+      font-size: large;
+    }
+
+    .account-details {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+      padding: 0rem;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+
+      p {
+        text-align: left;
+        margin: auto;
+        margin-left: 0.2rem;
+      }
+
+      div {
+        max-width: 50%;
+        margin: auto;
+        margin-right: 0.2rem;
+        text-align: center;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+        white-space: none;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .dialog-control {
+    display: flex;
+    width: 100%;
+    min-height: 2rem;
+    justify-content: flex-end;
+    align-items: center;
+
+    button {
+      margin-right: 0.5rem;
+      color: $remove;
+    }
+  }
+
+  .dialog-display {
+    display: block;
+    height: auto;
+    margin: auto;
+    padding: 0rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    position: absolute;
+    z-index: 2;
+    background-color: $background;
+    border: 0.5px solid;
+    border-color: $foreground;
+    border-radius: 0.5rem;
+
+    form {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+
+      .header {
+        margin-bottom: 1rem;
+      }
+
+      Tsk-input-component {
+        width: 80%;
+        margin: auto;
+        text-align: left;
+      }
+
+      button {
+        margin: auto;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}
+
+.mobile-connected-account {
+  .control {
+    width: 90%;
+  }
+
+  .account-on-file {
+    width: 90%;
+  }
+
+  .dialog-display {
+    width: 90%;
+    min-height: 15rem;
+    top: 20%;
+    left: 5%;
+
+    form {
+      min-height: 15rem;
+
+      button {
+        width: 30%;
+      }
+    }
+  }
+}
+
+.desktop-connected-account {
+  .control {
+    width: 70%;
+  }
+
+  .account-on-file {
+    width: 60%;
+  }
+
+  .dialog-display {
+    width: 60%;
+    min-height: 15rem;
+    top: 10%;
+    left: 20%;
+
+    form {
+      min-height: 15rem;
+
+      button {
+        width: 25%;
+      }
+    }
+  }
+}
+
+p {
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  white-space: none;
+  overflow: hidden;
+}

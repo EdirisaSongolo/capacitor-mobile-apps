@@ -1,0 +1,83 @@
+@use 'src/styles-app' as *;
+
+.mobile-public-event-date,
+.desktop-public-event-date {
+  display: flex;
+  width: 100%;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+
+  .event-date-panels {
+    display: flex;
+    width: 100%;
+    min-height: 30rem;
+    margin: 0;
+    padding: 0rem;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    .panel {
+      flex: 0 0 100%;
+      min-width: 100%;
+      height: 100%;
+      scroll-snap-align: start;
+
+      Tsk-event-date-venue,
+      Tsk-event-date-details,
+      Tsk-event-date-features {
+        display: block;
+        width: 100%;
+        min-height: 30rem;
+        margin: 0;
+        padding: 0rem;
+      }
+    }
+  }
+
+  .event-date-panels::-webkit-scrollbar {
+    display: none;
+  }
+
+  .controls {
+    display: flex;
+    width: 100%;
+    height: 2.5rem;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: 0.4rem;
+      height: 0.4rem;
+      margin: auto;
+      margin-left: 0.4rem;
+      margin-right: 0.4rem;
+      border: 1px solid;
+      border-color: $foreground;
+      border-radius: 0.5rem;
+      background-color: $foreground;
+      cursor: pointer;
+    }
+
+    .selected {
+      width: 2rem;
+      height: 0.5rem;
+      border-color: $accent-color;
+      background-color: $accent-color;
+    }
+  }
+}

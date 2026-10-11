@@ -1,0 +1,57 @@
+<div
+  [ngClass]="{
+    'mobile-create-edit-location': device === deviceTypes.mobile,
+    'desktop-create-edit-location': device === deviceTypes.desktop,
+  }">
+  <div class="controls">
+    <button
+      mat-icon-button
+      [disabled]="locationsTokens?.length === 0"
+      color="accent"
+      (click)="displayLocationsForm()">
+      @if (!locationsForm) {
+        <mat-icon [fontIcon]="controlIcon" class="material-symbols-outlined">
+        </mat-icon>
+      }
+    </button>
+  </div>
+
+  @if (locationsTokens?.length === 0 || locationsForm) {
+    <form
+      class="locations-form"
+      [formGroup]="locationForm"
+      (ngSubmit)="createPublicEventLocation()">
+      <Tsk-location-input-component
+        [required]="true"
+        [label]="'create-event.public-event.location.venue-city' | translate"
+        [suggestions]="possibleLocations | async"
+        formControlName="locationInput">
+      </Tsk-location-input-component>
+      <button mat-raised-button class="raised-button">
+        {{ 'button-label.enter' | translate }}
+      </button>
+    </form>
+  } @else {
+    @if (locationsTokens?.length >= 1) {
+      <div class="locations" (click)="componentClickEvent($event)">
+        @for (locationToken of locationsTokens; track locationToken) {
+          <Tsk-public-event-location-plac
+            [componentAction]="componentAction"
+            [profileImage]="profileImage"
+            [locationToken]="locationToken"
+            (placAction)="editPublicEventLocation($event)"
+            (deleteAction)="
+              displayConfirmationDialog($event)
+            "></Tsk-public-event-location-plac>
+        }
+      </div>
+    }
+  }
+
+  @if (confirmationDialog) {
+    <Tsk-confirmation-dialog
+      (click)="dialogClickEvent($event)"
+      [confirmationMessage]="deleteConfirmation"
+      (dialogAction)="deleteDialogAction($event)"></Tsk-confirmation-dialog>
+  }
+</div>

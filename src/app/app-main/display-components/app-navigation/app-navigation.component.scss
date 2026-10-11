@@ -1,0 +1,199 @@
+@use 'src/styles-app' as *;
+
+.mobile-app-navigation,
+.desktop-app-navigation {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 4rem;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .controls {
+    display: flex;
+    min-height: 3rem;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+
+    .left-controls {
+      display: flex;
+      width: 55%;
+      justify-content: flex-start;
+      align-items: center;
+
+      a {
+        margin: auto;
+        margin-left: 0.4rem;
+        margin-right: 0.4rem;
+        padding: 0;
+      }
+    }
+
+    .right-controls {
+      display: flex;
+      width: 30%;
+      justify-content: flex-end;
+      align-items: center;
+
+      a {
+        margin: auto;
+        margin-left: 0.4rem;
+        margin-right: 0.4rem;
+        padding: 0;
+      }
+    }
+  }
+
+  .location {
+    display: flex;
+    min-height: 3rem;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      display: flex;
+      justify-content: center;
+
+      input {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        color: $foreground;
+        background-color: $background;
+        border: none;
+        outline: 0;
+      }
+
+      input::placeholder {
+        opacity: 0.5;
+      }
+
+      input:focus {
+        border-bottom: 1px solid;
+        color: $foreground;
+      }
+    }
+  }
+
+  .app-response {
+    display: flex;
+    min-height: 0rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    ul {
+      display: flex;
+      width: auto;
+      min-width: 60%;
+      height: auto;
+      min-height: 55%;
+      margin: auto;
+      padding: 1rem;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      li {
+        width: 98%;
+        height: auto;
+        font-family: 'Montserrat-medium';
+        font-size: 14px;
+        list-style: none;
+        margin: auto;
+        padding: 0rem;
+        text-align: center;
+      }
+    }
+
+    .api-call-progress {
+      display: flex;
+      width: auto;
+      min-width: 70%;
+      height: auto;
+      min-height: 5rem;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      p {
+        font-family: 'Montserrat-medium';
+        font-size: 16px;
+        margin-bottom: 0.1rem;
+        text-align: center;
+      }
+      /* TODO(mdc-migration): The following rule targets internal classes of progress-bar that may no longer apply for the MDC version. */
+      mat-progress-bar {
+        width: 90%;
+        height: 0.2rem;
+        margin: auto;
+        margin-top: 0.1rem;
+      }
+    }
+  }
+}
+
+.mobile-app-navigation {
+  .location,
+  .controls {
+    width: 98%;
+
+    form {
+      width: 70%;
+    }
+  }
+
+  .app-response {
+    width: 90%;
+  }
+}
+
+.desktop-app-navigation {
+  .controls,
+  .app-response {
+    width: 30%;
+  }
+
+  .location {
+    width: 40%;
+
+    form {
+      width: 70%;
+    }
+  }
+}
+
+.current-location {
+  border-bottom: 1px solid $accent-color;
+}
+
+.current-location ::ng-deep .mdc-list-item__primary-text {
+  margin-left: auto;
+}
+
+.success {
+  border: 1px solid;
+  border-color: $accent-color;
+  border-radius: 0.5rem;
+}
+
+.warning {
+  border: 1px solid;
+  border-color: $warning-color;
+  border-radius: 0.5rem;
+}
+
+.error {
+  border: 1px solid;
+  border-color: $error-color;
+  border-radius: 0.5rem;
+}

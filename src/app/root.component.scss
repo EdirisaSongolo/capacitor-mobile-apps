@@ -1,0 +1,32 @@
+@use 'src/styles-app' as *;
+
+.application-content {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  margin: 0rem;
+  padding: 0rem;
+  background-color: $background;
+
+  .mobile-side-navigation {
+    width: 80%;
+    height: auto;
+    min-height: 100vh;
+    margin: 0rem;
+    padding: 0rem;
+    border-left: 1px solid;
+    border-color: $foreground;
+    background-color: $background;
+  }
+
+  .desktop-side-navigation {
+    width: 25%;
+    height: auto;
+    min-height: 100vh;
+    margin: 0rem;
+    padding: 0rem;
+    border-left: 1px solid;
+    border-color: $foreground;
+    background-color: $background;
+  }
+}

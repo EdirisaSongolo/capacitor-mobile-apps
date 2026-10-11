@@ -1,0 +1,288 @@
+@use 'src/styles-app' as *;
+
+.payment-dialog-mobile,
+.payment-dialog-desktop {
+  display: flex;
+  width: 100%;
+  min-height: 25rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .close-control {
+    display: flex;
+    width: 100%;
+    min-height: 2rem;
+    margin-top: 0;
+    margin-right: 0.5rem;
+    justify-content: flex-end;
+    align-items: center;
+
+    button {
+      color: $remove;
+    }
+  }
+
+  .transaction-header {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .receipt-image {
+      width: 4rem;
+      height: 6rem;
+      margin: auto;
+      margin-top: 0.1rem;
+      margin-bottom: 0.5rem;
+      padding: 0rem;
+      border: 1px solid;
+      border-color: $foreground;
+      border-radius: 0.5rem;
+    }
+
+    p {
+      margin: auto;
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  .reference-date-time {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+      margin: auto;
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  .receipt-name {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+      margin: auto;
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  .meta-data {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .meta-data-item {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      border-bottom: 0.5px dashed;
+      border-color: $disabled-color;
+
+      .name {
+        width: 30%;
+        margin: auto;
+        margin-left: 0;
+        padding: 0;
+        text-align: left;
+      }
+
+      .quantity {
+        width: 30%;
+        margin: auto;
+        padding: 0;
+        text-align: center;
+      }
+
+      .value {
+        width: 30%;
+        margin: auto;
+        margin-right: 0;
+        padding: 0;
+        text-align: right;
+      }
+    }
+  }
+
+  .sub-totals {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .list-item {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      border-bottom: 0.5px dashed;
+      border-color: $disabled-color;
+
+      .name {
+        width: 45%;
+        margin: auto;
+        margin-left: 0.1rem;
+        padding: 0;
+        text-align: left;
+      }
+
+      .value {
+        width: 45%;
+        margin: auto;
+        margin-right: 0.1rem;
+        padding: 0;
+        text-align: right;
+      }
+    }
+  }
+
+  .total {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    .name {
+      width: 45%;
+      margin: auto;
+      margin-left: 0.1rem;
+      padding: 0;
+      text-align: left;
+    }
+
+    .value {
+      width: 45%;
+      margin: auto;
+      margin-right: 0.1rem;
+      padding: 0;
+      text-align: right;
+    }
+  }
+
+  .payment-options {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .header {
+      width: 90%;
+      margin: auto;
+      margin-left: 0.1rem;
+      padding: 0;
+      text-align: left;
+    }
+
+    .saved-payment-options {
+      display: flex;
+      width: 90%;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+
+      .card {
+        min-width: 45%;
+        margin: auto;
+        margin-left: 0.1rem;
+        padding: 0;
+        text-align: left;
+      }
+
+      button {
+        margin: auto;
+        margin-right: 0.1rem;
+      }
+
+      .options {
+        color: $accent-color;
+      }
+    }
+  }
+
+  .submit-payment {
+    min-width: 20%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 0.5rem;
+  }
+
+  .back-control {
+    display: flex;
+    width: 100%;
+    min-height: 2rem;
+    margin-top: 0;
+    margin-left: 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
+
+    button {
+      color: $accent-color;
+    }
+  }
+
+  Tsk-payment-methods {
+    display: block;
+    width: 95%;
+    min-height: 25rem;
+    margin: auto;
+    padding: 0;
+  }
+}
+
+.valid-payment {
+  border: 0.5px solid;
+  border-color: $accent-color;
+}

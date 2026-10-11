@@ -1,0 +1,70 @@
+<div
+  [ngClass]="{
+    'ticket-sales-dialog-mobile': device === deviceTypes.mobile,
+    'ticket-sales-dialog-desktop': device === deviceTypes.desktop,
+  }">
+  <div class="control">
+    <button
+      mat-icon-button
+      (click)="closeSalesDialog(); $event.stopPropagation()">
+      <mat-icon
+        [fontIcon]="closeIcon"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+  </div>
+
+  <div class="ticket-sales-header">
+    <div>
+      <p>{{ eventDate }}</p>
+      <p>{{ eventTime }}</p>
+    </div>
+    <div>{{ 'Available tickets count' }}</div>
+  </div>
+
+  @for (salesItem of ticketSalesItems; track salesItem) {
+    <div class="ticket-sale">
+      <div class="ticket-details">
+        <div>
+          {{ salesItem.ticketName }}
+        </div>
+        <div>
+          {{ salesItem.ticketValue }}
+        </div>
+      </div>
+      <form class="sale-control">
+        <mat-select
+          [value]="salesItem.ticketCount"
+          (valueChange)="
+            updateTicketCount(salesItem.index, $event); $event.stopPropagation()
+          ">
+          @for (count of ticketCount; track count) {
+            <mat-option [value]="count">
+              {{ count }}
+            </mat-option>
+          }
+        </mat-select>
+      </form>
+      <div class="sale-count" [TskCurrencyDisplay]="salesItem.countTotal"></div>
+    </div>
+  }
+
+  <div class="count-and-sub-total">
+    <div class="total-component">
+      <p class="label">
+        {{ 'public-event-profile.ticket-sales.ticket-count' | translate }}
+      </p>
+      <p class="total">{{ totalTicketCount }}</p>
+    </div>
+    <div class="total-component">
+      <p class="label">{{ 'common.sub-total' | translate }}</p>
+      <p class="total" [TskCurrencyDisplay]="totalTicketAmount"></p>
+    </div>
+  </div>
+
+  <button
+    class="create-sales raised-button"
+    mat-raised-button
+    (click)="createTicketSales(); $event.stopPropagation()">
+    {{ 'button-label.check-out' | translate }}
+  </button>
+</div>

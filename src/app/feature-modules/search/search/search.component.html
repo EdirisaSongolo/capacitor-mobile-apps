@@ -1,0 +1,79 @@
+<div
+  [ngClass]="{
+    'mobile-search': device === deviceTypes.mobile,
+    'desktop-search': device === deviceTypes.desktop,
+  }">
+  <form
+    class="search-form"
+    [formGroup]="searchParamForm"
+    (ngSubmit)="submitSearchParam()">
+    <Tsk-input-component
+      [required]="true"
+      formControlName="searchParam"
+      [label]="'search.search-form.placeholder' | translate"
+      [align]="'center'">
+    </Tsk-input-component>
+  </form>
+
+  @if (searchDisplay === displayOptions.search_history) {
+    @if (searchRecords.length === 0) {
+      <div class="no-results">
+        <p>{{ noSearchHistory | translate }}</p>
+      </div>
+    } @else {
+      <div class="search-history">
+        @for (record of searchRecords; track record) {
+          <div class="record">
+            <p (click)="retrieveSearchResults(record.searchText)">
+              {{ record.searchText }}
+            </p>
+            <button
+              class="remove"
+              mat-icon-button
+              (click)="deleteSearchRecord(record)">
+              <mat-icon
+                [fontIcon]="removeIcon"
+                class="material-symbols-outlined">
+              </mat-icon>
+            </button>
+          </div>
+        }
+      </div>
+    }
+  }
+  @if (searchDisplay === displayOptions.search_results) {
+    @if (searchResults.length === 0) {
+      <div class="no-results">
+        <p>{{ noSearchResults | translate }}</p>
+      </div>
+    } @else {
+      <div class="search-results">
+        @for (searchResult of searchResults; track searchResult) {
+          @if (searchResult.profile === profileTypes.userProfile) {
+            <Tsk-user-profile-plac
+              [componentAction]="componentAction"
+              [userTokenDTO]="
+                asUserToken(searchResult)
+              "></Tsk-user-profile-plac>
+          }
+          @if (searchResult.profile === profileTypes.venueProfile) {
+            <Tsk-venue-plac
+              [componentAction]="componentAction"
+              [venueToken]="asVenueToken(searchResult)"></Tsk-venue-plac>
+          }
+          @if (searchResult.profile === profileTypes.vendorProfile) {
+            <Tsk-vendor-plac
+              [componentAction]="componentAction"
+              [vendorToken]="asVendorToken(searchResult)"></Tsk-vendor-plac>
+          }
+          @if (searchResult.profile === profileTypes.publicEventProfile) {
+            <Tsk-public-event-plac
+              [publicEventToken]="
+                asPublicEventToken(searchResult)
+              "></Tsk-public-event-plac>
+          }
+        }
+      </div>
+    }
+  }
+</div>

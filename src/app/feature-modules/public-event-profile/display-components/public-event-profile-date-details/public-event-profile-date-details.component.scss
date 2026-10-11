@@ -1,0 +1,162 @@
+@use 'src/styles-app' as *;
+
+.mobile-public-event-date,
+.desktop-public-event-date {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .event-location {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 5rem;
+    margin: auto;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    .location-components {
+      display: flex;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .venue-details {
+      width: 30%;
+    }
+
+    .event-details {
+      width: 70%;
+    }
+  }
+
+  .date-features {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 14rem;
+    margin: auto;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+
+    .no-features {
+      width: 90%;
+      margin: auto;
+    }
+  }
+
+  .event-tickets {
+    display: flex;
+    height: auto;
+    margin: auto;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .controls {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      justify-content: flex-end;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    .header {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+
+      .capacity {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+
+        p {
+          text-align: center;
+          margin: auto;
+        }
+      }
+    }
+
+    .ticket {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+
+      .ticket-component,
+      .divider {
+        width: 30%;
+        margin: auto;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .name {
+        text-align: left;
+      }
+
+      .divider {
+        text-align: center;
+      }
+
+      .price {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.mobile-public-event-date {
+  .event-tickets {
+    width: 90%;
+  }
+}
+.desktop-public-event-date {
+  .event-tickets {
+    width: 60%;
+  }
+}
+
+.user-event,
+.ticketed-event {
+  color: $accent-color;
+}

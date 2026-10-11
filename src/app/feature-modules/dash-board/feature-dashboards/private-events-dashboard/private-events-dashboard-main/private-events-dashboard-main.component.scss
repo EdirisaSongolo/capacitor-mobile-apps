@@ -1,0 +1,30 @@
+@use 'src/styles-app' as *;
+
+.mobile-private-events-dashboard,
+.desktop-private-events-dashboard {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  .no-private-events {
+    display: flex;
+    height: auto;
+    margin: auto;
+    justify-self: center;
+    align-self: center;
+  }
+}
+
+.mobile-private-events-dashboard {
+  margin-top: 0rem;
+}
+
+.desktop-private-events-dashboard {
+  max-width: 50rem;
+}

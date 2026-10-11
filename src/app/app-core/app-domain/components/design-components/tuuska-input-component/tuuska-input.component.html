@@ -1,0 +1,47 @@
+<div
+  class="field"
+  [class.focused]="focused"
+  [class.has-value]="value.length > 0"
+  [class.disabled]="disabled"
+  [class.error]="errorMessage"
+  [class.has-toggle]="type === 'password'"
+  [class.align-center]="align === 'center'">
+  <input
+    [id]="inputId"
+    [type]="inputType"
+    [value]="value"
+    [disabled]="disabled"
+    [autocomplete]="autocomplete"
+    [mask]="mask"
+    [attr.maxlength]="maxlength"
+    [attr.aria-invalid]="errorMessage ? true : null"
+    [attr.aria-describedby]="errorMessage ? inputId + '-error' : null"
+    (input)="onInput($event)"
+    (focus)="onFocus()"
+    (blur)="onBlur()" />
+  <label [for]="inputId">
+    {{ label }}
+    @if (required) {
+      <span class="required"> *</span>
+    }
+  </label>
+  @if (type === 'password') {
+    <button
+      type="button"
+      class="toggle-visibility"
+      tabindex="-1"
+      [attr.aria-label]="passwordVisible ? 'Hide password' : 'Show password'"
+      (click)="togglePasswordVisibility()">
+      <mat-icon
+        class="material-symbols-outlined"
+        [fontIcon]="passwordVisible ? 'visibility_off' : 'visibility'">
+      </mat-icon>
+    </button>
+  }
+  <div class="line"></div>
+  @if (errorMessage) {
+    <div class="err" [id]="inputId + '-error'">
+      {{ errorMessage }}
+    </div>
+  }
+</div>

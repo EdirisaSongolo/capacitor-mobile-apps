@@ -1,0 +1,62 @@
+<div
+  [ngClass]="{
+    'mobile-public-event-account': device === deviceTypes.mobile,
+    'desktop-public-event-account': device === deviceTypes.desktop,
+  }">
+  @if (principalDisplay === displayOptions.principal_selection) {
+    @if (!eventPrincipal) {
+      <div class="principal-selection">
+        <div id="text">
+          {{
+            'create-event.public-event.principal.principal-selection'
+              | translate
+          }}
+        </div>
+        <button
+          class="select-principal"
+          mat-icon-button
+          (click)="displayUserManagedVendors()">
+          <mat-icon fontIcon="add" class="material-symbols-outlined"></mat-icon>
+        </button>
+      </div>
+    }
+  }
+
+  @if (principalDisplay === displayOptions.managed_vendors) {
+    @if (managedVendors.length === 0) {
+      <div class="no-vendors">
+        {{ 'vendors-dashboard.no-vendor-profiles' | translate }}
+      </div>
+    }
+    @if (managedVendors.length >= 1) {
+      <div class="vendors-list">
+        @for (vendor of managedVendors; track vendor) {
+          <Tsk-vendor-plac
+            [componentAction]="componentAction"
+            [vendorToken]="vendor"
+            (placAction)="setPublicEventPrincipal($event)"></Tsk-vendor-plac>
+        }
+      </div>
+    }
+  }
+
+  @if (principalDisplay === displayOptions.public_event_principal) {
+    @if (eventPrincipal) {
+      <div class="public-event-principal-profile">
+        <div class="edit-principal">
+          <button mat-icon-button (click)="displayUserManagedVendors()">
+            <mat-icon
+              fontIcon="edit"
+              class="material-symbols-outlined"></mat-icon>
+          </button>
+        </div>
+        <div class="principal-header">
+          {{
+            'create-event.public-event.principal.principal-header' | translate
+          }}
+        </div>
+        <Tsk-vendor-plac [vendorToken]="eventPrincipal"></Tsk-vendor-plac>
+      </div>
+    }
+  }
+</div>

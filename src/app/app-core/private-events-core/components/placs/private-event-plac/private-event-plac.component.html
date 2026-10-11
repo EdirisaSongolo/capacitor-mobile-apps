@@ -1,0 +1,12 @@
+<div
+  class="private-event"
+  [ngClass]="{
+    'confirmed-event': privateEventToken.userAccess === accessOptions.confirmed,
+  }"
+  [style.background]="previewFields.profileImage"
+  (click)="processPlacAction()">
+  <div id="event-name">{{ previewFields.eventName | translate }}</div>
+  <div id="address">{{ previewFields.eventAddress | translate }}</div>
+  <div id="date">{{ previewFields.eventDate | translate }}</div>
+  <div id="time">{{ previewFields.eventTime | translate }}</div>
+</div>

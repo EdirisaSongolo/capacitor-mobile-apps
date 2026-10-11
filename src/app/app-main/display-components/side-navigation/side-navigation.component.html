@@ -1,0 +1,47 @@
+<div
+  [ngClass]="{
+    'mobile-side-navigation': device === deviceTypes.mobile,
+    'desktop-side-navigation': device === deviceTypes.desktop,
+  }">
+  @if (authenticated) {
+    <div class="theme-toggle">
+      <p>{{ 'side-nav-links.toggle-theme' | translate }}</p>
+      <mat-slide-toggle
+        [checked]="darkTheme"
+        hideIcon
+        color="accent"
+        (change)="toggleDarkTheme($event)">
+        {{ themeLabel | translate }}
+      </mat-slide-toggle>
+    </div>
+    <div class="profile-image-and-name">
+      <div id="profile-image" [style.background]="userProfileImage"></div>
+      <div id="profile-name">
+        {{ userProfileInfo?.userName }}
+      </div>
+    </div>
+    <div id="biography">
+      {{ userProfileInfo.userBiography }}
+    </div>
+    <div id="navigation-links">
+      @for (link of navigationLinks; track link) {
+        <div id="link-name">
+          <a [routerLink]="[link.route]" (click)="updateIsOpen()">
+            {{ link.name | translate }}
+          </a>
+        </div>
+      }
+    </div>
+    <div id="log-out">
+      <button mat-raised-button class="raised-button" (click)="userLogOut()">
+        {{ 'button-label.log-out' | translate }}
+      </button>
+    </div>
+  } @else {
+    <div id="log-in">
+      <button mat-raised-button class="raised-button" (click)="displayLogIn()">
+        {{ 'button-label.log-in' | translate }}
+      </button>
+    </div>
+  }
+</div>

@@ -1,0 +1,23 @@
+@use 'src/styles-app' as *;
+
+.mobile-public-event-account,
+.desktop-public-event-account {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .header {
+    width: 100%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.1rem;
+    text-align: center;
+  }
+}

@@ -1,0 +1,87 @@
+<div
+  [ngClass]="{
+    'mobile-user-socials': device === deviceTypes.mobile,
+    'desktop-user-socials': device === deviceTypes.desktop,
+  }">
+  <div class="user-search">
+    <form [formGroup]="userSearchForm">
+      <Tsk-input-component
+        [label]="'labels.user-search' | translate"
+        [align]="'center'"
+        formControlName="user_search">
+      </Tsk-input-component>
+    </form>
+  </div>
+
+  @if (userSearchDisplay === displayOptions.user_socials) {
+    <div class="user-socials">
+      <mat-tab-group>
+        <mat-tab [label]="'labels.followers' | translate">
+          <div class="container">
+            @if (userFollowers.length === 0) {
+              <div class="no-profiles">
+                <p>
+                  {{
+                    'user-profile-dashboard.socials.no-followers' | translate
+                  }}
+                </p>
+              </div>
+            }
+            @if (userFollowers.length >= 1) {
+              @for (userToken of userFollowers; track userToken) {
+                <Tsk-user-profile-plac
+                  [componentAction]="componentAction"
+                  [userTokenDTO]="userToken"
+                  (placAction)="propateUserPlacAction($event)">
+                </Tsk-user-profile-plac>
+              }
+            }
+          </div>
+        </mat-tab>
+        <mat-tab [label]="'labels.following' | translate">
+          <div class="container">
+            @if (userFollowing.length === 0) {
+              <div class="no-profiles">
+                <p>
+                  {{
+                    'user-profile-dashboard.socials.not-following' | translate
+                  }}
+                </p>
+              </div>
+            }
+            @if (userFollowing.length >= 1) {
+              @for (user of userFollowing; track user) {
+                <Tsk-user-profile-plac
+                  [componentAction]="componentAction"
+                  [userTokenDTO]="user"
+                  (placAction)="propateUserPlacAction($event)">
+                </Tsk-user-profile-plac>
+              }
+            }
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  }
+
+  @if (userSearchDisplay === displayOptions.search_results) {
+    <div class="search-results">
+      @if (userSearchResults.length === 0) {
+        <div class="no-profiles">
+          <p>
+            {{ 'user-profile-dashboard.socials.no-search-match' | translate }}
+          </p>
+        </div>
+      }
+      @if (userSearchResults.length >= 1) {
+        @for (user of userSearchResults; track user) {
+          <Tsk-user-profile-plac
+            [componentAction]="componentAction"
+            [userTokenDTO]="user"
+            (placAction)="propateUserPlacAction($event)">
+          </Tsk-user-profile-plac>
+        }
+      }
+    </div>
+  }
+</div>

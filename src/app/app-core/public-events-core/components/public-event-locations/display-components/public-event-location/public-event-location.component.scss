@@ -1,0 +1,74 @@
+@use 'src/styles-app' as *;
+
+.mobile-public-event-location,
+.desktop-public-event-location {
+  display: flex;
+  position: relative;
+  width: 100%;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .controls {
+    display: flex;
+    min-height: 2.5rem;
+    margin: auto;
+    margin-top: 0rem;
+    justify-content: right;
+    align-items: center;
+
+    button {
+      margin: auto;
+      margin-right: 0.5rem;
+      border: 1px solid;
+      border-color: $foreground;
+      border-radius: 0.5rem;
+    }
+  }
+
+  .location-dates {
+    display: flex;
+    width: 100%;
+    min-height: 30rem;
+    margin: auto;
+    margin-top: 0rem;
+    padding: 0rem;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-flow: row wrap;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+  }
+
+  .location-dates::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.mobile-public-event-location {
+  .controls {
+    width: 95%;
+
+    button {
+      width: 2.5rem;
+      height: 3rem;
+    }
+  }
+
+  .more-options {
+    width: 95%;
+  }
+}
+.desktop-public-event-location {
+  .controls {
+    width: 80%;
+
+    button {
+      width: 2.5rem;
+      height: 3rem;
+    }
+  }
+}

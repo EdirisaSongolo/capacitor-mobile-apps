@@ -1,0 +1,23 @@
+<div
+  [ngClass]="{
+    'mobile-booking-invoices': device === deviceTypes.mobile,
+    'desktop-booking-invoices': device === deviceTypes.desktop,
+  }">
+  @if (managedInvoices.length === 0) {
+    <div class="no-managed-invoices">
+      <P> {{ 'common.no-booking-requests' | translate }} </P>
+    </div>
+  }
+
+  @if (managedInvoices.length >= 1) {
+    <div class="managed-invoices">
+      @for (bookingToken of managedInvoices; track bookingToken) {
+        <Tsk-booking-invoice-plac
+          [bookingToken]="bookingToken"
+          (placAction)="
+            displayInvoiceDetails($event)
+          "></Tsk-booking-invoice-plac>
+      }
+    </div>
+  }
+</div>

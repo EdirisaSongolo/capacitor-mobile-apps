@@ -1,0 +1,60 @@
+<div
+  [ngClass]="{
+    'mobile-public-event-profile': device === deviceTypes.mobile,
+    'desktop-public-event-profile': device === deviceTypes.desktop,
+  }">
+  <Tsk-public-event-header></Tsk-public-event-header>
+
+  <div class="display-controls">
+    @for (control of displayControls; track control) {
+      <div>
+        <button
+          class="icon-button"
+          mat-icon-button
+          (click)="updateDisplayPanel(control.route)">
+          <mat-icon
+            [fontIcon]="control.icon"
+            class="material-symbols-outlined"></mat-icon>
+        </button>
+      </div>
+    }
+  </div>
+
+  <div class="public-event-profile-display">
+    <router-outlet></router-outlet>
+
+    <!-- <ng-template [ngIf]="profileDTO && displayPanel === panelOptions.media">
+    <Tsk-profile-media></Tsk-profile-media>
+  </ng-template>
+
+  <ng-template [ngIf]="profileDTO && displayPanel === panelOptions.dates">
+    <Tsk-public-event-profile-dates
+    [profile]="profileDTO"
+    [locationId]="locationId"
+        (selectedDate)="
+          displayPublicEventDate($event)
+        "></Tsk-public-event-profile-dates>
+</ng-template>
+
+<ng-template [ngIf]="profileDTO && displayPanel === panelOptions.features">
+  <Tsk-public-event-profile-features
+[profile]="profileDTO"></Tsk-public-event-profile-features>
+</ng-template>
+
+<ng-template [ngIf]="profileDTO && displayPanel === panelOptions.locations">
+  <Tsk-public-event-profile-locations
+  [profile]="profileDTO"
+        (selectedLocation)="
+          displayPublicEventLocation($event)
+        "></Tsk-public-event-profile-locations>
+</ng-template>
+
+<ng-template
+  [ngIf]="profileDTO && displayPanel === panelOptions.dateDetails">
+  <Tsk-public-event-profile-date-details
+        [eventComponent]="
+          eventComponent
+        "></Tsk-public-event-profile-date-details>
+</ng-template> -->
+  </div>
+</div>

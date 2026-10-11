@@ -1,0 +1,46 @@
+<div
+  [ngClass]="{
+    'mobile-log-in': device === deviceTypes.mobile,
+    'desktop-log-in': device === deviceTypes.desktop,
+  }">
+  <form
+    [ngClass]="{
+      'mobile-log-in-form': device === deviceTypes.mobile,
+      'desktop-log-in-form': device === deviceTypes.desktop,
+    }"
+    [formGroup]="logInForm"
+    (ngSubmit)="submitUserCredentials()">
+    <Tsk-input-component
+      [required]="true"
+      [label]="'auth.log-in.form.user-name-email' | translate"
+      formControlName="userName"
+      [errorMessage]="
+        logInForm.controls.userName?.touched &&
+        logInForm.controls.userName.errors?.['required']
+          ? ('auth.log-in.form-errors.username-required' | translate)
+          : null
+      ">
+    </Tsk-input-component>
+
+    <Tsk-input-component
+      [required]="true"
+      type="password"
+      [label]="'auth.log-in.form.user-password' | translate"
+      formControlName="userPassword"
+      [errorMessage]="
+        logInForm.controls.userPassword?.touched &&
+        logInForm.controls.userPassword.errors?.['required']
+          ? ('auth.log-in.form-errors.password-required' | translate)
+          : null
+      ">
+    </Tsk-input-component>
+
+    <button
+      mat-raised-button
+      class="raised-button"
+      type="submit"
+      [disabled]="logInForm.invalid">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  </form>
+</div>

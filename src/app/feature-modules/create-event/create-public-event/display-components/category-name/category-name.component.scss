@@ -1,0 +1,72 @@
+@use 'src/styles-app' as *;
+
+.mobile-public-event-name,
+.desktop-public-event-name {
+  display: flex;
+  width: 100%;
+  min-height: 30rem;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  #event-categories {
+    display: block;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+
+  .event-name-entry {
+    display: flex;
+    height: auto;
+    margin: auto;
+    padding: 0rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.mobile-public-event-name {
+  #event-categories {
+    width: 60%;
+  }
+
+  Tsk-public-event-plac {
+    width: 12rem;
+    height: 20rem;
+    margin: auto;
+  }
+
+  .event-name-entry {
+    width: 90%;
+    min-height: 8rem;
+
+    Tsk-input-component {
+      width: 95%;
+    }
+  }
+}
+
+.desktop-public-event-name {
+  #event-categories {
+    width: 40%;
+  }
+
+  Tsk-public-event-plac {
+    width: 15rem;
+    height: 25rem;
+    margin: auto;
+  }
+
+  .event-name-entry {
+    width: 80%;
+    min-height: 12rem;
+
+    Tsk-input-component {
+      width: 80%;
+    }
+  }
+}

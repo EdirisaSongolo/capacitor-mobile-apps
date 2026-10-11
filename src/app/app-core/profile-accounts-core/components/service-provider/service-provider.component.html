@@ -1,0 +1,58 @@
+<div
+  [ngClass]="{
+    'mobile-service-provider': device === deviceTypes.mobile,
+    'desktop-service-provider': device === deviceTypes.desktop,
+  }">
+  @if (profileStatus === profileStatusOptions.disabled) {
+    <div class="profile-availability">
+      <p>{{ 'Not available for booking' | translate }}</p>
+    </div>
+  }
+
+  <div class="category">
+    <p>{{ businessCategory | translate }}</p>
+  </div>
+
+  <p class="header">
+    {{ 'profile-accounts.business-profile.payment-rate' | translate }}
+  </p>
+  <div class="payment-rate">
+    @if (profileBaseRate === 0) {
+      <div>
+        <p>
+          {{
+            'profile-accounts.business-profile.no-rate-specified' | translate
+          }}
+        </p>
+      </div>
+    }
+
+    @if (profileBaseRate !== 0) {
+      <div class="rate-details">
+        <div class="detail" [TskCurrencyDisplay]="profileBaseRate"></div>
+        <p>{{ 'profile-accounts.business-profile.per' | translate }}</p>
+        <div class="detail">{{ profileRateUnits | translate }}</div>
+      </div>
+    }
+  </div>
+
+  <p>{{ 'Profile Services' | translate }}</p>
+  <div class="profile-services">
+    @if (profileServices.length === 0) {
+      <div class="no-services">
+        <p>{{ 'profile-accounts.business-profile.no-services' | translate }}</p>
+      </div>
+    }
+
+    @if (profileServices.length >= 1) {
+      <div class="profile-services-list">
+        @for (service of profileServices; track service) {
+          <Tsk-provider-service-plac
+            [profileService]="service"
+            [componentAction]="componentAction">
+          </Tsk-provider-service-plac>
+        }
+      </div>
+    }
+  </div>
+</div>

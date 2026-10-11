@@ -1,0 +1,7 @@
+<div
+  [ngClass]="{
+    'mobile-user-payment-methods': device === deviceTypes.mobile,
+    'desktop-user-payment-methods': device === deviceTypes.desktop,
+  }">
+  <Tsk-payment-methods></Tsk-payment-methods>
+</div>

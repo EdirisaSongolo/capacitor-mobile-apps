@@ -1,0 +1,70 @@
+@use 'src/styles-app' as *;
+
+.mobile-identity-verification,
+.desktop-identity-verification {
+  display: flex;
+  min-width: 80%;
+  min-height: 25rem;
+  margin: auto;
+  margin-top: 0;
+  margin-left: 0.5rem;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  form {
+    display: flex;
+    min-height: 15rem;
+    margin: auto;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    Tsk-input-component {
+      margin: auto;
+      margin-top: 0rem;
+      margin-bottom: 0rem;
+    }
+
+    button {
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.mobile-identity-verification {
+  form {
+    width: 90%;
+
+    Tsk-input-component {
+      width: 90%;
+    }
+
+    button {
+      width: 30%;
+    }
+  }
+}
+
+.desktop-identity-verification {
+  form {
+    width: 80%;
+
+    Tsk-input-component {
+      width: 80%;
+    }
+
+    button {
+      width: 20%;
+    }
+  }
+}
+
+mat-datepicker-toggle {
+  display: none;
+}

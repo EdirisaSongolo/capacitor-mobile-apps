@@ -1,0 +1,26 @@
+<div
+  [ngClass]="{
+    'mobile-private-event-dashboard': device === deviceTypes.mobile,
+    'desktop-private-event-dashboard': device === deviceTypes.desktop,
+  }">
+  <div class="private-event">{{ privateEventName$ | async }}</div>
+
+  <div class="controls">
+    @for (control of privateEventControls; track control) {
+      <div>
+        <button
+          class="icon-button"
+          mat-icon-button
+          (click)="updateDisplayPanel(control.route)">
+          <mat-icon
+            [fontIcon]="control.icon"
+            class="material-symbols-outlined"></mat-icon>
+        </button>
+      </div>
+    }
+  </div>
+
+  <div class="dashboard-display">
+    <router-outlet></router-outlet>
+  </div>
+</div>

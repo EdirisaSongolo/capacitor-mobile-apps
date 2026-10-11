@@ -1,0 +1,18 @@
+<div
+  [ngClass]="{
+    'mobile-complete-public-event': device === deviceTypes.mobile,
+    'desktop-complete-public-event': device === deviceTypes.desktop,
+  }">
+  <Tsk-public-event-plac
+    [publicEventToken]="publicEventToken"></Tsk-public-event-plac>
+
+  <div id="complete-event">
+    <p>{{ 'create-event.public-event.submit-text' | translate }}</p>
+    <button
+      mat-raised-button
+      class="raised-button"
+      (click)="submitPublicEvent()">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div
+  [ngClass]="{
+    'mobile-revenue-account': device === deviceTypes.mobile,
+    'desktop-revenue-account': device === deviceTypes.desktop,
+  }">
+  @if (accountMain) {
+    @for (selection of selectionOptions; track selection) {
+      <div class="selection" (click)="displayAccountSetting(selection.option)">
+        <div class="icon">
+          <mat-icon
+            [fontIcon]="selection.icon"
+            class="material-symbols-outlined">
+          </mat-icon>
+        </div>
+        <div class="title-and-description">
+          <p class="title">{{ selection.title | translate }}</p>
+          <p class="description">{{ selection.description | translate }}</p>
+        </div>
+      </div>
+    }
+  }
+
+  @if (businessDetails) {
+    <Tsk-business-documents></Tsk-business-documents>
+  }
+
+  @if (connectedAccount) {
+    <Tsk-connected-account></Tsk-connected-account>
+  }
+</div>

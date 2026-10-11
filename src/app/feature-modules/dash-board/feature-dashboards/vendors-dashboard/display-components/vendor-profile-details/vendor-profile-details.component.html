@@ -1,0 +1,40 @@
+<div
+  [ngClass]="{
+    'mobile-vendors-dashboard': device === deviceTypes.mobile,
+    'desktop-vendors-dashboard': device === deviceTypes.desktop,
+  }">
+  @if (detailsDisplay === detailsDisplayOptions.UPDATE_DETAILS) {
+    <div
+      class="profile-image"
+      [style.background]="vendorProfileImage"
+      (click)="updateVendorProfileImage()"></div>
+  }
+
+  <form
+    class="vendor-details-form"
+    [formGroup]="vendorDetailsForm"
+    (ngSubmit)="submitVendorDetailsForm()">
+    <Tsk-input-component
+      [label]="'vendors-dashboard.vendor-details.form.vendor-name' | translate"
+      formControlName="vendorName">
+    </Tsk-input-component>
+
+    <Tsk-location-input-component
+      [label]="
+        'vendors-dashboard.vendor-details.form.vendor-location' | translate
+      "
+      [suggestions]="possibleLocations | async"
+      formControlName="vendorLocation">
+    </Tsk-location-input-component>
+
+    <textarea
+      formControlName="vendorDescription"
+      [placeholder]="
+        'vendors-dashboard.vendor-details.form.vendor-description' | translate
+      "></textarea>
+
+    <button mat-raised-button class="raised-button">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  </form>
+</div>

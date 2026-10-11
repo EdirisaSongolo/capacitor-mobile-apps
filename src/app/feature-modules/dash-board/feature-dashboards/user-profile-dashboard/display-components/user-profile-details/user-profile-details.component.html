@@ -1,0 +1,34 @@
+<div
+  [ngClass]="{
+    'mobile-user-profile-dashboard': device === deviceTypes.mobile,
+    'desktop-user-profile-dashboard': device === deviceTypes.desktop,
+  }">
+  <form [formGroup]="userProfileForm" (ngSubmit)="updateUserProfile()">
+    @for (formField of userProfileFormFields; track formField) {
+      <Tsk-input-component
+        [type]="formField.type"
+        [label]="formField.label | translate"
+        [formControlName]="formField.control">
+      </Tsk-input-component>
+    }
+
+    <Tsk-location-input-component
+      [label]="
+        'user-profile-dashboard.details.user-details-form.address' | translate
+      "
+      [suggestions]="possibleLocations | async"
+      formControlName="address">
+    </Tsk-location-input-component>
+
+    <textarea
+      formControlName="biography"
+      [placeholder]="
+        'user-profile-dashboard.details.user-details-form.biography' | translate
+      ">
+    </textarea>
+
+    <button mat-raised-button class="raised-button" type="submit">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  </form>
+</div>

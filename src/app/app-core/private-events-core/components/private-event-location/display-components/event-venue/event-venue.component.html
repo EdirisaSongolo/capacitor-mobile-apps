@@ -1,0 +1,133 @@
+<div
+  [ngClass]="{
+    'mobile-date-venue': device === deviceTypes.mobile,
+    'desktop-date-venue': device === deviceTypes.desktop,
+  }">
+  @if (displayPanel === panelOptions.location_address) {
+    <div class="location-address">
+      <div class="location-component">
+        {{ locationDisplay }}
+      </div>
+
+      <button
+        class="public-venues"
+        mat-stroked-button
+        (click)="displayVenueSearch()">
+        {{ 'create-event.private-event.location.public-venues' | translate }}
+      </button>
+
+      <div class="location-component">
+        <p>
+          {{ 'create-event.private-event.location.venue-prompt' | translate }}
+        </p>
+      </div>
+
+      <form
+        class="address-form"
+        [formGroup]="addressForm"
+        (ngSubmit)="setPrivateAddress()">
+        <Tsk-location-input-component
+          [required]="true"
+          [label]="
+            'create-event.private-event.location.event-address' | translate
+          "
+          [suggestions]="possibleAddresses | async"
+          formControlName="addressInput">
+        </Tsk-location-input-component>
+        <button mat-raised-button class="raised-button">
+          {{ 'button-label.enter' | translate }}
+        </button>
+      </form>
+    </div>
+  }
+
+  @if (displayPanel === panelOptions.private_address) {
+    <div class="controls">
+      <button class="control-button" mat-icon-button (click)="editDateVenue()">
+        <mat-icon
+          [fontIcon]="controlIcon"
+          class="material-symbols-outlined"></mat-icon>
+      </button>
+    </div>
+    <div class="private-address">
+      <div>{{ privateAddress }}</div>
+      <div>{{ locationDTO?.city }}, {{ locationDTO?.state }}</div>
+    </div>
+  }
+
+  @if (displayPanel === panelOptions.public_venue) {
+    <div class="controls">
+      <button
+        class="icon-button"
+        class="control-button"
+        mat-icon-button
+        (click)="editDateVenue()">
+        <mat-icon
+          [fontIcon]="controlIcon"
+          class="material-symbols-outlined"></mat-icon>
+      </button>
+    </div>
+    <div
+      class="profile-image"
+      [style.background]="venueDetails.profileImage"></div>
+    <div class="profile-name">{{ venueDetails.profileName }}</div>
+    <div class="category">{{ venueDetails.businessCategory }}</div>
+    <div class="location">{{ venueDetails.profileLocation }}</div>
+    <div class="payment-rate">
+      @if (venueDetails.profileBaseRate === 0) {
+        <div>
+          <p>
+            {{
+              'profile-accounts.business-profile.no-rate-specified' | translate
+            }}
+          </p>
+        </div>
+      }
+      @if (venueDetails.profileBaseRate !== 0) {
+        <div class="rate-details">
+          <div
+            class="detail"
+            [TskCurrencyDisplay]="venueDetails.profileBaseRate"></div>
+          <p>{{ 'profile-accounts.business-profile.per' | translate }}</p>
+          <div class="detail">
+            {{ venueDetails.profileRateUnits | translate }}
+          </div>
+        </div>
+      }
+    </div>
+    <div class="services">
+      @if (venueDetails.profileServices.length === 0) {
+        <div class="no-services">
+          <p>
+            {{ 'profile-accounts.business-profile.no-services' | translate }}
+          </p>
+        </div>
+      }
+      @if (venueDetails.profileServices.length >= 1) {
+        <div class="profile-services-list">
+          @for (service of venueDetails.profileServices; track service) {
+            <Tsk-provider-service-plac [profileService]="service">
+            </Tsk-provider-service-plac>
+          }
+        </div>
+      }
+    </div>
+  }
+
+  @if (displayPanel === panelOptions.venue_search) {
+    <Tsk-venue-search
+      [location]="locationDTO"
+      (placAction)="processServiceProvider($event)"></Tsk-venue-search>
+  }
+
+  @if (profileBooking) {
+    <div class="profile-booking" #profile_booking>
+      <Tsk-create-update-booking
+        [bookingAction]="bookingAction"
+        [profileDTO]="profileDTO"
+        [bookingDates]="bookingDates"
+        (closeDialog)="closeDialog()"
+        (createBooking)="setEventDateVenue($event)"></Tsk-create-update-booking>
+    </div>
+  }
+</div>

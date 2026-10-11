@@ -1,0 +1,129 @@
+@use 'src/styles-app' as *;
+
+.mobile-user-private-events,
+.desktop-user-private-events {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .profile-image {
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    box-shadow: $card-shadow;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: auto;
+      padding: 0rem;
+      border-radius: 0.5rem;
+    }
+  }
+
+  .event-name {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding: 0;
+    text-align: center;
+  }
+
+  .event-location {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 5rem;
+    margin: auto;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    .location-components {
+      display: flex;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .venue-details {
+      width: 30%;
+    }
+
+    .event-details {
+      width: 70%;
+    }
+  }
+
+  .display-controls {
+    display: flex;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .private-event-display {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+
+    Tsk-profile-media,
+    Tsk-event-posts {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 30rem;
+      margin: auto;
+      margin-top: 0.2rem;
+    }
+  }
+}
+
+.mobile-user-private-events {
+  width: 100%;
+
+  .profile-image {
+    width: 4rem;
+    height: 6.5rem;
+  }
+
+  .display-controls {
+    width: 80%;
+  }
+}
+
+.desktop-user-private-events {
+  width: 55%;
+  max-width: 50rem;
+
+  .profile-image {
+    width: 5rem;
+    height: 7rem;
+  }
+
+  .display-controls {
+    width: 50%;
+  }
+}

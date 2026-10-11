@@ -1,0 +1,135 @@
+@use 'src/styles-app' as *;
+
+.mobile-event-details,
+.desktop-event-details {
+  display: flex;
+  width: 100%;
+  min-height: 40rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .host {
+    display: flex;
+    width: 100%;
+    height: 18rem;
+    margin: auto;
+    padding: 0rem;
+    margin-top: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .host-header {
+      display: block;
+      min-width: 50%;
+      margin: auto;
+      padding: 0rem;
+      text-align: center;
+    }
+
+    .host-options {
+      display: flex;
+      min-width: 60%;
+      margin: auto;
+      margin-top: 1rem;
+      padding: 0rem;
+      justify-content: center;
+      align-items: center;
+
+      button {
+        width: 25%;
+        margin: auto;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .date-time {
+    display: flex;
+    height: auto;
+    min-height: 5rem;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    Tsk-date-input-component {
+      width: 50% !important;
+      margin: auto;
+      text-align: center;
+    }
+
+    .event-time {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+
+      Tsk-time-input-component {
+        width: 40%;
+        margin: auto;
+        text-align: center;
+      }
+    }
+  }
+
+  .create-date {
+    display: flex;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .controls {
+    display: flex;
+    min-height: 2rem;
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  Tsk-user-search {
+    display: block;
+    width: 100%;
+    min-height: 30rem;
+    margin: 0rem;
+    padding: 0rem;
+  }
+}
+
+.mobile-event-details {
+  .date-time {
+    width: 90%;
+  }
+
+  .create-date {
+    width: 30%;
+  }
+
+  .controls {
+    width: 90%;
+  }
+}
+.desktop-event-details {
+  .date-time {
+    width: 70%;
+  }
+
+  .create-date {
+    width: 20%;
+  }
+
+  .controls {
+    width: 70%;
+  }
+}

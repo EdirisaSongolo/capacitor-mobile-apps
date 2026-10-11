@@ -1,0 +1,52 @@
+@use 'src/styles-app' as *;
+
+.mobile-venues-dashboard,
+.desktop-venues-dashboard {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .venue {
+    display: flex;
+    width: 90%;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .controls {
+    display: flex;
+    margin: auto;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dashboard-display {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: 0;
+  }
+}
+
+.mobile-venues-dashboard {
+  .controls {
+    width: 95%;
+  }
+}
+
+.desktop-venues-dashboard {
+  .controls {
+    width: 50%;
+  }
+}

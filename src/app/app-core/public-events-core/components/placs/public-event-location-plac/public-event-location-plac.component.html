@@ -1,0 +1,18 @@
+<div
+  class="public-event-location"
+  [style.background]="posterImagePath"
+  (click)="emitPublicEventLocationDTO()">
+  @if (componentAction === actionOptions.event_management) {
+    <button
+      class="delete-control"
+      mat-icon-button
+      (click)="initiateDeleteAction(); $event.stopPropagation()">
+      <mat-icon
+        [fontIcon]="removeIcon"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+  }
+
+  <div id="city">{{ locationToken.eventCity }}</div>
+  <div id="state">{{ locationToken.eventState }}</div>
+</div>

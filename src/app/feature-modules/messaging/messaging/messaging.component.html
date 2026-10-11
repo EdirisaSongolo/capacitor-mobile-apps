@@ -1,0 +1,40 @@
+<div
+  [ngClass]="{
+    'mobile-messaging': device === deviceTypes.mobile,
+    'desktop-messaging': device === deviceTypes.desktop,
+  }">
+  <div class="controls">
+    <button mat-icon-button (click)="displayRecentMessages()">
+      <mat-icon
+        [fontIcon]="controls.recents"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="displayUserSocials()">
+      <mat-icon
+        [fontIcon]="controls.socials"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+  </div>
+
+  @if (messagingDisplay === displayPanels.recents) {
+    <div class="recent-conversations">
+      @for (message of recentMessages; track message) {
+        <Tsk-recent-message
+          [recentMessage]="message"
+          (click)="displayConversationChat(message)"></Tsk-recent-message>
+      }
+    </div>
+  }
+
+  @if (messagingDisplay === displayPanels.socials) {
+    <Tsk-user-search
+      (placAction)="displayUserContactChat($event)"></Tsk-user-search>
+  }
+
+  @if (messagingDisplay === displayPanels.chat) {
+    <Tsk-chat
+      [conversationToken]="conversationToken"
+      (displayContacts)="displayContactsPanel()"></Tsk-chat>
+  }
+</div>

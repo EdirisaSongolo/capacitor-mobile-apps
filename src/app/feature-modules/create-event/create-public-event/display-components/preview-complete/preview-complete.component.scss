@@ -1,0 +1,57 @@
+@use 'src/styles-app' as *;
+
+.mobile-complete-public-event,
+.desktop-complete-public-event {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 40.85rem;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  #complete-event {
+    display: flex;
+    width: 90%;
+    height: auto;
+    min-height: 10rem;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+      margin: auto;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    button {
+      width: 25%;
+      margin: auto;
+      margin-top: 1.5rem;
+    }
+  }
+}
+
+.mobile-complete-public-event {
+  min-height: 30rem;
+
+  Tsk-public-event-plac {
+    width: 12rem;
+    height: 20rem;
+    margin: auto;
+  }
+}
+
+.desktop-complete-public-event {
+  min-height: 30rem;
+
+  Tsk-public-event-plac {
+    width: 15rem;
+    height: 25rem;
+    margin: auto;
+  }
+}

@@ -1,0 +1,83 @@
+<div
+  [ngClass]="{
+    'mobile-event-details': device === deviceTypes.mobile,
+    'desktop-event-details': device === deviceTypes.desktop,
+  }">
+  @if (displayPanel === displayOptions.event_details) {
+    <div class="host">
+      <div class="host-header">
+        {{ 'create-event.private-event.host.header-text' | translate }}
+      </div>
+      @if (!hostCreated) {
+        <div class="host-options">
+          <button mat-stroked-button (click)="selfHostedEvent()">
+            {{ 'create-event.private-event.host.self' | translate }}
+          </button>
+          <button mat-stroked-button (click)="displayUserSocials()">
+            {{ 'create-event.private-event.host.other' | translate }}
+          </button>
+        </div>
+      }
+      @if (hostCreated) {
+        <div class="controls">
+          <button
+            class="icon-button"
+            class="control-button"
+            mat-icon-button
+            (click)="displayHostSelection()">
+            <mat-icon> {{ editIcon }} </mat-icon>
+          </button>
+        </div>
+        <Tsk-user-profile-plac
+          class="event-provider"
+          [userTokenDTO]="eventHost"></Tsk-user-profile-plac>
+      }
+    </div>
+    <form class="date-time" [formGroup]="dateTimeForm">
+      <Tsk-date-input-component
+        [required]="true"
+        [align]="'center'"
+        [min]="minDate"
+        label="mm/dd/yyyy"
+        formControlName="eventDate">
+      </Tsk-date-input-component>
+
+      <div class="event-time">
+        <Tsk-time-input-component
+          [required]="true"
+          [align]="'center'"
+          label="10:00 AM"
+          formControlName="startTime">
+        </Tsk-time-input-component>
+
+        <Tsk-time-input-component
+          [required]="true"
+          [align]="'center'"
+          label="06:00 PM"
+          formControlName="endTime">
+        </Tsk-time-input-component>
+      </div>
+    </form>
+    <button
+      class="create-date raised-button"
+      mat-raised-button
+      (click)="createEditEventDate()">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  }
+
+  @if (displayPanel === displayOptions.user_socials) {
+    <div class="controls">
+      <button
+        class="icon-button"
+        class="control-button"
+        mat-icon-button
+        (click)="updateDisplayPanel()">
+        <mat-icon> {{ detailsIcon }} </mat-icon>
+      </button>
+    </div>
+    <Tsk-user-search
+      [userSearch]="userSearch"
+      (placAction)="setEventHost($event)"></Tsk-user-search>
+  }
+</div>

@@ -1,0 +1,42 @@
+<div
+  [ngClass]="{
+    'mobile-poster-invitation': device === deviceTypes.mobile,
+    'desktop-poster-invitation': device === deviceTypes.desktop,
+  }">
+  @if (selectedFiles.length === 0) {
+    <button class="control" id="add-media" (click)="uploadPrivateEventMedia()">
+      <mat-icon
+        [fontIcon]="controls.add_media"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+  } @else {
+    <button
+      class="control"
+      id="remove-media"
+      (click)="updateUploadedMediaFiles()">
+      <mat-icon
+        [fontIcon]="controls.remove_media"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+  }
+
+  <div class="media-list">
+    @for (eventMedia of mediaFiles; track eventMedia) {
+      <div
+        class="media"
+        [ngClass]="{ selected: eventMedia.selected }"
+        (click)="selectImageFile(eventMedia.file)">
+        <img [src]="$safeNavigationMigration(eventMedia?.filePath)" />
+      </div>
+    }
+  </div>
+
+  <form class="invite-entry" [formGroup]="invitationForm">
+    <textarea
+      placeholder="{{
+        'create-event.private-event.event-invitation' | translate
+      }}"
+      formControlName="eventInvitation"
+      [maxLength]="250"></textarea>
+  </form>
+</div>

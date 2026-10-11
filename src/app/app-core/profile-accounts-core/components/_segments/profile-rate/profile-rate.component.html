@@ -1,0 +1,22 @@
+<div class="payment-rate">
+  @if (!profileBaseRate || profileBaseRate === 0) {
+    <div class="no-rate-specified">
+      <p>
+        {{ 'profile-accounts.business-profile.no-rate-specified' | translate }}
+      </p>
+    </div>
+  } @else {
+    <div class="rate-details">
+      <div
+        class="detail"
+        id="rate"
+        [TskCurrencyDisplay]="profileBaseRate"></div>
+      <div class="per">
+        {{ 'profile-accounts.business-profile.per' | translate }}
+      </div>
+      <div class="detail" id="unit">
+        {{ profileRateUnits | translate }}
+      </div>
+    </div>
+  }
+</div>

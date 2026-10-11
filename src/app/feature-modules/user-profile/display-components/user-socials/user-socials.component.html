@@ -1,0 +1,52 @@
+<div
+  [ngClass]="{
+    'mobile-user-socials': device === deviceTypes.mobile,
+    'desktop-user-socials': device === deviceTypes.desktop,
+  }">
+  <mat-tab-group [selectedIndex]="tabIndex">
+    <mat-tab [label]="'labels.followers' | translate">
+      <div class="container">
+        @if (userFollowers.length === 0) {
+          <div class="no-profiles">
+            <p>
+              {{
+                'user-profile.user-socials.no-followers'
+                  | translate: { profileName }
+              }}
+            </p>
+          </div>
+        }
+
+        @if (userFollowers.length >= 1) {
+          @for (social of userFollowers; track social) {
+            <Tsk-user-profile-plac
+              [componentAction]="componentAction"
+              [userTokenDTO]="social"></Tsk-user-profile-plac>
+          }
+        }
+      </div>
+    </mat-tab>
+    <mat-tab [label]="'labels.following' | translate">
+      <div class="container">
+        @if (userFollowing.length === 0) {
+          <div class="no-profiles">
+            <p>
+              {{
+                'user-profile.user-socials.not-following'
+                  | translate: { profileName }
+              }}
+            </p>
+          </div>
+        }
+
+        @if (userFollowing.length >= 1) {
+          @for (social of userFollowing; track social) {
+            <Tsk-user-profile-plac
+              [componentAction]="componentAction"
+              [userTokenDTO]="social"></Tsk-user-profile-plac>
+          }
+        }
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

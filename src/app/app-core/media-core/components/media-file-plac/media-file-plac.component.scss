@@ -1,0 +1,28 @@
+@use 'src/styles-app' as *;
+
+.mobile-media,
+.desktop-media {
+  width: auto;
+  margin: 0.2rem;
+  cursor: pointer;
+
+  img {
+    margin: auto;
+    height: 100%;
+    border-radius: 0.5rem;
+  }
+}
+
+.mobile-media {
+  height: 6.5rem;
+}
+
+.desktop-media {
+  height: 9rem;
+}
+
+.selected {
+  border: 1px solid;
+  border-color: $accent-color;
+  border-radius: 0.5rem;
+}

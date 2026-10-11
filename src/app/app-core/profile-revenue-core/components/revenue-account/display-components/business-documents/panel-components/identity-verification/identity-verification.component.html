@@ -1,0 +1,21 @@
+<div
+  [ngClass]="{
+    'mobile-identity-verification': device === deviceTypes.mobile,
+    'desktop-identity-verification': device === deviceTypes.desktop,
+  }">
+  <form [formGroup]="verificationForm" (ngSubmit)="submitVerificationForm()">
+    <Tsk-input-component
+      type="tel"
+      mask="000-00-0000"
+      [label]="
+        'profile-revenue.revenue-account.business-details.id-verification-form.social-security-number'
+          | translate
+      "
+      formControlName="verification_number">
+    </Tsk-input-component>
+
+    <button mat-raised-button class="raised-button" type="submit">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  </form>
+</div>

@@ -1,0 +1,236 @@
+<div
+  [ngClass]="{
+    'mobile-profile-booking-invoice': device === deviceTypes.mobile,
+    'desktop-profile-booking-invoice': device === deviceTypes.desktop,
+  }">
+  <div class="category">
+    {{
+      $safeNavigationMigration(bookingDetails.providerDetails?.businessCategory)
+        | translate
+    }}
+  </div>
+
+  <div>
+    {{ bookingDetails.eventDetails?.eventDate }}
+  </div>
+  <div>
+    {{ bookingDetails.eventDetails?.eventTime }}
+  </div>
+
+  <div class="counter-parties">
+    <div class="entity">
+      <div
+        class="profile-image"
+        [style.background]="bookingDetails.eventDetails?.eventImage"></div>
+      <p class="entity-details">
+        {{ bookingDetails.eventDetails?.eventName }}
+      </p>
+      <p class="entity-details">
+        {{ bookingDetails.eventDetails?.eventLocation }}
+      </p>
+    </div>
+
+    <div class="entity">
+      <div
+        class="profile-image"
+        [style.background]="bookingDetails.providerDetails?.profileImage"></div>
+      <p class="entity-details">
+        {{ bookingDetails.providerDetails?.profileName }}
+      </p>
+      <p class="entity-details">
+        {{ bookingDetails.providerDetails?.profileLocation }}
+      </p>
+    </div>
+  </div>
+
+  <Tsk-profile-rate
+    [profileBaseRate]="
+      $safeNavigationMigration(bookingDetails.providerDetails?.profileBaseRate)
+    "
+    [profileRateUnits]="
+      $safeNavigationMigration(bookingDetails.providerDetails?.profileRateUnits)
+    "></Tsk-profile-rate>
+
+  <Tsk-profile-services
+    [profileServices]="
+      $safeNavigationMigration(bookingDetails.providerDetails?.profileServices)
+    "></Tsk-profile-services>
+
+  <!-- if booking_status is pending cancel option displayed -->
+  <!-- if booking_status is confirmed. cancel or pay invoice -->
+  <!-- if invoice is paid. cancel option is displayed -->
+  <!-- if booking_status is cancelled. No options displayed -->
+
+  <!-- Missing status for declined requests -->
+
+  @if (bookingStatus === bookingStatusOptions.pending) {
+    <div class="booking-request-response">
+      <div class="response">
+        <div class="response-text">
+          {{
+            'profile-revenue.profile-booking.booking-status.pending' | translate
+          }}
+        </div>
+        <button
+          mat-raised-button
+          class="raised-button"
+          (click)="confirmBookingCancellation()">
+          {{ 'button-label.cancel' | translate }}
+        </button>
+      </div>
+    </div>
+  }
+  @if (
+    bookingStatus === bookingStatusOptions.confirmed &&
+    invoiceStatus === invoiceStatusOptions.pending
+  ) {
+    <div class="booking-request-options">
+      <button
+        id="decline-button"
+        [ngClass]="{
+          'decline-request': response === responseOptions.decline,
+        }"
+        mat-icon-button
+        (click)="bookingResponse(responseOptions.decline)">
+        <mat-icon
+          [fontIcon]="declineIcon"
+          class="material-symbols-outlined"></mat-icon>
+      </button>
+      <button
+        id="accept-button"
+        [ngClass]="{
+          'accept-request': response === responseOptions.confirm,
+        }"
+        mat-icon-button
+        (click)="bookingResponse(responseOptions.confirm)">
+        <mat-icon
+          [fontIcon]="acceptIcon"
+          class="material-symbols-outlined"></mat-icon>
+      </button>
+    </div>
+    <div class="booking-request-response">
+      @if (response === responseOptions.decline) {
+        <div class="response">
+          <div class="response-text">
+            {{
+              'profile-revenue.profile-booking.cancel-booking.confirmation-text'
+                | translate
+            }}
+          </div>
+          <button
+            mat-raised-button
+            class="raised-button"
+            (click)="confirmBookingCancellation()">
+            {{ 'button-label.cancel' | translate }}
+          </button>
+        </div>
+      }
+      @if (response === responseOptions.confirm) {
+        <div class="response">
+          <div class="response-text">
+            {{
+              'profile-revenue.profile-booking.invoice-status.pending'
+                | translate
+            }}
+          </div>
+          <div class="invoice">
+            <div class="invoice-details">
+              <div class="name">{{ 'common.amount' | translate }}</div>
+              <div
+                class="value"
+                [TskCurrencyDisplay]="bookingDetails.invoiceTotal"></div>
+            </div>
+            <div class="invoice-details">
+              <div class="name">{{ 'common.status' | translate }}</div>
+              <div class="value">
+                {{ bookingDetails.invoiceStatus | translate }}
+              </div>
+            </div>
+          </div>
+          <button
+            mat-raised-button
+            class="raised-button"
+            (click)="initiateInvoicePayment()">
+            {{ 'button-label.pay-invoice' | translate }}
+          </button>
+        </div>
+      }
+    </div>
+  }
+  @if (
+    bookingStatus === bookingStatusOptions.confirmed &&
+    invoiceStatus === invoiceStatusOptions.paid
+  ) {
+    <div class="booking-request-response">
+      <div class="response">
+        <div class="response-text">
+          {{
+            'profile-revenue.profile-booking.invoice-status.paid' | translate
+          }}
+        </div>
+        <div class="invoice">
+          <div class="invoice-details">
+            <div class="name">{{ 'common.amount' | translate }}</div>
+            <div
+              class="value"
+              [TskCurrencyDisplay]="bookingDetails.invoiceTotal"></div>
+          </div>
+          <div class="invoice-details">
+            <div class="name">{{ 'common.status' | translate }}</div>
+            <div class="value">
+              {{ bookingDetails.invoiceStatus | translate }}
+            </div>
+          </div>
+        </div>
+        <button
+          mat-raised-button
+          class="raised-button"
+          (click)="confirmBookingCancellation()">
+          {{ 'button-label.cancel' | translate }}
+        </button>
+      </div>
+    </div>
+  }
+  @if (bookingStatus === bookingStatusOptions.cancelled) {
+    <div class="booking-request-response">
+      <div class="response">
+        <div class="response-text">
+          {{
+            'profile-revenue.profile-booking.invoice-status.cancelled'
+              | translate
+          }}
+        </div>
+        <div class="invoice">
+          <div class="invoice-details">
+            <div class="name">{{ 'common.amount' | translate }}</div>
+            <div
+              class="value"
+              [TskCurrencyDisplay]="bookingDetails.invoiceTotal"></div>
+          </div>
+          <div class="invoice-details">
+            <div class="name">{{ 'common.status' | translate }}</div>
+            <div class="value">
+              {{ bookingDetails.invoiceStatus | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+  @if (paymentDialog) {
+    <div class="payment-dialog">
+      <Tsk-payment-authorisation
+        [paymentIntent]="paymentIntent"
+        [transactionDetails]="transactionDetails"
+        (closeDialog)="closePaymentDialog()"
+        (submitTransaction)="
+          submitBookingInvoicePayment($event)
+        "></Tsk-payment-authorisation>
+    </div>
+  }
+  @if (confirmationDialog) {
+    <Tsk-confirmation-dialog
+      [confirmationMessage]="confirmationMessage"
+      (dialogAction)="propateDialogAction($event)"></Tsk-confirmation-dialog>
+  }
+</div>

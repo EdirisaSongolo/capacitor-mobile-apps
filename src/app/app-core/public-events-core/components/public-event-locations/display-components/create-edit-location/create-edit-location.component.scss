@@ -1,0 +1,118 @@
+@use 'src/styles-app' as *;
+
+.mobile-create-edit-location,
+.desktop-create-edit-location {
+  display: flex;
+  position: relative;
+  width: 100%;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .controls {
+    display: flex;
+    min-height: 2.5rem;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0.5rem;
+    justify-content: right;
+    align-items: center;
+
+    button {
+      width: 2.5rem;
+      height: 3rem;
+      padding: 0.1rem;
+      margin: auto;
+      margin-right: 0.5rem;
+      border: 1px solid;
+      border-color: $foreground;
+      border-radius: 0.5rem;
+    }
+  }
+
+  .locations-form {
+    display: flex;
+    margin: auto;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    Tsk-location-input-component {
+      display: block;
+      margin: auto;
+      margin-bottom: 0.5%;
+    }
+
+    button {
+      margin: auto;
+      margin-top: 1%;
+    }
+  }
+
+  .locations {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    margin-top: 0rem;
+    padding: 0rem;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-flow: row wrap;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+  }
+
+  .locations::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.mobile-create-edit-location {
+  .controls {
+    width: 95%;
+  }
+
+  .locations-form {
+    width: 90%;
+    min-height: 20rem;
+
+    Tsk-location-input-component {
+      width: 90%;
+    }
+
+    button {
+      width: 25%;
+    }
+  }
+
+  .locations {
+    min-height: 35rem;
+  }
+}
+
+.desktop-create-edit-location {
+  .controls {
+    width: 80%;
+  }
+
+  .locations-form {
+    width: 80%;
+    min-height: 20rem;
+
+    Tsk-location-input-component {
+      width: 80%;
+    }
+
+    button {
+      width: 20%;
+    }
+  }
+
+  .locations {
+    min-height: 35rem;
+  }
+}

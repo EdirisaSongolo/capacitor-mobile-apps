@@ -1,0 +1,179 @@
+@use 'src/styles-app' as *;
+
+.mobile-payment-methods,
+.desktop-payment-methods {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 20rem;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .saved-payment-methods,
+  .add-payment-method {
+    display: flex;
+    width: 100%;
+    min-height: 15rem;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid;
+    border-color: $accent-color;
+
+    .header {
+      width: 100%;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      padding: 0;
+      text-align: left;
+    }
+
+    .no-payment-methods {
+      display: flex;
+      width: 95%;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        text-align: center;
+      }
+    }
+
+    .payment-option,
+    .payment-method {
+      display: flex;
+      min-width: 100%;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      border-bottom: 1px solid;
+      cursor: pointer;
+
+      .brand,
+      .icon {
+        display: flex;
+        width: 10%;
+        margin: auto;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+      }
+
+      .brand {
+        mat-icon {
+          width: 2.5rem;
+          height: 1.6rem;
+        }
+      }
+
+      .payment-details,
+      .option-name {
+        display: flex;
+        min-width: 50%;
+        margin: auto;
+        margin-left: 0.5rem;
+        padding: 0;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+
+        p {
+          margin-top: 0.2rem;
+          margin-left: 0.5rem;
+          margin-bottom: 0.2rem;
+        }
+      }
+
+      .preferred-card {
+        display: flex;
+        margin: auto;
+        margin-right: 0.5rem;
+        color: $accent-color;
+      }
+    }
+
+    .payment-method {
+      min-height: 2.5rem;
+    }
+  }
+
+  .add-payment-method {
+    border-top: 1px solid;
+    border-bottom: none;
+    border-color: $accent-color;
+  }
+
+  .card-entry {
+    display: flex;
+    width: 90%;
+    min-height: 15rem;
+    margin: auto;
+    flex-direction: column;
+
+    .header {
+      width: 100%;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      padding: 0;
+      text-align: left;
+    }
+
+    .card-number {
+      display: flex;
+      width: 90%;
+      margin: auto;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid;
+      border-color: $foreground;
+      height: 2rem;
+    }
+
+    .expiration-and-cvc {
+      display: flex;
+      width: 80%;
+      margin: auto;
+      justify-content: center;
+      flex-direction: row;
+
+      .card-elem {
+        display: flex;
+        width: 45%;
+        margin: auto;
+        height: 2rem;
+        border-bottom: 1px solid;
+        border-color: $foreground;
+      }
+    }
+  }
+
+  .submit-payment {
+    min-width: 20%;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 0.5rem;
+  }
+}
+
+:host ::ng-deep .__PrivateStripeElement {
+  width: 100% !important;
+  height: 2rem !important;
+
+  iframe {
+    width: 100% !important;
+    height: 2rem !important;
+  }
+}

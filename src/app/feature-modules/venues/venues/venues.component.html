@@ -1,0 +1,50 @@
+<div
+  [ngClass]="{
+    'mobile-venues': device === deviceTypes.mobile,
+    'desktop-venues': device === deviceTypes.desktop,
+  }">
+  <form class="venue-search" [formGroup]="venueSearchForm">
+    <Tsk-input-component
+      [label]="'labels.venue-search' | translate"
+      [align]="'center'"
+      formControlName="venue_search">
+    </Tsk-input-component>
+  </form>
+
+  @if (venuesDisplay === displayOptions.venues_list) {
+    <Tsk-categories
+      [locationCategories]="venueCategories"
+      (categoryAction)="selectVenueCategory($event)"></Tsk-categories>
+    @if (venuesList.length === 0) {
+      <div class="no-venues">
+        <p>{{ 'venues.no-venues' | translate }}</p>
+      </div>
+    }
+    @if (venuesList.length >= 1) {
+      <div class="venues-list">
+        @for (venue of venuesList; track venue) {
+          <Tsk-venue-plac
+            [componentAction]="componentAction"
+            [venueToken]="venue"></Tsk-venue-plac>
+        }
+      </div>
+    }
+  }
+
+  @if (venuesDisplay === displayOptions.venue_search) {
+    @if (searchResults.length === 0) {
+      <div class="no-venues">
+        <p>{{ 'venues.no-venues-found' | translate }}</p>
+      </div>
+    }
+    @if (searchResults.length >= 1) {
+      <div class="search-results">
+        @for (venue of searchResults; track venue) {
+          <Tsk-venue-plac
+            [componentAction]="componentAction"
+            [venueToken]="venue"></Tsk-venue-plac>
+        }
+      </div>
+    }
+  }
+</div>

@@ -1,0 +1,94 @@
+@use 'src/styles-app' as *;
+
+.mobile-user-profile-dashboard,
+.desktop-user-profile-dashboard {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  form {
+    display: flex;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    Tsk-input-component,
+    Tsk-location-input-component {
+      margin: auto;
+      margin-top: 0rem;
+      margin-bottom: 0rem;
+    }
+
+    textarea {
+      display: block;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding: 2% 1% 2% 1%;
+      outline: none;
+      background-color: $background;
+      border: 1px solid;
+      border-color: $foreground;
+      border-radius: 0.5em 0.5em 0.5em 0.5em;
+    }
+  }
+}
+
+.mobile-user-profile-dashboard {
+  form {
+    width: 90%;
+
+    Tsk-input-component,
+    Tsk-location-input-component {
+      width: 90%;
+    }
+
+    textarea {
+      width: 88%;
+      height: auto;
+      min-height: 5rem;
+    }
+
+    button {
+      width: 30%;
+      margin: auto;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.desktop-user-profile-dashboard {
+  form {
+    width: 80%;
+
+    Tsk-input-component,
+    Tsk-location-input-component {
+      width: 80%;
+    }
+
+    textarea {
+      width: 78%;
+      height: auto;
+      min-height: 4rem;
+    }
+
+    button {
+      width: 20%;
+      margin: auto;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+mat-datepicker-toggle {
+  display: none;
+}

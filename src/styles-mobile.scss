@@ -1,0 +1,60 @@
+@mixin mobile-styles {
+  input {
+    font-size: 14px;
+  }
+
+  textarea {
+    font-size: 14px;
+  }
+
+  div {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .profile-booking {
+    width: 90%;
+    top: 3rem;
+  }
+
+  .confirmation-dialog,
+  .ticket-sales-dialog,
+  .payment-dialog {
+    width: 90%;
+    left: 4%;
+    transform: translateY(-50%);
+  }
+
+  Tsk-user-profile-plac,
+  Tsk-venue-plac,
+  Tsk-vendor-plac,
+  Tsk-vendor-category-plac,
+  Tsk-public-event-plac,
+  Tsk-public-event-location-plac,
+  Tsk-public-event-date-plac,
+  Tsk-private-event-plac {
+    width: 7rem;
+    height: 14rem;
+    margin: 0.5rem;
+    cursor: pointer;
+  }
+
+  .event-provider {
+    width: 6.5rem;
+    height: 11.5rem;
+    margin: 0.2rem;
+    cursor: pointer;
+  }
+
+  .profile-reference {
+    width: 4rem;
+    height: 6rem;
+    margin: auto;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding: 0rem;
+  }
+}

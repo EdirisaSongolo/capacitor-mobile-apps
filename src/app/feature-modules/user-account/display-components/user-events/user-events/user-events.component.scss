@@ -1,0 +1,44 @@
+@use 'src/styles-app' as *;
+
+.mobile-user-events,
+.desktop-user-events {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .no-user-events {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      width: 80%;
+      height: auto;
+      margin: auto;
+      text-align: center;
+    }
+  }
+
+  .user-events-list {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}

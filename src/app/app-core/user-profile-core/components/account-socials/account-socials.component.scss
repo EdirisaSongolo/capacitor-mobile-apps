@@ -1,0 +1,38 @@
+@use 'src/styles-app' as *;
+
+.mobile-account-socials,
+.desktop-account-socials {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  /* TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version. */
+  mat-tab-group {
+    width: 100%;
+  }
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  min-height: 30rem;
+  margin: auto;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-flow: row wrap;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+
+  .no-profiles {
+    margin: auto;
+    margin-top: 15rem;
+  }
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}

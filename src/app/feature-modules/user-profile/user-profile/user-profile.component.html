@@ -1,0 +1,40 @@
+<div
+  [ngClass]="{
+    'mobile-user-profile': device === deviceTypes.mobile,
+    'desktop-user-profile': device === deviceTypes.desktop,
+  }">
+  <Tsk-user-profile-header
+    (updateDisplay)="processHeaderAction($event)"></Tsk-user-profile-header>
+  @if (profileOptions) {
+    <div class="profile-options">
+      <button mat-stroked-button (click)="updateFollowingStatus()">
+        {{ followLabel | translate }}
+      </button>
+
+      <button mat-stroked-button (click)="messageUserProfile()">
+        {{ 'labels.message' | translate }}
+      </button>
+    </div>
+  }
+
+  @if (displayControls.length >= 2) {
+    <div class="display-controls">
+      @for (control of displayControls; track control) {
+        <div>
+          <button
+            class="icon-button"
+            mat-icon-button
+            (click)="updateDisplayPanel(control.route)">
+            <mat-icon
+              [fontIcon]="control.icon"
+              class="material-symbols-outlined"></mat-icon>
+          </button>
+        </div>
+      }
+    </div>
+  }
+
+  <div class="profile-display">
+    <router-outlet></router-outlet>
+  </div>
+</div>

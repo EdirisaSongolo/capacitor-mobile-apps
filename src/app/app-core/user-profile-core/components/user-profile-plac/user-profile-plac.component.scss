@@ -1,0 +1,96 @@
+@use 'src/styles-app' as *;
+
+:host {
+  display: block;
+  border-radius: 0.5rem;
+  background-color: $card-surface;
+  box-shadow: $card-shadow;
+}
+
+.user-profile-plac {
+  display: flex;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  border-radius: 0.5rem;
+
+  .options-control {
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  .options-control.displayed {
+    color: $background;
+  }
+
+  .remove-button {
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    color: $remove;
+  }
+
+  .plac-options {
+    display: block;
+    position: absolute;
+    width: 100%;
+    margin-top: 0rem;
+    height: 0rem;
+    background-color: $foreground;
+    overflow: hidden;
+    transition: height 0.5s ease;
+    top: 0;
+    z-index: 1;
+    border-radius: 0.4rem;
+  }
+
+  .plac-options.displayed {
+    display: flex;
+    box-sizing: border-box;
+    height: 8rem;
+    padding-top: 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+      width: 90%;
+      margin: 0.1rem auto;
+      color: $background;
+      text-align: center;
+      text-wrap: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  .profile-name {
+    width: 95%;
+    margin: auto;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    white-space: none;
+    overflow: hidden;
+  }
+}

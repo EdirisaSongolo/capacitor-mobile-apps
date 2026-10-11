@@ -1,0 +1,39 @@
+<div
+  [ngClass]="{
+    'mobile-vendors-dashboard': device === deviceTypes.mobile,
+    'desktop-vendors-dashboard': device === deviceTypes.desktop,
+  }">
+  <div class="controls">
+    <mat-select
+      [value]="displayPanel"
+      (valueChange)="updateDisplayPanel($event)">
+      @for (control of vendorsControls; track control) {
+        <mat-option [value]="control.display">
+          {{ control.name | translate }}
+        </mat-option>
+      }
+    </mat-select>
+  </div>
+
+  @if (displayPanel === panelOptions.vendors_list) {
+    @if (managedVendors.length === 0) {
+      <div class="no-vendor-profiles">
+        <p>{{ 'vendors-dashboard.no-vendor-profiles' | translate }}</p>
+      </div>
+    }
+    @if (managedVendors.length >= 1) {
+      <div class="vendors-list">
+        @for (vendor of managedVendors; track vendor) {
+          <Tsk-vendor-plac
+            [componentAction]="componentAction"
+            [vendorToken]="vendor"
+            (placAction)="vendorProfileDashboard($event)"></Tsk-vendor-plac>
+        }
+      </div>
+    }
+  }
+
+  @if (displayPanel === panelOptions.create_vendor) {
+    <Tsk-vendor-profile-details></Tsk-vendor-profile-details>
+  }
+</div>

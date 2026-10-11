@@ -1,0 +1,48 @@
+<div
+  [ngClass]="{
+    'mobile-login-signup': device === deviceTypes.mobile,
+    'desktop-login-signup': device === deviceTypes.desktop,
+  }">
+  <div
+    [ngClass]="{
+      'mobile-auth-nav': device === deviceTypes.mobile,
+      'desktop-auth-nav': device === deviceTypes.desktop,
+    }">
+    <button
+      mat-raised-button
+      class="raised-button"
+      (click)="displayFormComponent('recover-credentials')">
+      {{ 'button-label.recovery-page' | translate }}
+    </button>
+    <button
+      mat-raised-button
+      class="raised-button"
+      (click)="displayFormComponent()">
+      {{ viewOption | translate }}
+    </button>
+  </div>
+
+  <div
+    [ngClass]="{
+      'mobile-logo-forms': device === deviceTypes.mobile,
+      'desktop-logo-forms': device === deviceTypes.desktop,
+    }">
+    <div class="forms">
+      @if (display === 'log-in') {
+        <Tsk-log-in></Tsk-log-in>
+      }
+
+      @if (display === 'sign-up') {
+        <Tsk-sign-up></Tsk-sign-up>
+      }
+
+      @if (display === 'recover-credentials') {
+        <Tsk-credentials-recovery></Tsk-credentials-recovery>
+      }
+    </div>
+
+    <div class="cmp-stmt">
+      <p>{{ 'login-signup.tag-line' | translate }}</p>
+    </div>
+  </div>
+</div>

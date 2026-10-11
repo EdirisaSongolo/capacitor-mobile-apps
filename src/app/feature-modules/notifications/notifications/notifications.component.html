@@ -1,0 +1,35 @@
+<div
+  [ngClass]="{
+    'mobile-notifications': device === deviceTypes.mobile,
+    'desktop-notifications': device === deviceTypes.desktop,
+  }">
+  @if (userNotifications.length === 0) {
+    <div class="no-notifications">
+      {{ 'notifications.no-notifications' | translate }}
+    </div>
+  }
+
+  @if (userNotifications.length >= 1) {
+    @for (userNotification of userNotifications; track userNotification) {
+      <div
+        class="notification"
+        (click)="displayNotificationDetails(userNotification)">
+        <div
+          class="profile-image"
+          [style.background]="userNotification.profileImage"></div>
+        <div class="notification-message">
+          {{ userNotification.notification }}
+        </div>
+        <button
+          class="remove"
+          mat-icon-button
+          (click)="
+            deleteNotification(userNotification); $event.stopPropagation()
+          ">
+          <mat-icon [fontIcon]="removeIcon" class="material-symbols-outlined">
+          </mat-icon>
+        </button>
+      </div>
+    }
+  }
+</div>

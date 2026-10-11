@@ -1,0 +1,33 @@
+<div
+  [ngClass]="{
+    'mobile-public-event-staff': device === deviceTypes.mobile,
+    'desktop-public-event-staff': device === deviceTypes.desktop,
+  }">
+  @if (staffDisplay === displayOptions.event_locations) {
+    @if (locationsTokens.length === 0) {
+      <div class="no-locations-or-vendors">
+        {{ 'create-event.public-event.location.no-locations' | translate }}
+      </div>
+    }
+    @if (locationsTokens?.length >= 1) {
+      <div class="locations-list">
+        @for (locationToken of locationsTokens; track locationToken) {
+          <Tsk-public-event-location-plac
+            [profileImage]="profileImage"
+            [locationToken]="locationToken"
+            (placAction)="
+              setPublicEventLocation($event)
+            "></Tsk-public-event-location-plac>
+        }
+      </div>
+    }
+  }
+
+  @if (staffDisplay === displayOptions.create_edit_staff) {
+    <Tsk-create-edit-staff
+      (appendStaffProfile)="appendEventLocationStaff($event)"
+      (updateStaffProfile)="
+        updateEventLocationStaff($event)
+      "></Tsk-create-edit-staff>
+  }
+</div>

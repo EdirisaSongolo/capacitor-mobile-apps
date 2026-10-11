@@ -1,0 +1,100 @@
+@use 'src/styles-app' as *;
+
+.mobile-create-private-event,
+.desktop-create-private-event {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  margin-top: 0.5rem;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  #public-events-link {
+    display: flex;
+    margin: auto;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      --mat-icon-button-icon-size: 3rem;
+      --mat-icon-button-state-layer-size: 4rem;
+      display: flex;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+
+      mat-icon {
+        width: 3rem;
+        height: 3rem;
+
+        svg {
+          display: block;
+        }
+      }
+    }
+  }
+
+  #create-event {
+    display: flex;
+    max-width: 100rem;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    padding: 0rem;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+    Tsk-controls {
+      width: 50%;
+      height: auto;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    #create-event-display {
+      height: auto;
+      margin: auto;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      padding: 0.1rem;
+    }
+  }
+}
+
+.mobile-create-private-event {
+  #create-event {
+    width: 98%;
+
+    Tsk-controls {
+      width: 100%;
+    }
+
+    #create-event-display {
+      width: 100%;
+    }
+  }
+}
+
+.desktop-create-private-event {
+  #create-event {
+    width: 90%;
+
+    Tsk-controls {
+      width: 40%;
+    }
+
+    #create-event-display {
+      width: 52%;
+    }
+  }
+}

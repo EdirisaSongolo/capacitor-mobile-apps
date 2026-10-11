@@ -1,0 +1,104 @@
+@use 'src/styles-app' as *;
+
+.mobile-service-provider,
+.desktop-service-provider {
+  display: flex;
+  width: 100%;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .header {
+    min-width: 50%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0rem;
+    padding: 0.1rem;
+    text-align: center;
+  }
+
+  .category {
+    margin: auto;
+    font-weight: bold;
+  }
+
+  .payment-rate {
+    display: flex;
+    min-height: 5rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .rate-details {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      padding: 0rem;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+
+      .detail {
+        width: 30%;
+        margin: auto;
+        padding-bottom: 0.5rem;
+        text-align: center;
+      }
+    }
+  }
+
+  .profile-services {
+    display: flex;
+    width: 100%;
+    min-height: 10rem;
+    justify-content: center;
+    align-items: center;
+
+    .no-services {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      padding: 0rem;
+      justify-content: center;
+      align-content: center;
+    }
+
+    .profile-services-list {
+      display: flex;
+      width: 100%;
+      min-height: 10rem;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+
+      Tsk-provider-service-plac {
+        width: 12rem;
+        height: 6rem;
+        margin: 0.2rem;
+      }
+    }
+
+    .provider-services::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.mobile-service-provider {
+  .payment-rate {
+    width: 95%;
+  }
+}
+
+.desktop-service-provider {
+  .payment-rate {
+    width: 70%;
+  }
+}

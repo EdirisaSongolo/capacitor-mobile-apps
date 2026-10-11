@@ -1,0 +1,73 @@
+<div
+  [ngClass]="{
+    'mobile-date-venue': device === deviceTypes.mobile,
+    'desktop-date-venue': device === deviceTypes.desktop,
+  }">
+  @if (selectedVenue) {
+    <div class="controls">
+      <button
+        class="icon-button"
+        class="control-button"
+        mat-icon-button
+        (click)="editDateVenue()">
+        <mat-icon
+          [fontIcon]="controlIcon"
+          class="material-symbols-outlined"></mat-icon>
+      </button>
+    </div>
+    @if (dateVenue) {
+      <div class="date-venue">
+        <div class="category">
+          {{ venueDetails.businessCategory | translate }}
+        </div>
+        <div
+          class="profile-image"
+          [style.background]="venueDetails.profileImage"></div>
+        <div class="profile-name">{{ venueDetails.profileName }}</div>
+        <div class="location">{{ venueDetails.profileLocation }}</div>
+        <div class="payment-rate">
+          @if (venueDetails.profileBaseRate === 0) {
+            <div>
+              <p>
+                {{
+                  'profile-accounts.business-profile.no-rate-specified'
+                    | translate
+                }}
+              </p>
+            </div>
+          }
+          @if (venueDetails.profileBaseRate !== 0) {
+            <div class="rate-details">
+              <div
+                class="detail"
+                [TskCurrencyDisplay]="venueDetails.profileBaseRate"></div>
+              <p>{{ 'profile-accounts.business-profile.per' | translate }}</p>
+              <div class="detail">
+                {{ venueDetails.profileRateUnits | translate }}
+              </div>
+            </div>
+          }
+        </div>
+        <Tsk-profile-services
+          [profileServices]="
+            venueDetails.profileServices
+          "></Tsk-profile-services>
+      </div>
+    }
+  } @else {
+    <Tsk-venue-search
+      [location]="location"
+      (placAction)="processServiceProvider($event)"></Tsk-venue-search>
+  }
+
+  @if (profileBooking) {
+    <div class="profile-booking" #profile_booking>
+      <Tsk-create-update-booking
+        [bookingAction]="bookingAction"
+        [profileDTO]="profileDTO"
+        [bookingDates]="bookingDates"
+        (closeDialog)="closeDialog()"
+        (createBooking)="setEventDateVenue($event)"></Tsk-create-update-booking>
+    </div>
+  }
+</div>

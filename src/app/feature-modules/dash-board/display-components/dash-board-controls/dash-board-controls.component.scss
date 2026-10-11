@@ -1,0 +1,133 @@
+@use 'src/styles-app' as *;
+
+.mobile-controls,
+.desktop-controls {
+  display: flex;
+  height: auto;
+  min-height: 5rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+
+  .profile-image-and-name {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    #profile-image {
+      margin: auto;
+      margin-bottom: 0.5rem;
+      padding: 0rem;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      box-shadow: $card-shadow;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: auto;
+        padding: 0rem;
+        border-radius: 0.5rem;
+      }
+    }
+
+    #profile-name {
+      width: 90%;
+      min-height: 0.5rem;
+      margin: auto;
+      text-align: center;
+      text-wrap: nowrap;
+      text-overflow: ellipsis;
+      white-space: none;
+      overflow: hidden;
+      cursor: pointer;
+    }
+  }
+
+  .contacts-and-apps {
+    display: flex;
+    min-height: 5rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    #contacts {
+      display: flex;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+
+      li {
+        width: 40%;
+        margin: auto;
+        list-style: none;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+
+    #apps {
+      display: flex;
+      width: 65%;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+}
+
+.mobile-controls {
+  width: 100%;
+
+  .profile-image-and-name {
+    width: 32%;
+
+    #profile-image {
+      width: 4rem;
+      height: 6.5rem;
+    }
+
+    #profile-name {
+      margin-bottom: 0.2rem;
+    }
+  }
+
+  .contacts-and-apps {
+    width: 65%;
+
+    #contacts {
+      width: 100%;
+    }
+  }
+}
+
+.desktop-controls {
+  width: 80%;
+
+  .profile-image-and-name {
+    width: 30%;
+    margin-right: 0.5rem;
+
+    #profile-image {
+      width: 5rem;
+      height: 7rem;
+    }
+  }
+
+  .contacts-and-apps {
+    width: 60%;
+    margin-left: 0.5rem;
+
+    #contacts {
+      width: 65%;
+    }
+  }
+}

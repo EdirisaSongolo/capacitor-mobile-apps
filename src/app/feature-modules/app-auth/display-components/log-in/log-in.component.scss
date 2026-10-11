@@ -1,0 +1,55 @@
+@use 'src/styles-app' as *;
+
+.mobile-log-in,
+.desktop-log-in {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .mobile-log-in-form,
+  .desktop-log-in-form {
+    display: block;
+    margin: auto;
+    margin-top: 5rem;
+    padding: 0rem;
+    text-align: center;
+
+    Tsk-input-component {
+      width: 100%;
+    }
+
+    button {
+      width: 25%;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.mobile-log-in {
+  min-height: 10rem;
+
+  .mobile-log-in-form {
+    width: 90%;
+
+    button {
+      width: 35%;
+    }
+  }
+}
+
+.desktop-log-in {
+  min-height: 10rem;
+
+  .desktop-log-in-form {
+    width: 55%;
+
+    button {
+      width: 25%;
+    }
+  }
+}

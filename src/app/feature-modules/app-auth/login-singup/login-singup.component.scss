@@ -1,0 +1,111 @@
+@use 'src/styles-app' as *;
+
+.mobile-login-signup,
+.desktop-login-signup {
+  display: flex;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .mobile-auth-nav,
+  .desktop-auth-nav {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 5rem;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    button {
+      margin: auto;
+      padding: 0rem 1rem 0rem 1rem;
+    }
+  }
+
+  .mobile-logo-forms,
+  .desktop-logo-forms {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .forms {
+      display: flex;
+      width: 100%;
+      height: auto;
+      margin: auto;
+      margin-bottom: 1rem;
+      justify-content: center;
+      align-items: center;
+
+      Tsk-log-in {
+        width: 100%;
+        height: auto;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+      }
+
+      Tsk-sign-up {
+        width: 100%;
+        height: auto;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+      }
+
+      Tsk-credentials-recovery {
+        width: 100%;
+        height: auto;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .cmp-stmt {
+      display: flex;
+      width: 90%;
+      max-width: 40rem;
+      margin: auto;
+      margin-top: 1rem;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        width: 100%;
+        height: auto;
+        margin: auto;
+        color: $foreground;
+        text-align: center;
+        font-family: 'Montserrat-medium';
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+.mobile-login-signup {
+  width: 100%;
+}
+
+.desktop-login-signup {
+  width: 50%;
+  max-width: 55rem;
+}

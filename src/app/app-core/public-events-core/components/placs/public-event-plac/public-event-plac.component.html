@@ -1,0 +1,12 @@
+<div
+  class="public-event"
+  [ngClass]="{
+    'ticketed-event': publicEventToken.userAccess === accessOptions.ticketed,
+  }"
+  [style.background]="previewFields.profileImage"
+  (click)="processPlacAction()">
+  <div id="event-name">{{ previewFields.name | translate }}</div>
+  <div id="event-location">{{ previewFields.location | translate }}</div>
+  <div id="event-date">{{ previewFields.date | translate }}</div>
+  <div id="entry-fee">{{ previewFields.fee | translate }}</div>
+</div>

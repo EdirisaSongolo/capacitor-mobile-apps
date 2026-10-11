@@ -1,0 +1,33 @@
+<div
+  [ngClass]="{
+    'mobile-public-event-date': device === deviceTypes.mobile,
+    'desktop-public-event-date': device === deviceTypes.desktop,
+  }">
+  <div class="event-date-panels" #date_panels (scroll)="onScroll()">
+    <div class="panel">
+      <Tsk-event-date-venue
+        (eventDateVenue)="setEventDateVenue($event)"></Tsk-event-date-venue>
+    </div>
+
+    <div class="panel">
+      <Tsk-event-date-details
+        (appendDateDetails)="createEventDate($event)"></Tsk-event-date-details>
+    </div>
+
+    <div class="panel">
+      <Tsk-event-date-features
+        (appendFeatureProfile)="appendDateFeatureProfile($event)"
+        (removeFeatureProfile)="
+          removeDateFeatureProfile($event)
+        "></Tsk-event-date-features>
+    </div>
+  </div>
+
+  <div class="controls">
+    @for (indicator of indicators; track indicator) {
+      <button
+        [ngClass]="{ selected: indicator.position === panel }"
+        (click)="panelNavigation(indicator)"></button>
+    }
+  </div>
+</div>

@@ -1,0 +1,72 @@
+@use 'src/styles-app' as *;
+
+.mobile-user-account,
+.desktop-user-account {
+  display: flex;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  Tsk-user-account-header {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: auto;
+  }
+
+  .display-controls {
+    display: flex;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .account-profile-display {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    margin-top: 0.5rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.mobile-user-account {
+  width: 100%;
+
+  .display-controls {
+    width: 80%;
+  }
+}
+
+.desktop-user-account {
+  width: 55%;
+  max-width: 50rem;
+
+  .display-controls {
+    width: 50%;
+  }
+}
+
+:host ::ng-deep router-outlet + * {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  margin-top: 0rem;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}

@@ -1,0 +1,113 @@
+@use 'src/styles-app' as *;
+
+.mobile-header {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 4.5rem;
+  padding: 0rem;
+  justify-content: space-between;
+  align-items: center;
+  color: $header-foreground;
+  background-color: $header-background;
+
+  #company-icon {
+    display: flex;
+    max-width: 2.5rem;
+    margin: auto;
+    margin-left: 0.5rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: auto;
+      margin: auto;
+    }
+  }
+
+  #company-name {
+    font-family: 'Genos-Bold';
+    font-size: 30px;
+    font-weight: bolder !important;
+    margin: auto;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+      color: $header-foreground;
+    }
+  }
+
+  #menu-icon {
+    display: flex;
+    margin: auto;
+    margin-right: 0.5rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 0rem;
+    background-color: $header-background;
+
+    mat-icon {
+      color: $header-foreground;
+    }
+  }
+}
+
+.desktop-header {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 4rem;
+  padding: 0rem;
+  justify-content: space-between;
+  align-items: center;
+  color: $header-foreground;
+  background-color: $header-background;
+
+  #company-icon {
+    display: flex;
+    max-width: 3rem;
+    margin: auto;
+    margin-left: 2rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: auto;
+      margin: auto;
+    }
+  }
+
+  #company-name {
+    font-family: 'Genos-Bold';
+    font-size: 40px;
+    font-weight: bolder !important;
+    margin: auto;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+      color: $header-foreground;
+    }
+  }
+
+  #menu-icon {
+    display: flex;
+    margin: auto;
+    margin-right: 2rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 0rem;
+    background-color: $header-background;
+
+    mat-icon {
+      color: $header-foreground;
+    }
+  }
+}

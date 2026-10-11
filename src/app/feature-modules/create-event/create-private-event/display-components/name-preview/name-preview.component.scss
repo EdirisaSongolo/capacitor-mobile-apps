@@ -1,0 +1,61 @@
+@use 'src/styles-app' as *;
+
+.mobile-private-event-name,
+.desktop-private-event-name {
+  display: flex;
+  width: 100%;
+  min-height: 30rem;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  Tsk-private-event-plac {
+    margin: auto;
+    margin-top: 0.5rem;
+  }
+
+  .event-name-entry {
+    display: flex;
+    height: auto;
+    margin: auto;
+    padding: 0rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.mobile-private-event-name {
+  Tsk-private-event-plac {
+    width: 12rem;
+    height: 20rem;
+  }
+
+  .event-name-entry {
+    width: 90%;
+    min-height: 8rem;
+
+    Tsk-input-component {
+      width: 95%;
+    }
+  }
+}
+
+.desktop-private-event-name {
+  Tsk-private-event-plac {
+    width: 15rem;
+    height: 25rem;
+  }
+
+  .event-name-entry {
+    width: 80%;
+    min-height: 12rem;
+
+    Tsk-input-component {
+      width: 80%;
+    }
+  }
+}

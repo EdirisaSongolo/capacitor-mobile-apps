@@ -1,0 +1,94 @@
+@use 'src/styles-app' as *;
+
+.mobile-date-features,
+.desktop-date-features {
+  display: flex;
+  width: 100%;
+  min-height: 40rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  .controls {
+    display: flex;
+    min-height: 2rem;
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .no-features {
+    display: flex;
+    width: 100%;
+    min-height: 30rem;
+    margin: auto;
+    margin-top: 0rem;
+    padding: 0rem;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .features-list {
+    display: flex;
+    width: 100%;
+    min-height: 30rem;
+    margin: auto;
+    margin-top: 0rem;
+    padding: 0rem;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-flow: row wrap;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+  }
+
+  Tsk-domain-service-providers {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: 0rem;
+    padding: 0rem;
+  }
+}
+
+.mobile-date-features {
+  .controls {
+    width: 90%;
+  }
+
+  Tsk-user-profile-plac,
+  Tsk-vendor-plac {
+    width: 6.5rem;
+    height: 11.5rem;
+    margin: 0.35rem;
+  }
+}
+
+.desktop-date-features {
+  .controls {
+    width: 70%;
+  }
+
+  Tsk-user-profile-plac,
+  Tsk-vendor-plac {
+    width: 6.5rem;
+    height: 12.5rem;
+  }
+}
+
+.mobile-date-features::-webkit-scrollbar {
+  display: none;
+}
+
+.desktop-date-features::-webkit-scrollbar {
+  display: none;
+}
+
+.features-list::-webkit-scrollbar {
+  display: none;
+}

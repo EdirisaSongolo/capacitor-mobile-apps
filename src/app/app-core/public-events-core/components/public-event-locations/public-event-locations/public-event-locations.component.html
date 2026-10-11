@@ -1,0 +1,24 @@
+<div
+  [ngClass]="{
+    'mobile-public-event-locations': device === deviceTypes.mobile,
+    'desktop-public-event-locations': device === deviceTypes.desktop,
+  }">
+  @if (locationsDisplay === panelOption.create_edit_location) {
+    <Tsk-create-edit-location
+      (updateDisplayPanel)="
+        updateDisplayPanel($event)
+      "></Tsk-create-edit-location>
+  }
+
+  @if (locationsDisplay === panelOption.public_event_location) {
+    <Tsk-public-event-location
+      (updateDisplayPanel)="
+        updateDisplayPanel($event)
+      "></Tsk-public-event-location>
+  }
+
+  @if (locationsDisplay === panelOption.create_edit_date) {
+    <Tsk-create-edit-date
+      (updateDisplayPanel)="updateDisplayPanel($event)"></Tsk-create-edit-date>
+  }
+</div>

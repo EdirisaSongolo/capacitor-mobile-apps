@@ -1,0 +1,123 @@
+@use 'src/styles-app' as *;
+
+.application-main {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  margin: 0rem;
+  padding: 0rem;
+  font-family: 'Montserrat-medium';
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  scroll-behavior: smooth;
+
+  .mobile-header {
+    width: 100%;
+    height: auto;
+    min-height: 4rem;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding: 0rem;
+  }
+
+  .desktop-header {
+    width: 100%;
+    height: auto;
+    min-height: 4rem;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding: 0rem;
+  }
+
+  .mobile-navigation {
+    width: 100%;
+    height: auto;
+    min-height: 6rem;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding: 0rem;
+    background-color: $background;
+    z-index: 2;
+  }
+
+  .desktop-navigation {
+    width: 100%;
+    height: auto;
+    min-height: 8rem;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding: 0rem;
+    background-color: $background;
+    z-index: 2;
+  }
+
+  .mobile-display {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding: 0rem;
+    z-index: 1;
+  }
+
+  .desktop-display {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding: 0rem;
+    z-index: 1;
+  }
+
+  .mobile-footer {
+    width: 100%;
+    height: auto;
+    min-height: 4rem;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding: 0rem;
+  }
+
+  .desktop-footer {
+    width: 100%;
+    height: auto;
+    min-height: 10rem;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding: 0rem;
+  }
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.mobile-navigation.fixed-header + Tsk-app-display {
+  padding-top: 6rem;
+}
+
+.desktop-navigation.fixed-header + Tsk-app-display {
+  padding-top: 8rem;
+}
+
+.disable-ui {
+  pointer-events: none;
+}

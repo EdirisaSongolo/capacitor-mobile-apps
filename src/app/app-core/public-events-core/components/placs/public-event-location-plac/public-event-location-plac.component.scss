@@ -1,0 +1,55 @@
+@use 'src/styles-app' as *;
+
+:host {
+  display: block;
+  border-radius: 0.5rem;
+  background-color: $card-surface;
+  box-shadow: $card-shadow;
+}
+
+.public-event-location {
+  display: flex;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  border-radius: 0.5rem;
+
+  .delete-control {
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: auto;
+    margin-top: 0rem;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    color: $remove;
+  }
+
+  div {
+    width: 100%;
+    margin: auto;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    text-align: center;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    white-space: none;
+    overflow: hidden;
+    color: $foreground;
+  }
+
+  #city {
+    margin-top: auto;
+  }
+
+  #state {
+    margin-bottom: 0.5rem;
+  }
+}

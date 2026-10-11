@@ -1,0 +1,78 @@
+@use 'src/styles-app' as *;
+
+.mobile-vendors-dashboard,
+.desktop-vendors-dashboard {
+  display: flex;
+  width: 100%;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  .controls {
+    display: flex;
+    width: 100%;
+    min-height: 2rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: 2.5rem;
+      height: 3rem;
+      margin: auto;
+      margin-right: 2rem;
+      padding: 0.1rem;
+      border: 1px solid;
+      border-color: $foreground;
+      border-radius: 0.5rem;
+    }
+
+    .add {
+      color: $add;
+    }
+
+    .list {
+      color: $foreground;
+    }
+
+    .remove {
+      color: $remove;
+    }
+  }
+
+  .vendor-management-list {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-flow: row wrap;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+  }
+
+  .vendor-management-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  Tsk-user-search {
+    display: block;
+    width: 100%;
+    min-height: 30rem;
+  }
+
+  Tsk-confirmation-dialog {
+    display: block;
+    width: 100%;
+    min-height: 30rem;
+    position: absolute;
+    z-index: 4;
+  }
+}

@@ -1,0 +1,43 @@
+<div
+  [ngClass]="{
+    'mobile-managing-profile': device === deviceTypes.mobile,
+    'desktop-managing-profile': device === deviceTypes.desktop,
+  }">
+  @if (
+    profileDTO.profile === profileOptions.venueProfile ||
+    profileDTO.profile === profileOptions.vendorProfile
+  ) {
+    <button class="profile-managers" mat-icon-button>
+      <mat-icon
+        [fontIcon]="managersIcon"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+  }
+
+  <div class="profile-image" [style.background]="profileImage"></div>
+  <div class="user-name">{{ userToken.userName }}</div>
+
+  <form [formGroup]="detailsForm" (ngSubmit)="submitDetailsForm()">
+    <Tsk-input-component
+      type="tel"
+      mask="(000) 000-0000"
+      [label]="
+        'profile-revenue.revenue-account.business-details.phone-number'
+          | translate
+      "
+      formControlName="phoneNumber">
+    </Tsk-input-component>
+
+    <Tsk-date-input-component
+      [label]="
+        'profile-revenue.revenue-account.business-details.representative-form.date-of-birth'
+          | translate
+      "
+      formControlName="dateOfBirth">
+    </Tsk-date-input-component>
+
+    <button mat-raised-button class="raised-button" type="submit">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  </form>
+</div>

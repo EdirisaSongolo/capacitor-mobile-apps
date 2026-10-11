@@ -1,0 +1,108 @@
+<div
+  [ngClass]="{
+    'mobile-business-profile': device === deviceTypes.mobile,
+    'desktop-business-profile': device === deviceTypes.desktop,
+  }"
+  (click)="componentClickEvent($event)">
+  <p class="header">
+    {{ 'profile-accounts.business-profile.profile-available' | translate }}
+  </p>
+  <div class="profile-availability">
+    <mat-slide-toggle
+      [checked]="profileStatus === statusOptions.enabled"
+      hideIcon
+      color="accent"
+      (change)="setAccountStatus($event)"></mat-slide-toggle>
+  </div>
+
+  <p class="header">
+    {{ 'profile-accounts.business-profile.profile-category' | translate }}
+  </p>
+  <form class="business-category">
+    <mat-select
+      [disabled]="profileStatus === statusOptions.disabled"
+      [value]="businessCategory"
+      (valueChange)="updateBusinessCategory($event)">
+      @for (category of businessCategoriesNames; track category) {
+        <mat-option [value]="category[0]">
+          {{ category[1] | translate }}
+        </mat-option>
+      }
+    </mat-select>
+  </form>
+
+  <p class="header">
+    {{ 'profile-accounts.business-profile.payment-rate' | translate }}
+  </p>
+  <div
+    class="payment-rate"
+    [class.disabled]="profileStatus === statusOptions.disabled"
+    (click)="editProfileBaseRate(); $event.stopPropagation()">
+    <div class="rate-details">
+      <div class="detail" [TskCurrencyDisplay]="profileBaseRate"></div>
+      <p>{{ 'profile-accounts.business-profile.per' | translate }}</p>
+      <div class="detail">{{ profileRateUnits | translate }}</div>
+    </div>
+  </div>
+
+  <div class="services-control">
+    <button
+      [disabled]="profileStatus === statusOptions.disabled"
+      class="icon-button"
+      class="control-button"
+      id="no-margin"
+      mat-icon-button
+      (click)="createService(); $event.stopPropagation()">
+      <mat-icon
+        [fontIcon]="servicesIcon"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+  </div>
+
+  <div class="profile-services">
+    @if (providerServices.length === 0) {
+      <div class="no-services">
+        <p>{{ 'profile-accounts.business-profile.no-services' | translate }}</p>
+      </div>
+    } @else {
+      <div class="profile-services-list">
+        @for (service of providerServices; track service) {
+          <Tsk-provider-service-plac
+            (click)="$event.stopPropagation()"
+            [profileService]="service"
+            [componentAction]="componentAction"
+            (editAction)="editService($event)"
+            (deleteAction)="deleteService($event)">
+          </Tsk-provider-service-plac>
+        }
+      </div>
+    }
+  </div>
+
+  @if (displayBaseRateDialog) {
+    <Tsk-profile-rate-dialog
+      [rateDetails]="rateDetails"
+      (publishRateDetails)="submitProviderBaseRate($event)"
+      (closeDialog)="closeDialog()"></Tsk-profile-rate-dialog>
+  }
+
+  @if (displayServiceDialog) {
+    <Tsk-profile-service-dialog
+      [dialogAction]="serviceDialogAction"
+      [providerService]="providerService"
+      (publishProviderService)="submitProviderService($event)"
+      (closeDialog)="closeDialog()"></Tsk-profile-service-dialog>
+  }
+
+  @if (confirmationDialog) {
+    <Tsk-confirmation-dialog
+      [confirmationMessage]="deleteConfirmation"
+      (dialogAction)="propateDialogAction($event)"></Tsk-confirmation-dialog>
+  }
+
+  @if (disableConfirmationDialog) {
+    <Tsk-confirmation-dialog
+      [confirmationMessage]="disableConfirmation"
+      (dialogAction)="disableDialogAction($event)"></Tsk-confirmation-dialog>
+  }
+</div>

@@ -1,0 +1,76 @@
+@use 'src/styles-app' as *;
+
+.mobile-notifications,
+.desktop-notifications {
+  display: flex;
+  min-height: 30rem;
+  margin: auto;
+  margin-top: 0.5rem;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .no-notifications {
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    margin: auto;
+  }
+
+  .notification {
+    display: flex;
+    height: auto;
+    margin: auto;
+    margin-top: 0.2rem;
+    margin-bottom: 0.1rem;
+    padding: 0.2rem;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+
+    .profile-image {
+      width: 3rem;
+      height: 4rem;
+      margin: auto;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      padding: 0rem;
+      border-radius: 0.5rem;
+      box-shadow: $card-shadow;
+    }
+
+    .notification-message {
+      margin-left: 0.5rem;
+    }
+
+    .remove {
+      margin: auto;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.mobile-notifications {
+  width: 100%;
+
+  .notification {
+    width: 95%;
+
+    .notification-message {
+      width: 65%;
+    }
+  }
+}
+
+.desktop-notifications {
+  width: 50%;
+
+  .notification {
+    width: 80%;
+
+    .notification-message {
+      width: 75%;
+    }
+  }
+}

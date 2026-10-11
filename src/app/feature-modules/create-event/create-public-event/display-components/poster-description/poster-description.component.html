@@ -1,0 +1,36 @@
+<div
+  [ngClass]="{
+    'mobile-public-event-poster': device === deviceTypes.mobile,
+    'desktop-public-event-poster': device === deviceTypes.desktop,
+  }">
+  @if (selectedFiles.length === 0) {
+    <button class="control" id="add-media" (click)="uploadEventMediaFiles()">
+      <mat-icon>{{ addMedia }}</mat-icon>
+    </button>
+  } @else {
+    <button
+      class="control"
+      id="remove-media"
+      (click)="updateUploadedMediaFiles()">
+      <mat-icon>{{ removeMedia }}</mat-icon>
+    </button>
+  }
+
+  <div class="media-list">
+    @for (eventMedia of eventMediaList; track eventMedia) {
+      <div
+        class="media"
+        [ngClass]="{ selected: eventMedia.selected }"
+        (click)="selectImageFile(eventMedia.file)">
+        <img [src]="$safeNavigationMigration(eventMedia?.filePath)" />
+      </div>
+    }
+  </div>
+
+  <form class="description-entry" [formGroup]="descriptionForm">
+    <textarea
+      placeholder="{{ 'create-event.public-event.describe-event' | translate }}"
+      formControlName="eventDescription"
+      [maxLength]="250"></textarea>
+  </form>
+</div>

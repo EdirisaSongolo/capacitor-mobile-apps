@@ -1,0 +1,79 @@
+<div
+  [ngClass]="{
+    'mobile-event-date-details': device === deviceTypes.mobile,
+    'desktop-event-date-details': device === deviceTypes.desktop,
+  }">
+  <form class="date-time-entry" [formGroup]="dateTime">
+    <Tsk-date-input-component
+      [align]="'center'"
+      [min]="minDate"
+      label="mm/dd/yyyy"
+      formControlName="eventDate">
+    </Tsk-date-input-component>
+
+    <div class="event-time">
+      <Tsk-time-input-component
+        [required]="true"
+        [align]="'center'"
+        label="10:00 AM"
+        formControlName="startTime">
+      </Tsk-time-input-component>
+
+      <Tsk-time-input-component
+        [required]="true"
+        [align]="'center'"
+        label="06:00 PM"
+        formControlName="endTime">
+      </Tsk-time-input-component>
+    </div>
+  </form>
+
+  <div class="tickets-header">
+    <p class="text">
+      {{ 'create-event.public-event.tickets.header-text' | translate }}
+    </p>
+
+    <button
+      class="control-icon icon-button"
+      mat-icon-button
+      (click)="createTicketField()">
+      <mat-icon [fontIcon]="controlIcon" class="material-symbols-outlined">
+      </mat-icon>
+    </button>
+  </div>
+
+  <form [formGroup]="eventDateTickets">
+    <div class="event-tickets" formArrayName="eventTickets">
+      @for (ticket of eventTickets.controls; track ticket; let i = $index) {
+        <div class="ticket" [formGroupName]="i">
+          <Tsk-input-component
+            [align]="'center'"
+            [label]="'create-event.public-event.tickets.name' | translate"
+            formControlName="ticketName">
+          </Tsk-input-component>
+          <Tsk-input-component
+            [align]="'center'"
+            label="0.00"
+            [money]="true"
+            formControlName="ticketValue">
+          </Tsk-input-component>
+          <button
+            class="delete-icon icon-button"
+            mat-icon-button
+            [disabled]="eventTickets.length === 1"
+            (click)="removeTicketField(i)">
+            <mat-icon [fontIcon]="deleteIcon" class="material-symbols-outlined">
+            </mat-icon>
+          </button>
+        </div>
+      }
+    </div>
+  </form>
+
+  <button
+    class="create-date raised-button"
+    mat-raised-button
+    (click)="createEditPublicEventDate()">
+    {{ 'button-label.enter' | translate }}
+  </button>
+</div>

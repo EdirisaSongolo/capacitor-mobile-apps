@@ -1,0 +1,39 @@
+<div
+  [ngClass]="{
+    'mobile-private-event-dashboard': device === deviceTypes.mobile,
+    'desktop-private-event-dashboard': device === deviceTypes.desktop,
+  }">
+  <div class="controls">
+    <button
+      class="icon-button"
+      class="control-button"
+      mat-icon-button
+      (click)="updateDisplayPanel()">
+      <mat-icon> {{ controlIcon }} </mat-icon>
+    </button>
+  </div>
+
+  @if (displayPanel === displayOptions.guest_list) {
+    @if (userTokens?.length === 0) {
+      <div class="no-guests">
+        <p>{{ 'create-event.private-event.no-guests' | translate }}</p>
+      </div>
+    }
+    @if (userTokens.length >= 1) {
+      <div class="guest-list">
+        @for (userToken of userTokens; track userToken) {
+          <Tsk-user-profile-plac
+            [userTokenDTO]="userToken"
+            [componentAction]="componentAction"
+            (removeAction)="removeEventGuest($event)"></Tsk-user-profile-plac>
+        }
+      </div>
+    }
+  }
+
+  @if (displayPanel === displayOptions.user_socials) {
+    <Tsk-user-search
+      [userSearch]="userSearch"
+      (placAction)="appendEventGuest($event)"></Tsk-user-search>
+  }
+</div>

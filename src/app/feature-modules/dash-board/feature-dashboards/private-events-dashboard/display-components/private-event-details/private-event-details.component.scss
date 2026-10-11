@@ -1,0 +1,111 @@
+@use 'src/styles-app' as *;
+
+.mobile-private-events-dashboard,
+.desktop-private-events-dashboard {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .profile-image {
+    display: flex;
+    margin: auto;
+    margin-bottom: 1rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    box-shadow: $card-shadow;
+  }
+
+  form {
+    display: flex;
+    height: auto;
+    min-height: 25rem;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    Tsk-input-component {
+      margin: auto;
+      margin-top: 0rem;
+      margin-bottom: 0rem;
+    }
+
+    textarea {
+      display: block;
+      margin: auto;
+      margin-top: 0rem;
+      margin-bottom: 0.5rem;
+      padding: 2% 1% 2% 1%;
+      outline: none;
+      background-color: $background;
+      border: 1px solid;
+      border-color: $foreground;
+      border-radius: 0.5em 0.5em 0.5em 0.5em;
+    }
+  }
+}
+
+.mobile-private-events-dashboard {
+  .profile-image {
+    width: 4rem;
+    height: 6rem;
+    margin-top: 1rem;
+  }
+
+  form {
+    width: 90%;
+
+    Tsk-input-component {
+      width: 90%;
+    }
+
+    textarea {
+      width: 88%;
+      height: auto;
+      min-height: 5rem;
+    }
+
+    button {
+      width: 30%;
+      margin: auto;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.desktop-private-events-dashboard {
+  .profile-image {
+    width: 5rem;
+    height: 7rem;
+    margin-top: 2.5rem;
+  }
+
+  form {
+    width: 80%;
+
+    Tsk-input-component {
+      width: 80%;
+    }
+
+    textarea {
+      width: 78%;
+      height: auto;
+      min-height: 4rem;
+    }
+
+    button {
+      width: 20%;
+      margin: auto;
+      margin-top: 0.5rem;
+    }
+  }
+}

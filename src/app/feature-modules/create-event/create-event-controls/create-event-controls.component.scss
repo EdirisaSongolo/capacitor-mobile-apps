@@ -1,0 +1,33 @@
+@use 'src/styles-app' as *;
+
+.mobile-controls,
+.desktop-controls {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  justify-content: space-around;
+  align-items: center;
+
+  div {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      margin: auto;
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+      color: $foreground;
+    }
+  }
+}
+
+.mobile-controls {
+  width: 95%;
+}
+
+.desktop-controls {
+  width: 80%;
+}

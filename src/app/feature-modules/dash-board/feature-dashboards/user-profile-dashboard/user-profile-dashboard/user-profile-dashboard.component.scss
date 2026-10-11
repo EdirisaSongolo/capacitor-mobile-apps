@@ -1,0 +1,43 @@
+@use 'src/styles-app' as *;
+
+.mobile-user-profile-dashboard,
+.desktop-user-profile-dashboard {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .controls {
+    display: flex;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dashboard-display {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: 0;
+  }
+}
+
+.mobile-user-profile-dashboard {
+  .controls {
+    width: 95%;
+  }
+}
+
+.desktop-user-profile-dashboard {
+  .controls {
+    width: 50%;
+  }
+}

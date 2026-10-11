@@ -1,0 +1,85 @@
+name: Build and publish Tuuska iOS app
+
+on:
+  workflow_dispatch:
+
+env:
+  APPSTORE_API_PRIVATE_KEY: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+  APPSTORE_API_KEY_ID: ${{ secrets.APPSTORE_API_KEY_ID }}
+  APPSTORE_API_ISSUER_ID: ${{ secrets.APPSTORE_API_ISSUER_ID }}
+  APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+
+jobs:
+  publish-ios-app:
+    runs-on: macos-26
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build angular app
+        run: npm run build -- --configuration=production
+
+      - name: Sync native project
+        run: npx cap sync ios
+
+      - name: Write App Store Connect key
+        run: echo "${{ env.APPSTORE_API_PRIVATE_KEY }}" > "${{ runner.temp }}/AuthKey.p8"
+
+      - name: Write export options
+        run: |
+          cat > "${{ runner.temp }}/ExportOptions.plist" <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+            <key>method</key>
+            <string>app-store-connect</string>
+            <key>destination</key>
+            <string>upload</string>
+            <key>signingStyle</key>
+            <string>automatic</string>
+            <key>teamID</key>
+            <string>${{ env.APPLE_TEAM_ID }}</string>
+          </dict>
+          </plist>
+          EOF
+
+      - name: Archive app
+        working-directory: ios/App
+        run: |
+          xcodebuild archive \
+            -project App.xcodeproj \
+            -scheme App \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath "${{ runner.temp }}/App.xcarchive" \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "${{ runner.temp }}/AuthKey.p8" \
+            -authenticationKeyID "${{ env.APPSTORE_API_KEY_ID }}" \
+            -authenticationKeyIssuerID "${{ env.APPSTORE_API_ISSUER_ID }}" \
+            DEVELOPMENT_TEAM="${{ env.APPLE_TEAM_ID }}"
+
+      - name: Upload to App Store Connect
+        working-directory: ios/App
+        run: |
+          xcodebuild -exportArchive \
+            -archivePath "${{ runner.temp }}/App.xcarchive" \
+            -exportOptionsPlist "${{ runner.temp }}/ExportOptions.plist" \
+            -exportPath "${{ runner.temp }}/export" \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "${{ runner.temp }}/AuthKey.p8" \
+            -authenticationKeyID "${{ env.APPSTORE_API_KEY_ID }}" \
+            -authenticationKeyIssuerID "${{ env.APPSTORE_API_ISSUER_ID }}"

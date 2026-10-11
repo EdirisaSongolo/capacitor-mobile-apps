@@ -1,0 +1,36 @@
+<div
+  class="user-profile-plac"
+  [style.background]="userProfileImage"
+  (click)="processPlacAction()">
+  @if (providerPlacDetails) {
+    <button
+      class="options-control"
+      [class.displayed]="displayOptions"
+      mat-icon-button
+      (click)="toggleOptions(); $event.stopPropagation()">
+      <mat-icon
+        [fontIcon]="optionControl"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+
+    <div class="plac-options" [class.displayed]="displayOptions">
+      <p>{{ providerPlacDetails.businessCategory | translate }}</p>
+      @if (providerPlacDetails.profileBaseRate) {
+        <p [TskCurrencyDisplay]="providerPlacDetails.profileBaseRate"></p>
+      }
+    </div>
+  }
+
+  @if (componentAction === actionOptions.event_management) {
+    <button
+      class="remove-button"
+      mat-icon-button
+      (click)="emitRemoveAction(); $event.stopPropagation()">
+      <mat-icon
+        [fontIcon]="removeIcon"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+  }
+
+  <div class="profile-name">{{ userName }}</div>
+</div>

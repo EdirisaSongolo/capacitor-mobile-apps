@@ -1,0 +1,34 @@
+@use 'src/styles-app' as *;
+
+.mobile-user-payment-methods,
+.desktop-user-payment-methods {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  Tsk-payment-methods {
+    display: block;
+    min-height: 20rem;
+    margin: auto;
+    margin-top: 0.5rem;
+    padding: 0rem;
+  }
+}
+
+.mobile-user-payment-methods {
+  Tsk-payment-methods {
+    width: 90%;
+  }
+}
+
+.desktop-user-payment-methods {
+  Tsk-payment-methods {
+    width: 70%;
+  }
+}

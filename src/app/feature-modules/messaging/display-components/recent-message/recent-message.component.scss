@@ -1,0 +1,35 @@
+@use 'src/styles-app' as *;
+
+.recent-message {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  margin-top: 0.2rem;
+  margin-bottom: 0.1rem;
+  padding: 0.2rem;
+  justify-content: flex-start;
+  align-items: center;
+
+  .chat-image {
+    width: 3rem;
+    height: 4rem;
+    margin: auto;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0rem;
+    border-radius: 0.5rem;
+    box-shadow: $card-shadow;
+  }
+
+  .chat-name-and-message {
+    margin-left: 0.5rem;
+
+    p {
+      width: 100%;
+      text-align: left;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}

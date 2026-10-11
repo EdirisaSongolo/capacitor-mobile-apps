@@ -1,0 +1,32 @@
+<div
+  [ngClass]="{
+    'mobile-public-event-location': device === deviceTypes.mobile,
+    'desktop-public-event-location': device === deviceTypes.desktop,
+  }">
+  <div class="controls">
+    <button mat-icon-button color="accent" (click)="createLocationDate()">
+      <mat-icon [fontIcon]="addControl" class="material-symbols-outlined">
+      </mat-icon>
+    </button>
+  </div>
+
+  <div class="location-dates" (click)="componentClickEvent($event)">
+    @for (dateToken of locationDatesTokens; track dateToken) {
+      <Tsk-public-event-date-plac
+        [componentAction]="componentAction"
+        [profileImage]="profileImage"
+        [dateToken]="dateToken"
+        (placAction)="editPublicEventDate($event)"
+        (deleteAction)="
+          displayConfirmationDialog($event)
+        "></Tsk-public-event-date-plac>
+    }
+  </div>
+
+  @if (confirmationDialog) {
+    <Tsk-confirmation-dialog
+      (click)="dialogClickEvent($event)"
+      [confirmationMessage]="deleteConfirmation"
+      (dialogAction)="deleteDialogAction($event)"></Tsk-confirmation-dialog>
+  }
+</div>

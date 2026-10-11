@@ -1,0 +1,144 @@
+@use 'src/styles-app' as *;
+
+.mobile-profile-booking,
+.desktop-profile-booking {
+  display: flex;
+  width: 100%;
+  height: 35rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .control {
+    display: flex;
+    width: 95%;
+    min-height: 2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    justify-content: flex-end;
+    align-items: center;
+
+    button {
+      color: $remove;
+    }
+  }
+
+  .category {
+    display: flex;
+    width: 50%;
+    margin: auto;
+    margin-top: 0.4rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    white-space: none;
+    overflow: hidden;
+  }
+
+  .profile-image {
+    display: flex;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    box-shadow: $card-shadow;
+  }
+
+  .profile-name,
+  .location {
+    display: flex;
+    width: 50%;
+    margin: auto;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    white-space: none;
+    overflow: hidden;
+  }
+
+  Tsk-profile-rate {
+    display: flex;
+    min-height: 2.5rem;
+    margin: auto;
+  }
+
+  Tsk-profile-services {
+    display: flex;
+    width: 100%;
+    min-height: 8rem;
+    margin: auto;
+  }
+
+  .booking-dates-list {
+    display: flex;
+    width: 100%;
+    min-height: 5rem;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    .booking-date {
+      display: flex;
+      width: 10rem;
+      min-height: 3.5rem;
+      margin: auto;
+      margin-left: 0.2rem;
+      margin-right: 0.2rem;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border: 1px solid;
+      border-color: $foreground;
+      border-radius: 0.3rem;
+    }
+
+    .date-selected {
+      border-color: $accent-color;
+    }
+  }
+
+  .create-booking {
+    min-width: 20%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.mobile-profile-booking {
+  .profile-image {
+    width: 4rem;
+    height: 6rem;
+  }
+
+  Tsk-profile-rate {
+    width: 95%;
+  }
+}
+
+.desktop-profile-booking {
+  .profile-image {
+    width: 5rem;
+    height: 7rem;
+  }
+
+  Tsk-profile-rate {
+    width: 70%;
+  }
+}

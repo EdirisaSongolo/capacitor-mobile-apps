@@ -1,0 +1,67 @@
+@use 'src/styles-app' as *;
+
+.invoice-plac {
+  display: flex;
+  width: 100%;
+  min-height: 6rem;
+  margin: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background-color: $card-surface;
+  box-shadow: $card-shadow;
+
+  .provider {
+    display: flex;
+    min-width: 30%;
+    min-height: 6rem;
+    margin: auto;
+    margin-left: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .profile-image {
+      width: 4rem;
+      height: 6rem;
+      margin: auto;
+      margin-top: 0.5rem;
+    }
+
+    .profile-name {
+      width: 100%;
+      margin: auto;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+  }
+
+  .booking-event {
+    display: flex;
+    min-width: 30%;
+    min-height: 6rem;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .event-details {
+      width: 100%;
+      margin: auto;
+      text-align: center;
+    }
+  }
+
+  .booking-status {
+    display: flex;
+    min-width: 30%;
+    height: 6rem;
+    margin: auto;
+    margin-right: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}

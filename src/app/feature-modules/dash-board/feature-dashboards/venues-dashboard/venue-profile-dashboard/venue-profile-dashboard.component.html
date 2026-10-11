@@ -1,0 +1,33 @@
+<div
+  [ngClass]="{
+    'mobile-venues-dashboard': device === deviceTypes.mobile,
+    'desktop-venues-dashboard': device === deviceTypes.desktop,
+  }">
+  <div class="venue">{{ venueToken?.venueName }}</div>
+
+  <div class="controls">
+    @for (control of venueControls; track control; let index = $index) {
+      <div>
+        <button
+          class="icon-button"
+          mat-icon-button
+          (click)="updateDisplayPanel(control)">
+          <mat-icon
+            [fontIcon]="control.icon"
+            class="material-symbols-outlined"></mat-icon>
+        </button>
+      </div>
+    }
+  </div>
+
+  <div class="dashboard-display">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- Move to settings -->
+<!-- <ng-template [ngIf]="profileDTO && displayPanel === panelOptions.management">
+<Tsk-venue-profile-managers
+[profile]="profileDTO"
+[componentAction]="componentAction"></Tsk-venue-profile-managers>
+</ng-template> -->

@@ -1,0 +1,23 @@
+<div class="profile-service-plac" (click)="editProfileService()">
+  @if (componentAction === actionsOptions.dashboard) {
+    <div class="delete-control">
+      <button
+        mat-icon-button
+        (click)="initiateDeleteAction(); $event.stopPropagation()">
+        <mat-icon
+          [fontIcon]="removeIcon"
+          class="material-symbols-outlined"></mat-icon>
+      </button>
+    </div>
+  }
+
+  <div class="service-details">
+    {{ profileService.service }}
+  </div>
+  <div class="service-details">
+    {{ option | translate }}
+  </div>
+  <div
+    class="service-details"
+    [TskCurrencyDisplay]="profileService.price"></div>
+</div>

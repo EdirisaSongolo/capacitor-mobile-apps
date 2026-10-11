@@ -1,0 +1,30 @@
+<div
+  [ngClass]="{
+    'mobile-public-event-features': device === deviceTypes.mobile,
+    'desktop-public-event-features': device === deviceTypes.desktop,
+  }">
+  @if (publicEventFeatures.length === 0) {
+    <div class="no-features">
+      <p>{{ 'public-event-profile.no-features' | translate }}</p>
+    </div>
+  }
+
+  @if (publicEventFeatures.length >= 1) {
+    <div class="feature-vendor-profiles">
+      @for (serviceProvider of publicEventFeatures; track serviceProvider) {
+        @if (serviceProvider.profile === profileOptions.userProfile) {
+          <Tsk-user-profile-plac
+            [componentAction]="componentAction"
+            [userTokenDTO]="
+              asUserToken(serviceProvider)
+            "></Tsk-user-profile-plac>
+        }
+        @if (serviceProvider.profile === profileOptions.vendorProfile) {
+          <Tsk-vendor-plac
+            [componentAction]="componentAction"
+            [vendorToken]="asVendorToken(serviceProvider)"></Tsk-vendor-plac>
+        }
+      }
+    </div>
+  }
+</div>

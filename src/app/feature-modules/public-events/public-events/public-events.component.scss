@@ -1,0 +1,78 @@
+@use 'src/styles-app' as *;
+
+.mobile-public-events-home,
+.desktop-public-events-home {
+  display: flex;
+  width: 100%;
+  min-height: 50rem;
+  margin: auto;
+  margin-top: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .public-events-search {
+    display: block;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0.2rem;
+
+    Tsk-input-component {
+      width: 100%;
+      margin: auto;
+    }
+  }
+
+  Tsk-categories {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .no-events {
+    margin: auto;
+    margin-top: 15rem;
+
+    p {
+      font-family: 'Genos-MediumItalic';
+      font-size: 19px;
+      text-align: center;
+    }
+  }
+
+  .public-events-display {
+    display: flex;
+    min-height: 50rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-flow: row wrap;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+  }
+
+  .public-events-display::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.mobile-public-events-home {
+  .public-events-search {
+    width: 80%;
+  }
+
+  .public-events-display {
+    width: 100%;
+  }
+}
+
+.desktop-public-events-home {
+  .public-events-search {
+    width: 50%;
+    max-width: 30rem;
+  }
+  .public-events-display {
+    width: 75%;
+  }
+}

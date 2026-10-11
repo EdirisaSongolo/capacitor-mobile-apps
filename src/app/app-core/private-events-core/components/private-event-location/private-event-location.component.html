@@ -1,0 +1,52 @@
+<div
+  [ngClass]="{
+    'mobile-private-event-location': device === deviceTypes.mobile,
+    'desktop-private-event-location': device === deviceTypes.desktop,
+  }">
+  @if (locationDisplay === displayOptions.event_location) {
+    <form
+      class="locations-form"
+      [formGroup]="locationForm"
+      (ngSubmit)="setEventLocation()">
+      <Tsk-location-input-component
+        [required]="true"
+        [label]="'create-event.public-event.location.venue-city' | translate"
+        [suggestions]="possibleLocations | async"
+        formControlName="locationInput">
+      </Tsk-location-input-component>
+      <button mat-raised-button class="raised-button">
+        {{ 'button-label.enter' | translate }}
+      </button>
+    </form>
+  }
+
+  @if (locationDisplay === displayOptions.event_date) {
+    <div class="event-date-panels" #date_panels (scroll)="onScroll()">
+      <div class="panel">
+        <Tsk-event-venue
+          (eventDateVenue)="setEventDateVenue($event)"
+          (eventPrivateAddress)="
+            setEventPrivateAddress($event)
+          "></Tsk-event-venue>
+      </div>
+      <div class="panel">
+        <Tsk-event-details
+          (appendDateDetails)="createEventDate($event)"></Tsk-event-details>
+      </div>
+      <div class="panel">
+        <Tsk-event-features
+          (appendFeatureProfile)="appendDateFeatureProfile($event)"
+          (removeFeatureProfile)="
+            removeDateFeatureProfile($event)
+          "></Tsk-event-features>
+      </div>
+    </div>
+    <div class="controls">
+      @for (indicator of indicators; track indicator) {
+        <button
+          [ngClass]="{ selected: indicator.position === panel }"
+          (click)="panelNavigation(indicator)"></button>
+      }
+    </div>
+  }
+</div>

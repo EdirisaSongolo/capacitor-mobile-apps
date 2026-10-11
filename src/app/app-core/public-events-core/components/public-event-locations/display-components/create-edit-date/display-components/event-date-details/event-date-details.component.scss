@@ -1,0 +1,151 @@
+@use 'src/styles-app' as *;
+
+.mobile-event-date-details,
+.desktop-event-date-details {
+  display: flex;
+  width: 100%;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .date-time-entry {
+    display: flex;
+    height: auto;
+    min-height: 5rem;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    Tsk-date-input-component {
+      width: 50% !important;
+      margin: auto;
+      text-align: center;
+    }
+
+    .event-time {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+
+      Tsk-time-input-component {
+        width: 40%;
+        margin: auto;
+        text-align: center;
+      }
+    }
+  }
+
+  .tickets-header {
+    display: flex;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    .text {
+      margin: auto;
+    }
+
+    .control-icon {
+      margin-right: 0.5rem;
+      color: $accent-color;
+    }
+  }
+
+  form {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    margin-top: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .event-tickets {
+      display: flex;
+      margin: auto;
+      margin-top: 0.5rem;
+      padding: 0rem;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .ticket {
+        display: flex;
+        width: 100%;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+
+        Tsk-input-component {
+          width: 30%;
+          margin: auto;
+          text-align: center;
+        }
+
+        .delete-icon {
+          margin: auto;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .create-date {
+    display: flex;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.mobile-event-date-details {
+  .date-time-entry {
+    width: 90%;
+  }
+
+  .tickets-header {
+    width: 90%;
+  }
+
+  .event-tickets {
+    width: 90%;
+  }
+
+  .create-date {
+    width: 30%;
+  }
+}
+
+.desktop-event-date-details {
+  .date-time-entry {
+    width: 80%;
+  }
+
+  .tickets-header {
+    width: 80%;
+  }
+
+  .event-tickets {
+    width: 80%;
+  }
+
+  .create-date {
+    width: 20%;
+  }
+}

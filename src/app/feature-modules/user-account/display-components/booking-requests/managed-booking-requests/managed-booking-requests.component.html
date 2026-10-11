@@ -1,0 +1,23 @@
+<div
+  [ngClass]="{
+    'mobile-profile-booking': device === deviceTypes.mobile,
+    'desktop-profile-booking': device === deviceTypes.desktop,
+  }">
+  @if (managedBookingRequests.length === 0) {
+    <div class="no-booking-requests">
+      <P> {{ 'common.no-booking-requests' | translate }} </P>
+    </div>
+  }
+
+  @if (managedBookingRequests.length >= 1) {
+    <div class="booking-requests-list">
+      @for (bookingToken of managedBookingRequests; track bookingToken) {
+        <Tsk-profile-booking-plac
+          [bookingToken]="bookingToken"
+          (placAction)="
+            displayProfileBooking($event)
+          "></Tsk-profile-booking-plac>
+      }
+    </div>
+  }
+</div>

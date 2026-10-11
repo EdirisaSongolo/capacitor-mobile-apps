@@ -1,0 +1,76 @@
+<div
+  [ngClass]="{
+    'mobile-private-event-vendors': device === deviceTypes.mobile,
+    'desktop-private-event-vendors': device === deviceTypes.desktop,
+  }">
+  <div class="controls">
+    <button
+      class="icon-button"
+      class="control-button"
+      mat-icon-button
+      [disabled]="!locationDTO"
+      (click)="updateDisplayPanel()">
+      <mat-icon [fontIcon]="controlIcon" class="material-symbols-outlined">
+      </mat-icon>
+    </button>
+  </div>
+
+  @if (staffDisplay === displayOptions.no_location) {
+    <div class="no-location">
+      <p>{{ 'create-event.private-event.staff.no-location' | translate }}</p>
+    </div>
+  }
+
+  @if (staffDisplay === displayOptions.staff_list) {
+    @if (eventStaff?.length === 0) {
+      <div class="no-staff">
+        <p>{{ 'create-event.public-event.staff.no-staff' | translate }}</p>
+      </div>
+    }
+    @if (eventStaff?.length >= 1) {
+      <div class="staff-list">
+        @for (staff of eventStaff; track staff) {
+          @if (staff.profile === profileOptions.userProfile) {
+            <Tsk-user-profile-plac
+              [componentAction]="componentAction"
+              [userTokenDTO]="asUserToken(staff)"
+              (removeAction)="
+                processEventStaffProfile($event)
+              "></Tsk-user-profile-plac>
+          }
+          @if (staff.profile === profileOptions.vendorProfile) {
+            <Tsk-vendor-plac
+              [componentAction]="componentAction"
+              [vendorToken]="asVendorToken(staff)"
+              (removeAction)="
+                processEventStaffProfile($event)
+              "></Tsk-vendor-plac>
+          }
+        }
+      </div>
+    }
+  }
+
+  @if (staffDisplay === displayOptions.service_providers) {
+    <Tsk-domain-service-providers
+      [serviceProviderDomain]="serviceProviderDomain"
+      [location]="locationDTO"
+      (providerAction)="
+        processServiceProvider($event)
+      "></Tsk-domain-service-providers>
+  }
+
+  @if (profileBooking) {
+    <div class="profile-booking" #profile_booking>
+      <Tsk-create-update-booking
+        [bookingAction]="bookingAction"
+        [profileDTO]="serviceProvider"
+        [bookingDates]="bookingDates"
+        (closeDialog)="closeDialog()"
+        (createBooking)="createEventStaffProfile($event)"
+        (updateBooking)="
+          cancelEventStaffProfile($event)
+        "></Tsk-create-update-booking>
+    </div>
+  }
+</div>

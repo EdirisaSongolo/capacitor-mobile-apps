@@ -1,0 +1,76 @@
+<div
+  [ngClass]="{
+    'mobile-domain-service-providers': device === deviceTypes.mobile,
+    'desktop-domain-service-providers': device === deviceTypes.desktop,
+  }">
+  <form class="providers-search" [formGroup]="providerSearchForm">
+    <Tsk-input-component
+      [required]="true"
+      [align]="'center'"
+      [label]="'labels.service-providers-search' | translate"
+      formControlName="provider_search">
+    </Tsk-input-component>
+  </form>
+
+  @if (providersDisplay === providersDisplayOptions.service_providers) {
+    @if (serviceProviders.length === 0) {
+      <div class="no-service-providers">
+        <p>{{ 'service-providers.no-service-providers' | translate }}</p>
+      </div>
+    }
+
+    @if (serviceProviders.length >= 1) {
+      <div class="service-providers-list">
+        @for (serviceProvider of serviceProviders; track serviceProvider) {
+          @if (serviceProvider.profile === profileOptions.userProfile) {
+            <Tsk-user-profile-plac
+              (click)="$event.stopPropagation()"
+              [componentAction]="componentAction"
+              [userTokenDTO]="asUserToken(serviceProvider)"
+              (placAction)="
+                initiateProviderAction($event)
+              "></Tsk-user-profile-plac>
+          }
+          @if (serviceProvider.profile === profileOptions.vendorProfile) {
+            <Tsk-vendor-plac
+              (click)="$event.stopPropagation()"
+              [componentAction]="componentAction"
+              [vendorToken]="asVendorToken(serviceProvider)"
+              (placAction)="initiateProviderAction($event)"></Tsk-vendor-plac>
+          }
+        }
+      </div>
+    }
+  }
+
+  @if (providersDisplay === providersDisplayOptions.search_results) {
+    @if (searchResults.length === 0) {
+      <div class="no-service-providers">
+        <p>{{ 'service-providers.no-service-providers-found' | translate }}</p>
+      </div>
+    }
+
+    @if (searchResults.length >= 1) {
+      <div class="service-providers-list">
+        @for (serviceProvider of searchResults; track serviceProvider) {
+          @if (serviceProvider.profile === profileOptions.userProfile) {
+            <Tsk-user-profile-plac
+              (click)="$event.stopPropagation()"
+              [componentAction]="componentAction"
+              [userTokenDTO]="asUserToken(serviceProvider)"
+              (placAction)="
+                initiateProviderAction($event)
+              "></Tsk-user-profile-plac>
+          }
+          @if (serviceProvider.profile === profileOptions.vendorProfile) {
+            <Tsk-vendor-plac
+              (click)="$event.stopPropagation()"
+              [componentAction]="componentAction"
+              [vendorToken]="asVendorToken(serviceProvider)"
+              (placAction)="initiateProviderAction($event)"></Tsk-vendor-plac>
+          }
+        }
+      </div>
+    }
+  }
+</div>

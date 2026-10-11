@@ -1,0 +1,26 @@
+<div class="booking-plac" (click)="processPlacAction()">
+  <div class="provider">
+    <div
+      class="profile-image"
+      [style.background]="placDetails?.providerImage"></div>
+    <div class="profile-name">
+      {{ placDetails.providerName }}
+    </div>
+  </div>
+
+  <div class="booking-event">
+    <div class="event-details">
+      {{ placDetails.eventName }}
+    </div>
+    <div class="event-details">
+      {{ placDetails.eventDate }}
+    </div>
+    <div class="event-details">
+      {{ placDetails.eventTime }}
+    </div>
+  </div>
+
+  <div class="booking-status">
+    {{ placDetails.bookingStatus }}
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div
+  [ngClass]="{
+    'mobile-dashboard-apps': device === deviceTypes.mobile,
+    'desktop-dashboard-apps': device === deviceTypes.desktop,
+  }">
+  @for (app of dashBoardApps; track app) {
+    <div
+      class="app"
+      [style.background]="'url(' + app.placImage + ')'"
+      [style.background-repeat]="'no-repeat'"
+      [style.background-position]="'center center'"
+      [style.background-size]="'8rem'"
+      (click)="displayFeatureDashBoard(app)">
+      <div id="app-name">{{ app.name | translate }}</div>
+    </div>
+  }
+</div>

@@ -1,0 +1,782 @@
+{
+  "api-call-in-progress": "Please wait, we are getting things ready",
+  "location-required": "Please select a city, the location is required",
+  "enter-location": "Enter your location",
+  "enable-location": "Please allow access to location settings",
+  "location-not-available": "This location is not available",
+  "page-not-found": "The page you were looking for doesn't exist, we've taken you to public events",
+  "common": {
+    "select-profile": "Select Profile",
+    "select-category": "Select a Category",
+    "other": "Other",
+    "error-reading-media-file": "Error while reading your file. It might be we don't support that file type",
+    "no-media": "There is no media for this profile",
+    "no-booking-requests": "There are no booking requests for this profile",
+    "no-changes-in-details-update": "You didn't make any changes",
+    "sub-total": "Sub Total: ",
+    "total": "Total: ",
+    "rate": "Rate: ",
+    "amount": "Amount: ",
+    "status": "Status: ",
+    "capacity": "Capacity"
+  },
+  "labels": {
+    "date": "date",
+    "edit": "edit",
+    "delete": "delete",
+    "followers": "followers",
+    "following": "following",
+    "suggestions": "suggestions",
+    "follow": "follow",
+    "unfollow": "unfollow",
+    "message": "message",
+    "block": "block",
+    "search": "search",
+    "user-search": "user search",
+    "venue": "venue",
+    "venues": "venues",
+    "venue-search": "venue search",
+    "vendor": "vendor",
+    "service-providers-search": "service providers search",
+    "public-event": "public event",
+    "public-events-search": "public events search",
+    "private-event": "private event"
+  },
+  "button-label": {
+    "enter": "Enter",
+    "delete": "Delete",
+    "log-in": "Log In",
+    "sign-up": "Sign Up",
+    "recovery-page": "Forgot Password",
+    "log-out": "Log Out",
+    "save-changes": "Save Changes",
+    "decline": "Decline",
+    "accept": "Accept",
+    "cancel": "Cancel",
+    "update": "Update",
+    "pay-invoice": "Pay Invoice",
+    "continue": "Continue",
+    "submit": "Submit",
+    "check-out": "Check Out"
+  },
+  "status": {
+    "pending": "Pending",
+    "confirmed": "Confirmed",
+    "declined": "Declined",
+    "closed": "Closed",
+    "cancelled": "Cancelled",
+    "removed": "Removed",
+    "paid": "Paid"
+  },
+  "common-errors": {
+    "required-fields": "All the form fields are required",
+    "no-changes-detected": "I didn't notice any changes in this information",
+    "unresolved-address": "That address looks invalid, please try entering it again"
+  },
+  "system-error": {
+    "unexpected-error": "An unexpected system error occurred, please try again later"
+  },
+  "login-signup": {
+    "tag-line": "Discover.  Create.  Connect.",
+    "message": "Promote your event to a targeted audience. Manage ticket and merchandise sales. Find a venue for your function. Hire a service provider to bring your party to life"
+  },
+  "auth": {
+    "log-in": {
+      "form": {
+        "user-name-email": "Username or Email",
+        "user-password": "Password"
+      },
+      "form-errors": {
+        "missing-fields": "Both a user name or email and password are required",
+        "username-required": "Please enter a username or email",
+        "password-required": "You forgot to enter the password"
+      },
+      "api-errors": {
+        "invalid-username-password": "Invalid user name or password",
+        "account-not-accessible": "You no longer have access to this account"
+      }
+    },
+    "sign-up": {
+      "form": {
+        "first-name": "First Name",
+        "last-name": "Last Name",
+        "user-name": "User Name",
+        "user-email": "User Email",
+        "user-password": "User Password",
+        "confirm-password": "Confirm Password"
+      },
+      "form-errors": {
+        "password-error": "The passwords you entered don't match, please try again"
+      },
+      "profile-created-successfully": "Welcome, you have successfully created your profile",
+      "api-errors": {
+        "duplicate-username": "The username you entered is already taken, please try again",
+        "duplicate-email-address": "The email address you entered is already on file",
+        "invalid-email-address": "Please enter a valid email address"
+      }
+    },
+    "credentials-recovery": {
+      "email-form": "Enter your Email",
+      "password-form": {
+        "temporary-password": "Temporary Password",
+        "new-password": "New Password",
+        "confirm-password": "Confirm Password"
+      },
+      "form-errors": {
+        "invalid-email-address": "Please enter a valid email address",
+        "required": "This field is required",
+        "missing-fields": "All the form fields are required",
+        "mismatched-passwords": "The passwords you entered don't match, please try again"
+      },
+      "api-errors": {
+        "unrecognised-email-address": "The email address you entered does not appear to be attached to any account in our system",
+        "invalid-temporary_password": "The temporary password you entered doesn't match our records, please try again"
+      },
+      "temporary-password-created": "A temporary password has been created and sent to your email."
+    },
+    "update-password": {
+      "success": "You have successfully updated your password",
+      "api-errors": {
+        "invalid-current-password": "The current password you entered does not match what we have on record, please try again"
+      }
+    },
+    "authorisation": {
+      "invalid-credentials": "Looks like you're not authorised to access this resource. Please try logging in again",
+      "restricted-profile": "This user profile has been restricted or revoked",
+      "system-error": "We are having trouble completing your request at the moment. Try again in a couple mins."
+    }
+  },
+  "side-nav-links": {
+    "payment-methods": "Payment Methods",
+    "profile-management": "Profile Management",
+    "password": "password",
+    "toggle-theme": "Toggle Theme",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "app-nav-links": {
+    "dashboard": "DashBoard",
+    "create-an-event": "Create an Event",
+    "venues": "Venues",
+    "vendors": "Vendors",
+    "search": "Search",
+    "home": "Home",
+    "messages": "Messages",
+    "notifications": "Notifications",
+    "current-location": "Use Current Location"
+  },
+  "dash-board": {
+    "no-managed-profiles": "You are not listed as a manager on any profile"
+  },
+  "media": {
+    "confirm-delete-action": "Please make sure you want to delete the selected media files",
+    "file-errors": {
+      "unsupported-type": "Files that are not JPEG, PNG or WebP images were skipped",
+      "too-large": "Files larger than the upload limit were skipped",
+      "too-many": "Too many files were selected at once, so some were skipped"
+    },
+    "api-responses": {
+      "updated-profile-image": "You have successfully updated your profile image"
+    }
+  },
+  "profile-accounts": {
+    "service-provider-categories": {
+      "musician": "Musician",
+      "band": "Music Band",
+      "musician_band": "Musician/Band",
+      "dancer": "Dancer",
+      "dj": "DJ",
+      "performer": "Performer",
+      "promoter_mc": "Promoter/MC",
+      "entertainer-other": "Entertainer Other",
+      "catering": "Catering",
+      "rentals": "Rentals",
+      "photographer": "Photographer",
+      "transportation": "Transportation",
+      "aesthetician": "Aesthetician",
+      "security": "security",
+      "other": "Other"
+    },
+    "venue-categories": {
+      "sports-arena": "Sports Arena",
+      "hotel": "Hotel",
+      "bar-nightclub": "Bar/NightClub",
+      "restaurant": "Restaurant",
+      "comedy-club": "Comedy Club",
+      "other": "Other"
+    },
+    "business-profile": {
+      "profile-available": "Profile available for booking",
+      "confirm-disable-action": "Disabling your profile will cancel all your pending and confirmed bookings. Paid invoices will be refunded",
+      "profile-category": "Profile category",
+      "no-specified-category": "No specified category",
+      "payment-rate": "Payment rate",
+      "set-payment-rate": "Set your base rate",
+      "no-rate-specified": "No rate specified",
+      "per": "per",
+      "no-services": "There are no services listed for this profile",
+      "units": {
+        "hour": "hour",
+        "day": "day",
+        "table": "table",
+        "person": "person",
+        "not_selected": "Not selected"
+      },
+      "services": {
+        "create-service": "create service",
+        "edit-service": "edit-service",
+        "included": "included",
+        "additional": "additional",
+        "service-form": {
+          "service-name": "service name",
+          "price": "0.00"
+        },
+        "form-errors": {
+          "valid-price": "Please set a valid base rate price for your services",
+          "name-required": "Provide a name before creating a service",
+          "price-required": "A price is required for any additional services"
+        },
+        "confirm-delete-action": "Are you sure you want to remove this service",
+        "errors": {
+          "no-change-in-update": "You haven't made any changes in your settings"
+        }
+      }
+    },
+    "no-managed-vendors": "You do not have any vendor profiles under your management",
+    "api-response": {
+      "available-for-booking": "You have made this profile available for booking",
+      "disabled-booking": "You have disabled booking for this profile",
+      "updated-provider-base-rate": "You have successfully updated your base rate",
+      "updated-provider-category": "You have successfully updated your business category"
+    }
+  },
+  "profile-revenue": {
+    "payment-methods": {
+      "saved-payment-methods": "Saved Payment Methods",
+      "no-saved-payment-methods": "You do not have any saved payment methods",
+      "expiration-date": "Expires: ",
+      "add-payment-method": "Add Payment method",
+      "credit-debit-card": "Credit/Debit Card",
+      "form-errors": {
+        "card-entry-unavailable": "You can not add a new payment method at this time"
+      }
+    },
+    "revenue-account": {
+      "selection-options": {
+        "details-title": "Business Details",
+        "details-description": "Required documents for your profile",
+        "account-title": "Connected Account",
+        "account-description": "Direct deposit account for your earnings"
+      },
+      "no-account-warning": "You need an active business profile to access these settings",
+      "business-details": {
+        "personal-details": "Personal Details",
+        "managing-profile": "Managing Profile",
+        "identity-verification": "Identity verification",
+        "company-contacts": "Company Contacts",
+        "phone-number": "Phone Number",
+        "representative-form": {
+          "date-of-birth": "Date of Birth"
+        },
+        "id-verification-form": {
+          "social-security-number": "social security number"
+        }
+      },
+      "connected-account": {
+        "no-account-on-file": "You have not yet set up your direct deposit",
+        "account-on-file": "Account on file",
+        "account-name": "Account Name",
+        "account-ending-in": "Account Ending in",
+        "set-up-direct-deposit": "Set up direct deposit",
+        "account-number": "Account number",
+        "routing-number": "Routing number",
+        "confirm-account-number": "Confirm account number",
+        "confirm-routing-number": "Confirm routing number",
+        "form-errors": {
+          "account-number-mismatch": "The account numbers you entered don't match, please try again",
+          "routing-number-mismatch": "The routing numbers you entered don't match, please try again"
+        }
+      }
+    },
+    "profile-booking": {
+      "not-available": "This profile is not available for booking",
+      "account-availability": "Booking open to",
+      "base-rate": "Base rate",
+      "booking-status": {
+        "pending": "This Booking request is still pending. You will be notified once the provider confirms or declines your request",
+        "confirmed": "This booking is confirmed, you can cancel without a penalty 4 days before the event date, the amount will be deposited into your account after the event closes.",
+        "declined": "This booking request was declined. Please allow some time for it to be removed from your booking requests",
+        "cancelled": "This booking has been cancelled, if a payment had been made then a refund has been issued, no further action is needed."
+      },
+      "accept-booking": {
+        "confirmation-text": "Please calculate your invoice total carefully before accepting your booking. Your client will be prompted to complete payment as soon as you confirm"
+      },
+      "decline-booking": {
+        "confirmation-text": "Confirm before declining. The client will be notified you are not available once you submit of your decison"
+      },
+      "cancel-booking": {
+        "confirmation-text": "Are you sure you want to cancel this booking request"
+      },
+      "invoice-status": {
+        "pending": "Your service provider has confirmed your booking. Please pay the invoice as you as possible",
+        "paid": "Congratulations. Your booking is confirmed and paid.",
+        "cancelled": "This booking request has been cancelled. Any refunds have been applied"
+      }
+    },
+    "transactions": {
+      "service-fee": "Service fee:",
+      "total": "Total:",
+      "payment": "Payment",
+      "no-valid-payment": "No payment methods on file",
+      "saved-payment-methods": "Saved Payment Methods",
+      "no-payment-methods-on-file": "You don't have any saved payment methods",
+      "add-payment-method": "Add Payment method",
+      "credit-debit-card": "Credit/Debit Card",
+      "ending-in": "ending in ..."
+    },
+    "form-errors": {
+      "add-invoice-total": "Please add your invoice total"
+    },
+    "api-response": {
+      "representative-details-updated": "Personal details connected with this account have been updated",
+      "id-verification-pending": "Your Id documents are being verified",
+      "business-contacts-updated": "Your business contacts have been updated successfully",
+      "direct-deposit-updated": "You have successfully updated your direct deposit details",
+      "created-booking-request": "A booking request from your event has been sent to {{profileName}}",
+      "confirmed-booking-request": "Booking request has been confirmed and invoice created",
+      "declined-booking-request": "Booking request has been declined. Customer will be notified",
+      "cancelled-booking-request": "Booking has been cancelled. Provider will be notified and any refunds issued",
+      "booking-invoice-paid": "Invoice has been paid successfully. Receipt will be sent to your email"
+    },
+    "api-errors": {
+      "duplicate-booking-request": "This provider already has a booking request for this event",
+      "duplicate-service": "You already have a service with this name",
+      "missing-charge-requirements": "Please use the dashboard to submit the business details needed before this account can accept payments"
+    }
+  },
+  "user-profile-dashboard": {
+    "details": {
+      "user-details-form": {
+        "first-name": "First Name",
+        "last-name": "Last Name",
+        "user-name": "User Name",
+        "last-four-of-social": "Last Four of Social",
+        "email-address": "Email Address",
+        "address": "Address",
+        "biography": "Biography"
+      },
+      "form-errors": {
+        "missing-required-fields": "Your full name, username and email address are required",
+        "is-the-same-object": "Please update your profile details to continue"
+      }
+    },
+
+    "password": {
+      "password-form": {
+        "current-password": "current password",
+        "new-password": "new password",
+        "confirm-password": "confirm password"
+      }
+    },
+    "interests": {
+      "header-text": "Select your interests to make sure you don't miss any events",
+      "options": {
+        "music": "Music",
+        "art": "Art",
+        "motorEvents": "Motor Events",
+        "sports": "Sports",
+        "familyEvents": "Family Events",
+        "fashion": "Fashion",
+        "academicEvents": "Academic Events"
+      }
+    },
+    "socials": {
+      "no-followers": "You do not have any followers",
+      "not-following": "You are not following anyone",
+      "no-suggestions": "We do not have any suggestions for you right now",
+      "no-search-match": "We couldn't find any users that match your search "
+    },
+    "api-responses": {
+      "followed-user-profile": "You are now following this profile",
+      "unfollowed-user-profile": "You are no longer following this profile",
+      "user-details-updated": "You successfully updated your profile details"
+    },
+    "api-errors": {
+      "complete-user-profile": "Please complete your user profile",
+      "business-profile-address-required": "Your address is needed while you have an active business profile or manage one, so it can't be removed"
+    }
+  },
+  "venues-dashboard": {
+    "navigation": {
+      "main": {
+        "venues-list": "Venues",
+        "create-venue": "Create Venue"
+      }
+    },
+    "no-venue-profiles": "You do not have any venue accounts",
+    "venue-details": {
+      "form": {
+        "venue-name": "Venue Name",
+        "venue-location": "Venue Location",
+        "venue-description": "Venue Description"
+      },
+      "form-errors": {
+        "invalid-form": "The name and location of your venue are required to create a venue account",
+        "no-changes-in-details-update": "You didn't make any changes"
+      }
+    },
+    "managers": {
+      "confirm-delete-action": "Are you sure you want to remove these managers"
+    },
+    "errors": {
+      "duplicate-manager": "{userName} is already a manager for this venue profile",
+      "delete-all-managers": "Each active venue profile must have atleast one manager"
+    },
+    "api-responses": {
+      "venue-profile-created": "You have successfully created a new venue account",
+      "venue-profile-updated": "You have successfully updated your venue profile"
+    }
+  },
+  "vendors-dashboard": {
+    "navigation": {
+      "main": {
+        "vendors-list": "vendors",
+        "create-vendor": "create Vendor"
+      }
+    },
+    "vendor-details": {
+      "form": {
+        "vendor-name": "Vendor Name",
+        "vendor-description": "Vendor Description",
+        "vendor-location": "Vendor Location"
+      },
+      "form-errors": {
+        "invalid-form": "The name and location of your business are required to create a vendor account"
+      }
+    },
+    "no-vendor-profiles": "You do not have any vendor accounts",
+    "errors": {
+      "delete-all-managers": "Each active vendor profile must have atleast one manager"
+    },
+    "api-responses": {
+      "vendor-profile-created": "You have successfully created a new vendor account",
+      "vendor-profile-updated": "You have successfully updated your vendor profile"
+    }
+  },
+  "public-event-dashboard": {
+    "no-public-events": "You are not managing any public events",
+    "confirm-location-deletion": "Cancelling your location will also remove all the upcoming dates in that location. Are you sure you want to remove this location from your event.",
+    "confirm-date-deletion": "Are you sure you want to remove this date from your event",
+    "cancel-event-outline": "Cancelling your event will cancel all remaining future dates for this event, refunds will be issued for any tickets sold for today. Any revenue from the event will be deposited into the managing vendor account",
+    "cancel-event": "Cancel Event",
+    "confirm-delete-action": "Are you sure you want to remove this public event",
+    "confirm-feature-removal-action": "Are you sure you want to remove this feature from this date",
+    "confirm-staff-removal-action": "Are you sure you want to remove this staffer from this date",
+    "api-responses": {
+      "event-updated-successfully": "Event Details have been updated",
+      "created-event-location": "You have have added a new location to your event",
+      "cancelled-event-location": "One location has been removed from your event.",
+      "created-event-date": "A new date has been added to your event.",
+      "cancelled-event-date": "One date has been removed. Ticket and Payment refunds will be processed where applicable",
+      "created-event-feature": "A booking request has been sent to {{profileName}}.",
+      "cancelled-event-feature": "{{profileName}}, has been removed from your event",
+      "created-event-staff": "A Booking request(s) has been sent to {{profileName}}",
+      "updated-event-staff": "Your event staff has been updated",
+      "cancelled-event": "You have cancelled {{eventName}}. Any ticket and invoice payments will be refunded if applicable"
+    },
+    "api-errors": {
+      "no-changes-in-event-details": "You didn't make any changes in your event details",
+      "event-feature-booking-failed": "We weren't able to send this booking request. Please try again",
+      "event-staff-booking-failed": "We weren't able to send this booking request. Please try again",
+      "feature-cancellation-failed": "We weren't able to cancel this feature booking. Nothing has been changed. Please try again",
+      "staff-cancellation-failed": "We weren't able to cancel this staff booking. Nothing has been changed. Please try again",
+      "venue-cancellation-failed": "We weren't able to cancel this venue booking. Nothing has been changed. Please try again",
+      "booking-not-active": "This booking has already been cancelled or declined"
+    }
+  },
+  "private-event-dashboard": {
+    "no-private-events": "You are not managing any private events",
+    "details": {
+      "event-name": "Event Name",
+      "event-time": "Event Time",
+      "event-date": "Event Date",
+      "event-location": "Event Location",
+      "event-invitation": "Event Invitation"
+    },
+    "cancel-event-outline": "Cancelling this event will automatically recind all invitations and cancel any booking requests",
+    "confirm-delete-action": "Are you sure you want to cancel this private event",
+    "api-errors": {
+      "duplicate-event-feature": "This event has an existing feature booking request for this provider",
+      "duplicate-event-staff": "This event has an existing staff booking request for this provider",
+      "event-feature-booking-failed": "We weren't able to send this booking request. Please try again",
+      "event-staff-booking-failed": "We weren't able to send this booking request. Please try again",
+      "duplicate-event-guest": "This user has already been sent an invitation to this event",
+      "event-manager-guest-removal": "You can't remove yourself from the guest list of an event you are managing",
+      "private-event-not-active": "This event has already been cancelled or has concluded",
+      "venue-booking-failed": "We weren't able to send this booking request. Please try again",
+      "feature-cancellation-failed": "We weren't able to cancel this feature booking. Nothing has been changed. Please try again",
+      "staff-cancellation-failed": "We weren't able to cancel this staff booking. Nothing has been changed. Please try again",
+      "venue-cancellation-failed": "We weren't able to cancel this venue booking. Nothing has been changed. Please try again",
+      "booking-not-active": "This booking has already been cancelled or declined"
+    },
+    "api-responses": {
+      "successfully-updated-event-details": "You have successfully updated your event details",
+      "successfully-updated-event-location": "You have successfully updated your event location",
+      "successfully-cancelled-event": "Your private event has been cancelled",
+      "event-guest-invite-revoked": "This guest's invitation has been revoked"
+    }
+  },
+  "create-event": {
+    "enter-name": "Name your Event",
+    "public-event": {
+      "select-category": "Select a Category",
+      "preview-fields": {
+        "event-headliner": "Headliner",
+        "event-location": "Location",
+        "event-date": "Date",
+        "event-name": "Event Name",
+        "event-fee": "Fee"
+      },
+      "describe-event": "Describe your Event",
+      "tickets": {
+        "header-text": "Tickets",
+        "name": "Ticket"
+      },
+      "location": {
+        "no-locations": "You don't have any locations added to your event",
+        "venue-city": "Venue City"
+      },
+      "date": {
+        "create-date": "Create Date",
+        "no-dates": "There are no dates listed for this location",
+        "no-features": "You haven't added any features to this date",
+        "duplicate-feature": "This service provider already has a request to feature on this date"
+      },
+      "staff": {
+        "no-staff": "You haven't added any staff to this location",
+        "duplicate-staff": "This service provider already has a request to staff on this date: {}"
+      },
+      "principal": {
+        "principal-selection": "A management account is needed for any public event. This is a vendor profile under your management capable of making and receiving payments",
+        "principal-header": "Once the event is created you can not change the listed principal. Make sure the selected vendor meets all requirements"
+      },
+      "notifications": {
+        "name-category-required": "Both a category and name for the public event are requred before you can proceed",
+        "poster-or-description": "You have to attach either a description or a poster to your event before you can proceed",
+        "empty-venues-list": "We do not have any registered venues in this location ",
+        "date-venue-tickets-required": "A valid date, time and venue are required to add an event date",
+        "invalid-event-duration": "An event date can run for at most 12 hours. Check your start and end times",
+        "invalid-public-event": "A category, name, poster, description, location and principal are required to create a public event",
+        "incomplete-business-profile": "Event Principals need a complete business profile to manage a public event"
+      },
+      "submit-text": "Make sure you have selected a Category for the Event. Filled in the Name, Location, Date and Time. When Finished press the Create Event button. You can list all the Organisers, add more media, dates and different Cities on the next Page.",
+      "api-responses": {
+        "successfully-created-event": "You have successfully created your public event. Use the dashboard to manage or make any changes to your event",
+        "successfully-created-event-staff": "You're booking request has been created successfully",
+        "created-event-without-media": "We couldn't upload your poster and media",
+        "feature-bookings-failed": "We weren't able to send all your feature booking requests",
+        "staff-bookings-failed": "We weren't able to send all your staff booking requests"
+      },
+      "api-errors": {
+        "unsupported-event-format": "unsupported public event format",
+        "provide-event-location": "Please provide public event location",
+        "provide-event-date": "Please provide public event date",
+        "provide-event-date-tickets": "Please provide public event date tickets",
+        "duplicate-public-event-location": "You have already created this location for this public event",
+        "duplicate-public-event-date": "This date overlaps one you have already added to this event location",
+        "minimum-locations-exceeded": "You can not have less than one location for a public event, cancelling the entire event might be a better idea",
+        "minimum-dates-exceeded": "You can not have less than one date attached to a location, please add another before or cancel your location",
+        "duplicate-public-event": "This event seems to be a duplicate or is too similar to one already created",
+        "duplicate-public-event-feature": "This feature profile has already been added to this date",
+        "duplicate-public-event-staff": "This staffer profile already exists for this event",
+        "public-event-creation-failed": "We weren't able to create your public event because a venue could not be booked. Please try again",
+        "event-date-creation-failed": "We weren't able to add this date because the venue could not be booked. Please try again",
+        "event-location-creation-failed": "We weren't able to add this location because a venue could not be booked. Please try again",
+        "invalid-event-duration": "An event date can run for at most 12 hours. Check your start and end times",
+        "event-has-concluded-event-dates": "This event has dates that have already concluded and can't be cancelled"
+      }
+    },
+    "private-event": {
+      "labels": {
+        "event-name": "Event Name",
+        "event-date-time": "Date and Time",
+        "honoree": "Honoree"
+      },
+      "event-invitation": "Write your private event invitation",
+      "preview-fields": {
+        "event-name": "Event Name",
+        "event-address": "Address",
+        "event-date": "Date",
+        "event-time": "Time"
+      },
+      "no-features": "You haven't added any features to your event",
+      "location": {
+        "venue-city": "Venue City",
+        "venue-prompt": "Select a public venue in your location or enter a private address for your event",
+        "public-venues": "public venues",
+        "event-address": "Event Address",
+        "duplicate-feature": "This service provider has already been added as a feature to your event"
+      },
+      "host": {
+        "header-text": "Host",
+        "self": "self",
+        "other": "other"
+      },
+      "staff": {
+        "no-location": "You can start adding staff to your event after you specify a location",
+        "duplicate-staff": "This service provider has already been added as staff to your event"
+      },
+      "notifications": {
+        "name-required": "A name is required for your private event before you can proceed.",
+        "date-time-required": "Please specify a date and time for your event.",
+        "invalid-event-duration": "Your event can run for at most 12 hours. Check your start and end times",
+        "invitation-poster": "You have to attach either an invitation or a poster to your event before you can proceed",
+        "invalid-private-event": "A name, poster, date, invitation and location are required to create a private event"
+      },
+      "submit-text": "Make sure you have selected a name, time and date before you can create your event and start sending out invitations",
+      "api-responses": {
+        "successfully-created-event": "You have successfully created your private event. Use the dashboard to manage or make any changes to your event",
+        "created-event-without-media": "We couldn't upload your poster and media",
+        "feature-bookings-failed": "We weren't able to send all your feature booking requests",
+        "staff-bookings-failed": "We weren't able to send all your staff booking requests",
+        "guest-invitations-failed": "We weren't able to send all your invitations"
+      },
+      "api-errors": {
+        "private-event-creation-failed": "We weren't able to create your private event. Please try again",
+        "invalid-event-duration": "Your event can run for at most 12 hours. Check your start and end times"
+      }
+    }
+  },
+  "service-providers": {
+    "no-service-providers": "There are no service providers for this location",
+    "no-service-providers-found": "We did not find any service providers to match your search"
+  },
+  "user-profile": {
+    "user-socials": {
+      "not-following": "{{profileName}} is not following anyone",
+      "no-followers": "{{profileName}} does not have any followers"
+    }
+  },
+  "vendor-profile": {
+    "only-vendor-manager": "You are the only manager of this vendor",
+    "profile-displays": {
+      "media": "media",
+      "profile-booking": "booking",
+      "services": "services",
+      "management": "management"
+    }
+  },
+  "venues": {
+    "no-venues": "We don't have any venues in this location",
+    "location-search": "We didn't find any venues registered in {}",
+    "no-venues-found": "We did not find any venues"
+  },
+  "venue-profile": {
+    "only-venue-manager": "You are the only manager of this venue",
+    "profile-displays": {
+      "media": "media",
+      "profile-booking": "booking",
+      "services": "services",
+      "management": "management"
+    }
+  },
+  "public-events": {
+    "event-categories": {
+      "kids": "Kids",
+      "family": "Family",
+      "sports": "Sports",
+      "music-concerts": "Music/Concerts",
+      "conferences": "Conferences",
+      "theatre": "Theatre",
+      "lectures-debates": "Lectures/Debates",
+      "festival": "Festival",
+      "fundraiser": "Fundraiser",
+      "parade": "Parade",
+      "other": "Other"
+    },
+    "no-public-events": "We do not have any public events to show at this time",
+    "no-public-events-found": "We did not find any public events that match your search",
+    "api-errors": {
+      "could-not-find-public-event-date": "We couldn't find this event date"
+    }
+  },
+  "private-events": {
+    "api-errors": {
+      "unsupported-private-event-format": "unsupported private event format"
+    }
+  },
+  "public-event-profile": {
+    "no-features": "There are no featured profiles for this public event",
+    "no-locations": "There are no locations for this public event",
+    "no-dates": "There are no dates for this location",
+    "ticket-sales": {
+      "header": "Tickets",
+      "ticket-count": "Tickets: ",
+      "login-required": "You need to be logged in to complete a ticket purchase"
+    },
+    "save-date": {
+      "login-required": "You need to be logged in to save an event date"
+    },
+    "api-responses": {
+      "successfully-saved-event-date": "This date has been added to your events"
+    }
+  },
+  "private-event-profile": {
+    "api-responses": {
+      "invitation-response-sent": "Your invitation response has been sent"
+    }
+  },
+  "user-account": {
+    "user-events": {
+      "no-user-events": "You have no public or private events"
+    }
+  },
+  "user-private-event": {
+    "no-guests": "No confirmed guests for this event yet",
+    "no-features": "There are no featured profiles for this event"
+  },
+  "messaging": {
+    "no-conversations": "You do not have any messages",
+    "no-contacts": "You do not have any contacts",
+    "no-posts": "No posts on this event yet",
+    "connection-lost": "Your message could not be sent, we are trying to reconnect"
+  },
+  "notifications": {
+    "notifications-blocked": "You have not authorised notifications permissions",
+    "notifications-disabled": "Notifications are currenly disabled",
+    "no-notifications": "You do not have any notifications",
+    "api": {
+      "default": "You have a new notification",
+      "private-event-invitation": {
+        "confirmed": "{{profileName}} has accepted your invitation to {{eventName}}",
+        "cancelled": "{{profileName}} has been cancelled",
+        "declined": "{{profileName}} has declined your invitation to {{eventName}}"
+      },
+      "booking": {
+        "request-created": "You have a booking request from {{profileName}} on {{date}} at {{time}}",
+        "request-confirmed": "Your booking request for {{profileName}} on {{date}} at {{time}} has been confirmed",
+        "request-declined": "Your booking request for {{profileName}} on {{date}} at {{time}} has been declined",
+        "request-cancelled": "The booking request for {{profileName}} on {{date}} at {{time}} has been cancelled.",
+        "provider-unavailable": "{{profileName}} is no longer available for bookings.",
+        "invoice-created": "You have a booking invoice for {{profileName}}",
+        "invoice-paid": "Your invoice for this booking: {{profileName}} on {{date}} at {{time}} has been paid",
+        "invoice-cancelled": "Your invoice for this booking: {{profileName}} on {{date}} at {{time}} has been cancelled",
+        "paid-out": "You have been paid for this booking: {{profileName}} on {{date}} at {{time}}"
+      },
+      "venue-manager": {
+        "request": "You have a request to be added as a manager for {{profileName}}"
+      },
+      "vendor-manager": {
+        "request": "You have a request to be added as a manager for {{profileName}}"
+      }
+    }
+  },
+  "search": {
+    "no-search-history": "You do not have any search history",
+    "no-search-results": "We could not find any results to match your search",
+    "search-form": {
+      "placeholder": "search",
+      "invalid-search": "Please enter a valid search request"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<div
+  [ngClass]="{
+    'mobile-public-event-dashboard': device === deviceTypes.mobile,
+    'desktop-public-event-dashboard': device === deviceTypes.desktop,
+  }">
+  <div
+    class="profile-image"
+    [style.background]="profileImage"
+    (click)="updatePublicEventPoster()"></div>
+
+  <form [formGroup]="eventDetailsForm" (ngSubmit)="updatePublicEventDetails()">
+    <mat-select
+      [value]="publicEventCategory"
+      (valueChange)="eventCategorySelection($event)">
+      @for (category of eventCategoriesList; track category) {
+        <mat-option [value]="category[0]">
+          {{ category[1] | translate }}
+        </mat-option>
+      }
+    </mat-select>
+
+    <Tsk-input-component
+      [label]="'create-event.enter-name' | translate"
+      formControlName="eventName">
+    </Tsk-input-component>
+
+    <textarea
+      [placeholder]="'create-event.public-event.describe-event' | translate"
+      formControlName="eventDescription">
+    </textarea>
+
+    <button mat-raised-button class="raised-button" type="submit">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  </form>
+</div>

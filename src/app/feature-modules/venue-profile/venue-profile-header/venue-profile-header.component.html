@@ -1,0 +1,18 @@
+<div
+  [ngClass]="{
+    'mobile-controls': device === deviceTypes.mobile,
+    'desktop-controls': device === deviceTypes.desktop,
+  }">
+  <div class="profile-image-and-name">
+    <div class="profile-image" [style.background]="profileImage"></div>
+    <div class="profile-name">
+      {{ venueName }}
+    </div>
+  </div>
+
+  <div class="profile-details">
+    <div class="location">{{ venueAddress }}</div>
+    <div class="location">{{ venueLocation }}</div>
+    <div class="description">{{ venueDescription }}</div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div
+  class="public-event-date"
+  [style.background]="posterImagePath"
+  (click)="emitPublicEventDateDTO(); $event.stopPropagation()">
+  @if (componentAction === actionOptions.event_management) {
+    <button
+      class="delete-control"
+      mat-icon-button
+      (click)="initiateDeleteAction(); $event.stopPropagation()">
+      <mat-icon
+        [fontIcon]="removeIcon"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+  }
+
+  <div id="time">{{ eventTime }}</div>
+  <div id="date">{{ eventDate }}</div>
+  <div id="venue">{{ eventVenue }}</div>
+</div>

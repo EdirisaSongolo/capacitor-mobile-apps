@@ -1,0 +1,23 @@
+<div
+  [ngClass]="{
+    'mobile-user-profile-dashboard': device === deviceTypes.mobile,
+    'desktop-user-profile-dashboard': device === deviceTypes.desktop,
+  }">
+  <div class="header-text">
+    {{ 'user-profile-dashboard.interests.header-text' | translate }}
+  </div>
+
+  <div class="options">
+    @for (userInterest of userInterests; track userInterest) {
+      <button
+        mat-stroked-button
+        [ngClass]="{
+          selected: userInterest.value === 'Selected',
+          'not-selected': userInterest.value === 'Not Selected',
+        }"
+        (click)="updateInterestSelection(userInterest)">
+        {{ userInterest.label | translate }}
+      </button>
+    }
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div
+  [ngClass]="{
+    'mobile-name-preview': device === deviceTypes.mobile,
+    'desktop-name-preview': device === deviceTypes.desktop,
+  }">
+  <Tsk-private-event-plac
+    [privateEventToken]="privateEventToken"></Tsk-private-event-plac>
+
+  <div id="create-event">
+    <p>{{ 'create-event.private-event.submit-text' | translate }}</p>
+    <button
+      mat-raised-button
+      class="raised-button"
+      (click)="createPrivateEventProfile()">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div
+  [ngClass]="{
+    'mobile-public-events-dashboard': device === deviceTypes.mobile,
+    'desktop-public-events-dashboard': device === deviceTypes.desktop,
+  }">
+  @if (managedPublicEvents.length === 0) {
+    <div class="no-public-events">
+      {{ 'public-event-dashboard.no-public-events' | translate }}
+    </div>
+  }
+
+  @if (managedPublicEvents.length >= 1) {
+    <div class="public-events-list">
+      @for (publicEvent of managedPublicEvents; track publicEvent) {
+        <Tsk-public-event-plac
+          [publicEventToken]="publicEvent"
+          (placAction)="
+            publicEventProfileDashboard($event)
+          "></Tsk-public-event-plac>
+      }
+    </div>
+  }
+</div>

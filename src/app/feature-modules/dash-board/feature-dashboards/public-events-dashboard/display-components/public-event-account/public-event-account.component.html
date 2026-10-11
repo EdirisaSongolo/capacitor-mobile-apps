@@ -1,0 +1,11 @@
+<div
+  [ngClass]="{
+    'mobile-public-event-account': device === deviceTypes.mobile,
+    'desktop-public-event-account': device === deviceTypes.desktop,
+  }">
+  <div class="header">{{ 'Account on File' | translate }}</div>
+  <Tsk-vendor-plac
+    class="event-provider"
+    [vendorToken]="vendorToken"
+    [componentAction]="componentAction"></Tsk-vendor-plac>
+</div>

@@ -1,0 +1,52 @@
+<div
+  [ngClass]="{
+    'mobile-profile-service-dialog': device === deviceTypes.mobile,
+    'desktop-profile-service-dialog': device === deviceTypes.desktop,
+  }"
+  (click)="$event.stopPropagation()">
+  <div class="control">
+    <button
+      mat-icon-button
+      (click)="closeServiceDialog(); $event.stopPropagation()">
+      <mat-icon
+        [fontIcon]="closeIcon"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+  </div>
+
+  <div class="form-title">{{ dialogTitle | translate }}</div>
+
+  <form [formGroup]="serviceForm" (ngSubmit)="submitProviderService()">
+    <mat-select
+      [(value)]="serviceOptionValue"
+      (valueChange)="serviceOptionSelection($event)">
+      @for (option of serviceOptionsList; track option) {
+        <mat-option [value]="option[0]">
+          {{ option[1] | translate }}
+        </mat-option>
+      }
+    </mat-select>
+    <Tsk-input-component
+      [required]="true"
+      [align]="'center'"
+      [label]="
+        'profile-accounts.business-profile.services.service-form.service-name'
+          | translate
+      "
+      formControlName="service">
+    </Tsk-input-component>
+
+    <Tsk-input-component
+      [align]="'center'"
+      [label]="
+        'profile-accounts.business-profile.services.service-form.price'
+          | translate
+      "
+      [money]="true"
+      formControlName="price">
+    </Tsk-input-component>
+    <button mat-raised-button class="raised-button">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  </form>
+</div>

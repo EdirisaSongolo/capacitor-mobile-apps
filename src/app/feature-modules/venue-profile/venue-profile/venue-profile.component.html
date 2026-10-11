@@ -1,0 +1,34 @@
+<div
+  [ngClass]="{
+    'mobile-venue-profile': device === deviceTypes.mobile,
+    'desktop-venue-profile': device === deviceTypes.desktop,
+  }">
+  <Tsk-venue-profile-header></Tsk-venue-profile-header>
+
+  @if (profileOptions) {
+    <div class="profile-options">
+      <button mat-stroked-button (click)="messageVenueProfile()">
+        {{ 'labels.message' | translate }}
+      </button>
+    </div>
+  }
+
+  <div class="display-controls">
+    @for (control of displayControls; track control) {
+      <div>
+        <button
+          class="icon-button"
+          mat-icon-button
+          (click)="updateDisplayPanel(control.route)">
+          <mat-icon
+            [fontIcon]="control.icon"
+            class="material-symbols-outlined"></mat-icon>
+        </button>
+      </div>
+    }
+  </div>
+
+  <div class="venue-profile-display">
+    <router-outlet></router-outlet>
+  </div>
+</div>

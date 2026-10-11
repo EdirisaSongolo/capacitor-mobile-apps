@@ -1,0 +1,37 @@
+<div
+  [ngClass]="{
+    'mobile-chat': device === deviceTypes.mobile,
+    'desktop-chat': device === deviceTypes.desktop,
+  }">
+  <div class="text-pad">
+    <div id="contact">
+      <div id="profile-image" [style.background]="chatImage"></div>
+      <div id="profile-name">
+        <p>{{ chatName }}</p>
+      </div>
+    </div>
+    <div id="messages" #messages_container>
+      @for (message of messages; track message) {
+        <div
+          id="message"
+          [ngClass]="{
+            'user-message':
+              message.senderUserId === userChatProfile.userProfileId,
+            'contact-message':
+              message.senderUserId !== userChatProfile.userProfileId,
+          }">
+          {{ message.message }}
+        </div>
+      }
+    </div>
+    <form [formGroup]="messageForm" (ngSubmit)="sendUserMessage()">
+      <textarea
+        #text_area
+        formControlName="message"
+        [maxLength]="50"></textarea>
+      <button mat-icon-button>
+        <mat-icon>{{ sendIcon }}</mat-icon>
+      </button>
+    </form>
+  </div>
+</div>

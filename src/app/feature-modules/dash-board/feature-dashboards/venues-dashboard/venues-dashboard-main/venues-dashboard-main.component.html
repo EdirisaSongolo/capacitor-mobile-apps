@@ -1,0 +1,39 @@
+<div
+  [ngClass]="{
+    'mobile-venues-dashboard': device === deviceTypes.mobile,
+    'desktop-venues-dashboard': device === deviceTypes.desktop,
+  }">
+  <div class="controls">
+    <mat-select
+      [value]="displayPanel"
+      (valueChange)="updateDisplayPanel($event)">
+      @for (control of venuesControls; track control) {
+        <mat-option [value]="control.display">
+          {{ control.name | translate }}
+        </mat-option>
+      }
+    </mat-select>
+  </div>
+
+  @if (displayPanel === panelOptions.venues_list) {
+    @if (managedVenues.length === 0) {
+      <div class="no-venue-profiles">
+        <p>{{ 'venues-dashboard.no-venue-profiles' | translate }}</p>
+      </div>
+    }
+    @if (managedVenues.length >= 1) {
+      <div class="venues-list">
+        @for (venue of managedVenues; track venue) {
+          <Tsk-venue-plac
+            [componentAction]="componentAction"
+            [venueToken]="venue"
+            (placAction)="venueProfileDashboard($event)"></Tsk-venue-plac>
+        }
+      </div>
+    }
+  }
+
+  @if (displayPanel === panelOptions.create_venue) {
+    <Tsk-venue-profile-details></Tsk-venue-profile-details>
+  }
+</div>

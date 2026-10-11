@@ -1,0 +1,212 @@
+@use 'src/styles-app' as *;
+
+.mobile-business-profile,
+.desktop-business-profile {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  .header {
+    min-width: 50%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0rem;
+    padding: 0.1rem;
+    text-align: center;
+  }
+
+  .profile-availability {
+    display: flex;
+    width: 50%;
+    min-height: 3rem;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+
+    mat-slide-toggle {
+      --mat-slide-toggle-track-width: 48px;
+    }
+  }
+
+  .business-category {
+    display: flex;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    flex-direction: column;
+
+    mat-select {
+      width: 100%;
+      margin: auto;
+      text-align: center;
+    }
+  }
+
+  .payment-rate {
+    display: flex;
+    min-height: 5rem;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .rate-details {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      padding: 0rem;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+
+      .detail {
+        width: 30%;
+        margin: auto;
+        padding-bottom: 0.5rem;
+        text-align: center;
+        border-bottom: 0.5px solid;
+        border-color: $foreground;
+      }
+    }
+  }
+
+  .services-control {
+    display: flex;
+    min-height: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-services {
+    display: flex;
+    width: 100%;
+    min-height: 10rem;
+    justify-content: center;
+    align-items: center;
+
+    .no-services {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      padding: 0rem;
+      justify-content: center;
+      align-content: center;
+    }
+
+    .profile-services-list {
+      display: flex;
+      width: 100%;
+      min-height: 10rem;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+
+      Tsk-provider-service-plac {
+        width: 12rem;
+        height: 7rem;
+        margin: 0.2rem;
+      }
+    }
+
+    .provider-services::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  Tsk-profile-rate-dialog,
+  Tsk-profile-service-dialog {
+    position: absolute;
+    z-index: 4;
+    background-color: $background;
+    border: 0.5px solid;
+    border-color: $foreground;
+    border-radius: 0.5rem;
+  }
+
+  Tsk-confirmation-dialog {
+    width: 100%;
+    min-height: 30rem;
+    position: absolute;
+    z-index: 4;
+  }
+}
+
+.mobile-business-profile {
+  .business-category {
+    width: 70%;
+  }
+
+  .payment-rate {
+    width: 95%;
+  }
+
+  .services-control {
+    width: 95%;
+  }
+
+  Tsk-profile-rate-dialog {
+    width: 90%;
+    min-height: 15rem;
+    top: 20%;
+    left: 5%;
+  }
+
+  Tsk-profile-service-dialog {
+    width: 50%;
+    min-height: 18rem;
+    top: 20%;
+    left: 25%;
+  }
+}
+
+.desktop-business-profile {
+  .business-category {
+    width: 40%;
+  }
+
+  .payment-rate {
+    width: 70%;
+  }
+
+  .services-control {
+    width: 95%;
+  }
+
+  Tsk-profile-rate-dialog {
+    width: 60%;
+    min-height: 10rem;
+    top: 25%;
+    left: 20%;
+  }
+
+  Tsk-profile-service-dialog {
+    width: 30%;
+    min-height: 20rem;
+    top: 20%;
+    left: 35%;
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+  user-select: none;
+}

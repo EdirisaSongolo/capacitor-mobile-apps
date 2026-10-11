@@ -1,0 +1,98 @@
+<div
+  [ngClass]="{
+    'mobile-payment-methods': device === deviceTypes.mobile,
+    'desktop-payment-methods': device === deviceTypes.desktop,
+  }">
+  @if (paymentsDisplay === displayOptions.payment_methods) {
+    <div class="saved-payment-methods">
+      <div class="header">
+        <p>
+          {{
+            'profile-revenue.payment-methods.saved-payment-methods' | translate
+          }}
+        </p>
+      </div>
+      @if (cardsOnFile.length === 0) {
+        <div class="no-payment-methods">
+          <p>
+            {{
+              'profile-revenue.payment-methods.no-saved-payment-methods'
+                | translate
+            }}
+          </p>
+        </div>
+      }
+      @if (cardsOnFile.length >= 1) {
+        @for (cardOnFile of cardsOnFile; track cardOnFile) {
+          <div class="payment-option" (click)="setPreferredPayment(cardOnFile)">
+            <div class="brand">
+              @if (cardBrandIcons[cardOnFile.cardBrand]) {
+                <mat-icon
+                  [svgIcon]="cardBrandIcons[cardOnFile.cardBrand]"></mat-icon>
+              } @else {
+                <mat-icon
+                  class="material-symbols-outlined"
+                  [fontIcon]="creditCard"></mat-icon>
+              }
+            </div>
+            <div class="payment-details">
+              <p>
+                {{ cardOnFile.cardBrand }} ... {{ cardOnFile.cardLastFour }}
+              </p>
+              <p>
+                {{
+                  'profile-revenue.payment-methods.expiration-date' | translate
+                }}
+                {{ cardOnFile.cardExpDate }}
+              </p>
+            </div>
+            @if (cardOnFile.preferred) {
+              <mat-icon
+                class="preferred-card"
+                [fontIcon]="preferredIcon"
+                class="material-symbols-outlined"></mat-icon>
+            }
+          </div>
+        }
+      }
+    </div>
+    <div class="add-payment-method">
+      <div class="header">
+        <p>
+          {{ 'profile-revenue.payment-methods.add-payment-method' | translate }}
+        </p>
+      </div>
+      <div class="payment-method" (click)="displayCardEntry()">
+        <div class="icon">
+          <mat-icon
+            [fontIcon]="creditCard"
+            class="material-symbols-outlined"></mat-icon>
+        </div>
+        <div class="option-name">
+          {{ 'profile-revenue.payment-methods.credit-debit-card' | translate }}
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (paymentsDisplay === displayOptions.add_payment_method) {
+    <div class="card-entry">
+      <div class="header">
+        <p>
+          {{ 'profile-revenue.payment-methods.add-payment-method' | translate }}
+        </p>
+      </div>
+      <div class="card-number" #cardNumber></div>
+      <div class="expiration-and-cvc">
+        <div class="card-elem" #cardExpiry></div>
+        <div class="card-elem" #cardCvc></div>
+      </div>
+      <button
+        class="submit-payment raised-button"
+        mat-raised-button
+        (click)="createCardOnFile(); $event.stopPropagation()">
+        {{ 'button-label.submit' | translate }}
+      </button>
+    </div>
+  }
+</div>

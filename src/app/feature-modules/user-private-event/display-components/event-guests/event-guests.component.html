@@ -1,0 +1,21 @@
+<div
+  [ngClass]="{
+    'mobile-event-guests': device === deviceTypes.mobile,
+    'desktop-event-guests': device === deviceTypes.desktop,
+  }">
+  @if (eventGuests?.length === 0) {
+    <div class="no-guests">
+      <p>{{ 'user-private-event.no-guests' | translate }}</p>
+    </div>
+  }
+
+  @if (eventGuests?.length >= 1) {
+    <div class="guests-list">
+      @for (userToken of eventGuests; track userToken) {
+        <Tsk-user-profile-plac
+          [componentAction]="componentAction"
+          [userTokenDTO]="userToken"></Tsk-user-profile-plac>
+      }
+    </div>
+  }
+</div>

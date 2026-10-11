@@ -1,0 +1,9 @@
+<div
+  [ngClass]="{
+    'mobile-media': device === deviceTypes.mobile,
+    'desktop-media': device === deviceTypes.desktop,
+    selected: selected === true,
+  }"
+  (click)="emitMediaFileDTO(mediaFile)">
+  <img [src]="mediaFile.mediaFileUrl" [alt]="mediaFile.mediaFileName" />
+</div>

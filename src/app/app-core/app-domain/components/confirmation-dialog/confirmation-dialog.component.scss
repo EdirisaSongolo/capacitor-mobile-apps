@@ -1,0 +1,71 @@
+@use 'src/styles-app' as *;
+
+.delete-confirmation-mobile,
+.delete-confirmation-desktop {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  padding: 0rem;
+
+  .confirmation-dialog {
+    display: flex;
+    height: auto;
+    min-height: 12rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $background;
+    border: 0.5px solid;
+    border-color: $foreground;
+    border-radius: 0.5rem;
+
+    .close {
+      min-width: 2rem;
+      margin: auto;
+      margin-top: 0;
+      margin-right: 1rem;
+      margin-bottom: 0;
+      color: $remove;
+      padding: 0;
+
+      mat-icon {
+        font-size: large;
+      }
+    }
+
+    p {
+      width: 90%;
+      height: auto;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .confirm {
+      min-width: 30%;
+      margin: auto;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.delete-confirmation-mobile {
+  .confirmation-dialog {
+    width: 90%;
+    left: 4%;
+  }
+}
+
+.delete-confirmation-desktop {
+  .confirmation-dialog {
+    width: 70%;
+    left: 14%;
+  }
+}

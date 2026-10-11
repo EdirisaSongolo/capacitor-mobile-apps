@@ -1,0 +1,37 @@
+<div
+  [ngClass]="{
+    'mobile-event-posts': device === deviceTypes.mobile,
+    'desktop-event-posts': device === deviceTypes.desktop,
+  }">
+  <div class="posts-pad">
+    @if (eventPosts.length === 0) {
+      <div class="no-posts">
+        {{ 'messaging.no-posts' | translate }}
+      </div>
+    } @else {
+      <div class="posts" #posts_container>
+        @for (eventPost of eventPosts; track eventPost.postId) {
+          <div
+            [ngClass]="{
+              'user-post': eventPost.senderUserId === userProfileId,
+              'contact-post': eventPost.senderUserId !== userProfileId,
+            }">
+            @if (eventPost.senderUserId !== userProfileId) {
+              <p class="post-sender">{{ eventPost.senderProfile?.userName }}</p>
+            }
+            {{ eventPost.post }}
+          </div>
+        }
+      </div>
+    }
+
+    @if (postAccess) {
+      <form [formGroup]="postForm" (ngSubmit)="sendEventPost()">
+        <textarea #text_area formControlName="post" [maxLength]="50"></textarea>
+        <button mat-icon-button>
+          <mat-icon>{{ sendIcon }}</mat-icon>
+        </button>
+      </form>
+    }
+  </div>
+</div>

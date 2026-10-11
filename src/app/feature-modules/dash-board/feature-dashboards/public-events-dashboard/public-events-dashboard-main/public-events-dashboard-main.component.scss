@@ -1,0 +1,47 @@
+@use 'src/styles-app' as *;
+
+.mobile-public-events-dashboard,
+.desktop-public-events-dashboard {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .no-public-events {
+    display: flex;
+    height: auto;
+    margin: auto;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .public-events-list {
+    display: flex;
+    width: 100%;
+    min-height: 30rem;
+    margin: auto;
+    padding: 0rem;
+    align-content: flex-start;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+  }
+
+  .public-events-list::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.mobile-public-events-dashboard {
+  margin-top: 0rem;
+}
+
+.desktop-public-events-dashboard {
+  max-width: 50rem;
+}

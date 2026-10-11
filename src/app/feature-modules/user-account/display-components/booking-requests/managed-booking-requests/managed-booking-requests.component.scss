@@ -1,0 +1,55 @@
+@use 'src/styles-app' as *;
+
+.mobile-profile-booking,
+.desktop-profile-booking {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+
+  .no-booking-requests {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      width: 80%;
+      height: auto;
+      margin: auto;
+      text-align: center;
+    }
+  }
+
+  .booking-requests-list {
+    display: flex;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+
+    Tsk-profile-booking-plac {
+      display: block;
+      width: 98%;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding: 0;
+    }
+  }
+
+  .booking-requests-list::-webkit-scrollbar {
+    display: none;
+  }
+}

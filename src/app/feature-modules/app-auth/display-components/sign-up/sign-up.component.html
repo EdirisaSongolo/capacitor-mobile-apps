@@ -1,0 +1,95 @@
+<div
+  [ngClass]="{
+    'mobile-sign-up': device === deviceTypes.mobile,
+    'desktop-sign-up': device === deviceTypes.desktop,
+  }">
+  <form
+    [ngClass]="{
+      'mobile-sign-up-form': device === deviceTypes.mobile,
+      'desktop-sign-up-form': device === deviceTypes.desktop,
+    }"
+    [formGroup]="signUpForm"
+    (ngSubmit)="createUserProfile()">
+    <Tsk-input-component
+      [required]="true"
+      [label]="'auth.sign-up.form.first-name' | translate"
+      formControlName="firstName"
+      [errorMessage]="
+        signUpForm.controls['firstName']?.touched &&
+        signUpForm.controls['firstName'].errors?.['required']
+          ? ('auth.sign-up.form-errors.required' | translate)
+          : null
+      ">
+    </Tsk-input-component>
+
+    <Tsk-input-component
+      [required]="true"
+      [label]="'auth.sign-up.form.last-name' | translate"
+      formControlName="lastName"
+      [errorMessage]="
+        signUpForm.controls['lastName']?.touched &&
+        signUpForm.controls['lastName'].errors?.['required']
+          ? ('auth.sign-up.form-errors.required' | translate)
+          : null
+      ">
+    </Tsk-input-component>
+
+    <Tsk-input-component
+      [required]="true"
+      [label]="'auth.sign-up.form.user-name' | translate"
+      formControlName="userName"
+      [errorMessage]="
+        signUpForm.controls['userName']?.touched &&
+        signUpForm.controls['userName'].errors?.['required']
+          ? ('auth.sign-up.form-errors.required' | translate)
+          : null
+      ">
+    </Tsk-input-component>
+
+    <Tsk-input-component
+      [required]="true"
+      [label]="'auth.sign-up.form.user-email' | translate"
+      formControlName="emailAddress"
+      [errorMessage]="
+        signUpForm.controls['emailAddress']?.touched &&
+        (signUpForm.controls['emailAddress'].errors?.['required'] ||
+          signUpForm.controls['emailAddress'].errors?.['email'])
+          ? ('auth.sign-up.form-errors.required' | translate)
+          : null
+      ">
+    </Tsk-input-component>
+
+    <Tsk-input-component
+      [required]="true"
+      type="password"
+      [label]="'auth.sign-up.form.user-password' | translate"
+      formControlName="userPassword"
+      [errorMessage]="
+        signUpForm.controls['userPassword']?.touched &&
+        signUpForm.controls['userPassword'].errors?.['required']
+          ? ('auth.sign-up.form-errors.required' | translate)
+          : null
+      ">
+    </Tsk-input-component>
+
+    <Tsk-input-component
+      [required]="true"
+      type="password"
+      [label]="'auth.sign-up.form.confirm-password' | translate"
+      formControlName="confirmPassword"
+      [errorMessage]="
+        signUpForm.controls['confirmPassword']?.touched &&
+        signUpForm.controls['confirmPassword'].errors?.['required']
+          ? ('auth.sign-up.form-errors.required' | translate)
+          : null
+      ">
+    </Tsk-input-component>
+
+    <button
+      mat-raised-button
+      class="raised-button"
+      [disabled]="signUpForm.invalid">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  </form>
+</div>

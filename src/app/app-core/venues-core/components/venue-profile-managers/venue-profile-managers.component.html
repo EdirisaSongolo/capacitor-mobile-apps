@@ -1,0 +1,53 @@
+<div
+  [ngClass]="{
+    'mobile-venues-dashboard': device === deviceTypes.mobile,
+    'desktop-venues-dashboard': device === deviceTypes.desktop,
+  }">
+  @if (componentAction === actionsOptions.dashboard) {
+    <div class="controls">
+      @if (selectedProfiles.length === 0) {
+        <button
+          [ngClass]="{
+            add: controlIcon === 'add',
+            list: controlIcon === 'filter_list',
+          }"
+          mat-icon-button
+          (click)="updateDisplayPanel()">
+          <mat-icon [fontIcon]="controlIcon" class="material-symbols-outlined">
+          </mat-icon>
+        </button>
+      }
+      @if (selectedProfiles.length >= 1) {
+        <button
+          class="remove"
+          mat-icon-button
+          (click)="deleteSelectedManagers()">
+          <mat-icon [fontIcon]="deleteIcon" class="material-symbols-outlined">
+          </mat-icon>
+        </button>
+      }
+    </div>
+  }
+
+  @if (managementDisplay === displayOptions.managementList) {
+    <div class="venue-management-list">
+      @for (venueManager of venueManagement; track venueManager) {
+        <Tsk-user-profile-plac
+          [componentAction]="componentAction"
+          [userTokenDTO]="venueManager.manager"
+          (placAction)="updateSelectedProfiles($event)"></Tsk-user-profile-plac>
+      }
+    </div>
+  }
+
+  @if (managementDisplay === displayOptions.socialsList) {
+    <Tsk-user-search
+      (placAction)="createVenueManager($event)"></Tsk-user-search>
+  }
+
+  @if (confirmationDialog) {
+    <Tsk-confirmation-dialog
+      [confirmationMessage]="deleteConfirmation"
+      (dialogAction)="propateDialogAction($event)"></Tsk-confirmation-dialog>
+  }
+</div>

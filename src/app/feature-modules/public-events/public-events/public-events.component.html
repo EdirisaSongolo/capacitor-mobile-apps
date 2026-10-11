@@ -1,0 +1,50 @@
+<div
+  [ngClass]="{
+    'mobile-public-events-home': device === deviceTypes.mobile,
+    'desktop-public-events-home': device === deviceTypes.desktop,
+  }">
+  <form class="public-events-search" [formGroup]="publicEventsForm">
+    <Tsk-input-component
+      [label]="'labels.public-events-search' | translate"
+      [align]="'center'"
+      formControlName="public_event">
+    </Tsk-input-component>
+  </form>
+
+  @if (publicEventDisplay === displayOptions.public_events_list) {
+    <Tsk-categories
+      [locationCategories]="publicEventCategories"
+      (categoryAction)="selectEventCategory($event)"></Tsk-categories>
+    @if (publicEvents.length === 0) {
+      <div class="no-events">
+        <p>{{ 'public-events.no-public-events' | translate }}</p>
+      </div>
+    }
+    @if (publicEvents.length >= 1) {
+      <div class="public-events-display">
+        @for (publicEvent of publicEvents | slice: 0 : 20; track publicEvent) {
+          <Tsk-public-event-plac
+            [publicEventToken]="publicEvent"
+            (placAction)="publicEventProfile($event)"></Tsk-public-event-plac>
+        }
+      </div>
+    }
+  }
+
+  @if (publicEventDisplay === displayOptions.public_events_search) {
+    @if (searchResults.length === 0) {
+      <div class="no-events">
+        <p>{{ 'public-events.no-public-events-found' | translate }}</p>
+      </div>
+    }
+    @if (searchResults.length >= 1) {
+      <div class="public-events-display">
+        @for (publicEvent of searchResults | slice: 0 : 20; track publicEvent) {
+          <Tsk-public-event-plac
+            [publicEventToken]="publicEvent"
+            (placAction)="publicEventProfile($event)"></Tsk-public-event-plac>
+        }
+      </div>
+    }
+  }
+</div>

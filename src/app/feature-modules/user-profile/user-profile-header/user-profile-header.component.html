@@ -1,0 +1,27 @@
+<div
+  [ngClass]="{
+    'mobile-controls': device === deviceTypes.mobile,
+    'desktop-controls': device === deviceTypes.desktop,
+  }">
+  <div class="profile-image-and-name">
+    <div class="profile-image" [style.background]="profileImage"></div>
+    <div class="profile-name">
+      {{ userTokenDTO?.userName }}
+    </div>
+  </div>
+
+  <div class="socials-and-bio">
+    <div class="socials">
+      <li (click)="displaySocialsPanel(socialsOptions.followers)">
+        {{ 'labels.followers' | translate }}
+      </li>
+      <li (click)="displaySocialsPanel(socialsOptions.following)">
+        {{ 'labels.following' | translate }}
+      </li>
+    </div>
+
+    <div class="user-biography">
+      {{ userTokenDTO?.userBiography }}
+    </div>
+  </div>
+</div>

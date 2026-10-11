@@ -1,0 +1,102 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "outDir": "./dist/out-tsc",
+    "rootDir": "./src",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "es2020",
+    "types": ["google.maps", "node", "vitest/globals"],
+    "paths": {
+      "@testing/*": ["./src/testing/*"],
+      "@environments/*": ["./src/environments/*"],
+      "@root-module": ["./src/app/root.module"],
+      "@root-component": ["./src/app/root.component"],
+      "@core-modules": ["./src/app/core-modules"],
+      "@core-modules/*": ["./src/app/core-modules/*"],
+      "@domain-services/*": ["./src/app/app-core/app-domain/domain-services/*"],
+      "@domain-data-models/*": [
+        "./src/app/app-core/app-domain/domain-data-models/*"
+      ],
+      "@app-store/*": ["./src/app/core-modules/app-store/*"],
+      "@app-domain/*": ["./src/app/app-core/app-domain/*"],
+      "@auth-core/*": ["./src/app/app-core/auth-core/*"],
+      "@profile-accounts-core/*": [
+        "./src/app/app-core/profile-accounts-core/*"
+      ],
+      "@user-profile-core/*": ["./src/app/app-core/user-profile-core/*"],
+      "@venues-core/*": ["./src/app/app-core/venues-core/*"],
+      "@vendors-core/*": ["./src/app/app-core/vendors-core/*"],
+      "@public-events-core/*": ["./src/app/app-core/public-events-core/*"],
+      "@private-events-core/*": ["./src/app/app-core/private-events-core/*"],
+      "@profile-revenue-core/*": ["./src/app/app-core/profile-revenue-core/*"],
+      "@communications-core/*": ["./src/app/app-core/communications-core/*"],
+      "@media-core/*": ["./src/app/app-core/media-core/*"],
+      "@composite-core/*": ["./src/app/app-core/composite-core/*"],
+      "@app-core/*": ["./src/app/app-core/*"],
+      "@app-main/*": ["./src/app/app-main/*"],
+      "@app-auth/*": ["./src/app/feature-modules/app-auth/*"],
+      "@create-event/*": ["./src/app/feature-modules/create-event/*"],
+      "@create-public-event/*": [
+        "./src/app/feature-modules/create-event/create-public-event/*"
+      ],
+      "@create-private-event/*": [
+        "./src/app/feature-modules/create-event/create-private-event/*"
+      ],
+      "@dash-board/*": ["./src/app/feature-modules/dash-board/*"],
+      "@user-profile-dashboard/*": [
+        "./src/app/feature-modules/dash-board/feature-dashboards/user-profile-dashboard/*"
+      ],
+      "@venues-dashboard/*": [
+        "./src/app/feature-modules/dash-board/feature-dashboards/venues-dashboard/*"
+      ],
+      "@vendors-dashboard/*": [
+        "./src/app/feature-modules/dash-board/feature-dashboards/vendors-dashboard/*"
+      ],
+      "@public-events-dashboard/*": [
+        "./src/app/feature-modules/dash-board/feature-dashboards/public-events-dashboard/*"
+      ],
+      "@private-events-dashboard/*": [
+        "./src/app/feature-modules/dash-board/feature-dashboards/private-events-dashboard/*"
+      ],
+      "@public-events/*": ["./src/app/feature-modules/public-events/*"],
+      "@venues/*": ["./src/app/feature-modules/venues/*"],
+      "@service-providers/*": ["./src/app/feature-modules/service-providers/*"],
+      "@search/*": ["./src/app/feature-modules/search/*"],
+      "@user-account/*": ["./src/app/feature-modules/user-account/*"],
+      "@messaging/*": ["./src/app/feature-modules/messaging/*"],
+      "@notifications/*": ["./src/app/feature-modules/notifications/*"],
+      "@venue-profile/*": ["./src/app/feature-modules/venue-profile/*"],
+      "@vendor-profile/*": ["./src/app/feature-modules/vendor-profile/*"],
+      "@user-profile/*": ["./src/app/feature-modules/user-profile/*"],
+      "@public-event-profile/*": [
+        "./src/app/feature-modules/public-event-profile/*"
+      ],
+      "@user-public-event/*": ["./src/app/feature-modules/user-public-event/*"],
+      "@user-private-event/*": [
+        "./src/app/feature-modules/user-private-event/*"
+      ]
+    },
+    "useDefineForClassFields": false
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

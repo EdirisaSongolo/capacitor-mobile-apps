@@ -1,0 +1,28 @@
+<div
+  [ngClass]="{
+    'delete-confirmation-mobile': device === deviceTypes.mobile,
+    'delete-confirmation-desktop': device === deviceTypes.desktop,
+  }"
+  (click)="componentClickEvent($event)">
+  <div
+    #dialog_selector
+    class="confirmation-dialog"
+    (click)="dialogClickEvent($event)">
+    <button
+      class="close"
+      mat-icon-button
+      (click)="closeDialog(); $event.stopPropagation()">
+      <mat-icon [fontIcon]="remove" class="material-symbols-outlined">
+      </mat-icon>
+    </button>
+
+    <p>{{ confirmationMessage | translate }}</p>
+
+    <button
+      class="confirm raised-button"
+      mat-raised-button
+      (click)="propagateDeleteAction(); $event.stopPropagation()">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  </div>
+</div>

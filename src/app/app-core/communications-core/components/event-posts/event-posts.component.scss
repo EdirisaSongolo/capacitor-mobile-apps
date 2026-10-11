@@ -1,0 +1,171 @@
+@use 'src/styles-app' as *;
+
+.mobile-event-posts,
+.desktop-event-posts {
+  display: flex;
+  width: 90%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  margin-top: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+
+  .posts-pad {
+    display: flex;
+    height: 30rem;
+    margin: auto;
+    margin-top: 2.5rem;
+    padding: 0rem;
+    flex: 1;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: $card-shadow;
+
+    .no-posts {
+      display: flex;
+      width: 90%;
+      min-height: 5rem;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .posts {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      margin-top: 0.1rem;
+      padding: 0rem;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      scrollbar-width: none;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .posts::-webkit-scrollbar {
+      display: none;
+    }
+
+    form {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0rem;
+      padding: 0rem;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      flex: 0 0 auto;
+
+      textarea {
+        display: flex;
+        width: 78%;
+        max-width: 15rem;
+        height: auto;
+        max-height: 6rem;
+        margin: auto;
+        margin-bottom: 1.1rem;
+        padding: 0.1rem 0.2rem;
+        outline: none;
+        justify-self: flex-end;
+        border: 1px solid;
+        border-color: $foreground;
+        border-radius: 0.5rem;
+      }
+
+      button {
+        display: flex;
+        width: 2rem;
+        height: 2rem;
+        margin: auto;
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        padding: 0.2rem;
+        justify-content: center;
+        align-items: center;
+        color: $foreground;
+        border: 0.5px solid;
+        border-color: $foreground;
+        border-radius: 100%;
+      }
+    }
+  }
+}
+
+.mobile-event-posts {
+  .posts-pad {
+    width: 100%;
+
+    form {
+      height: auto;
+      min-height: 3rem;
+
+      textarea {
+        min-height: 3rem;
+      }
+    }
+  }
+}
+
+.desktop-event-posts {
+  .posts-pad {
+    width: 60%;
+    min-width: 19rem;
+    max-width: 40rem;
+
+    form {
+      max-width: 20rem;
+      height: auto;
+      min-height: 3rem;
+
+      textarea {
+        min-height: 3rem;
+      }
+    }
+  }
+}
+
+.user-post {
+  width: auto;
+  max-width: 15rem;
+  margin: auto;
+  margin-top: 0.2rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.2rem;
+  padding: 0.4rem;
+  border: 1px solid;
+  border-color: $accent-color;
+  border-radius: 0.6rem;
+}
+
+.contact-post {
+  width: auto;
+  max-width: 15rem;
+  margin: auto;
+  margin-top: 0.2rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.2rem;
+  padding: 0.4rem;
+  border: 1px solid;
+  border-color: $foreground;
+  border-radius: 0.6rem;
+
+  .post-sender {
+    margin: 0rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.75rem;
+  }
+}
+
+:host ::ng-deep .mat-mdc-icon-button {
+  width: auto;
+  height: auto;
+  padding: 0rem;
+  list-style: none;
+}

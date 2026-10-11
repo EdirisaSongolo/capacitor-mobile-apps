@@ -1,0 +1,114 @@
+@use 'src/styles-app' as *;
+
+.mobile-controls,
+.desktop-controls {
+  display: flex;
+  height: auto;
+  min-height: 5rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+
+  .profile-image-and-name {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .profile-image {
+      margin: auto;
+      margin-bottom: 0.5rem;
+      padding: 0rem;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      box-shadow: $card-shadow;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: auto;
+        padding: 0rem;
+        border-radius: 0.5rem;
+      }
+    }
+
+    .profile-name {
+      width: 90%;
+      min-height: 0.5rem;
+      margin: auto;
+      text-align: center;
+      text-wrap: nowrap;
+      text-overflow: ellipsis;
+      white-space: none;
+      overflow: hidden;
+      cursor: pointer;
+    }
+  }
+
+  .profile-details {
+    display: flex;
+    min-height: 5rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .location {
+      width: 70%;
+      margin: auto;
+      margin-top: 0rem;
+      margin-bottom: 0rem;
+      text-align: center;
+    }
+
+    .description {
+      width: 100%;
+      margin: auto;
+      text-align: center;
+    }
+  }
+}
+
+.mobile-controls {
+  width: 100%;
+
+  .profile-image-and-name {
+    width: 32%;
+
+    .profile-image {
+      width: 4rem;
+      height: 6.5rem;
+    }
+
+    .profile-name {
+      margin-bottom: 0.2rem;
+    }
+  }
+
+  .profile-details {
+    width: 65%;
+  }
+}
+
+.desktop-controls {
+  width: 80%;
+
+  .profile-image-and-name {
+    width: 30%;
+    margin-right: 0.5rem;
+
+    .profile-image {
+      width: 5rem;
+      height: 7rem;
+    }
+  }
+
+  .profile-details {
+    width: 65%;
+    margin-left: 0.5rem;
+  }
+}

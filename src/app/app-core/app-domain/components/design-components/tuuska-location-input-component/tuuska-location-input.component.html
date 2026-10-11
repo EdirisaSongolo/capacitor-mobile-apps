@@ -1,0 +1,42 @@
+<div
+  class="field"
+  [class.focused]="focused"
+  [class.has-value]="value.length > 0"
+  [class.disabled]="disabled"
+  [class.error]="errorMessage"
+  [class.align-center]="align === 'center'">
+  <input
+    [id]="inputId"
+    type="text"
+    [value]="value"
+    [disabled]="disabled"
+    autocomplete="off"
+    [matAutocomplete]="auto_complete"
+    matAutocompletePosition="below"
+    [attr.aria-invalid]="errorMessage ? true : null"
+    [attr.aria-describedby]="errorMessage ? inputId + '-error' : null"
+    (input)="onInput($event)"
+    (focus)="onFocus()"
+    (blur)="onBlur()" />
+  <label [for]="inputId">
+    {{ label }}
+    @if (required) {
+      <span class="required"> *</span>
+    }
+  </label>
+  <mat-autocomplete
+    #auto_complete="matAutocomplete"
+    (optionSelected)="onOptionSelected($event)">
+    @for (location of suggestions; track location) {
+      <mat-option [value]="location">
+        {{ location }}
+      </mat-option>
+    }
+  </mat-autocomplete>
+  <div class="line"></div>
+  @if (errorMessage) {
+    <div class="err" [id]="inputId + '-error'">
+      {{ errorMessage }}
+    </div>
+  }
+</div>

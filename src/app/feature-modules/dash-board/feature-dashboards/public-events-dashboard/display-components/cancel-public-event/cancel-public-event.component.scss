@@ -1,0 +1,50 @@
+@use 'src/styles-app' as *;
+
+.mobile-public-event-dashboard,
+.desktop-public-event-dashboard {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  .cancel-event {
+    display: flex;
+    width: 90%;
+    height: auto;
+    min-height: 25rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+
+    p {
+      width: 80%;
+      height: auto;
+      margin: auto;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    button {
+      width: 25%;
+      margin: auto;
+      margin-top: 0.5rem;
+    }
+  }
+
+  Tsk-confirmation-dialog {
+    width: 100%;
+    min-height: 30rem;
+    position: absolute;
+    z-index: 4;
+  }
+}

@@ -1,0 +1,10 @@
+<div
+  [ngClass]="{
+    'mobile-dash-board': device === deviceTypes.mobile,
+    'desktop-dash-board': device === deviceTypes.desktop,
+  }">
+  <Tsk-dash-board-controls></Tsk-dash-board-controls>
+  <div class="dashboard-display">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div
+  [ngClass]="{
+    'mobile-user-events': device === deviceTypes.mobile,
+    'desktop-user-events': device === deviceTypes.desktop,
+  }">
+  @if (eventsDisplay === displayOptions.events_list) {
+    @if (userEvents?.length === 0) {
+      <div class="no-user-events">
+        <P> {{ 'user-account.user-events.no-user-events' | translate }} </P>
+      </div>
+    }
+    @if (userEvents?.length !== 0) {
+      <div class="user-events-list">
+        @for (userEvent of userEvents; track userEvent) {
+          @if (userEvent.eventType === eventTypes.publicEvent) {
+            <Tsk-public-event-plac
+              [componentAction]="componentAction"
+              [publicEventToken]="asPublicEventToken(userEvent)"
+              (placAction)="
+                processEventPlacAction($event)
+              "></Tsk-public-event-plac>
+          }
+          @if (userEvent.eventType === eventTypes.privateEvent) {
+            <Tsk-private-event-plac
+              [componentAction]="componentAction"
+              [privateEventToken]="asPrivateEventToken(userEvent)"
+              (placAction)="
+                processEventPlacAction($event)
+              "></Tsk-private-event-plac>
+          }
+        }
+      </div>
+    }
+  }
+
+  <!-- <ng-template [ngIf]="eventsDisplay === displayOptions.public_event">
+<Tsk-public-event [eventComponent]="eventComponent"></Tsk-public-event>
+</ng-template> -->
+</div>

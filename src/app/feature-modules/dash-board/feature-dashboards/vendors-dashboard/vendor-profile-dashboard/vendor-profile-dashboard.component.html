@@ -1,0 +1,33 @@
+<div
+  [ngClass]="{
+    'mobile-vendors-dashboard': device === deviceTypes.mobile,
+    'desktop-vendors-dashboard': device === deviceTypes.desktop,
+  }">
+  <div class="vendor">{{ vendorToken?.vendorName }}</div>
+
+  <div class="controls">
+    @for (control of vendorControls; track control) {
+      <div>
+        <button
+          class="icon-button"
+          mat-icon-button
+          (click)="updateDisplayPanel(control)">
+          <mat-icon
+            [fontIcon]="control.icon"
+            class="material-symbols-outlined"></mat-icon>
+        </button>
+      </div>
+    }
+  </div>
+
+  <div class="dashboard-display">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- Move to settings -->
+<!-- <ng-template [ngIf]="profileDTO && displayPanel === panelOptions.management">
+<Tsk-vendor-profile-managers
+[profile]="profileDTO"
+[componentAction]="componentAction"></Tsk-vendor-profile-managers>
+</ng-template> -->

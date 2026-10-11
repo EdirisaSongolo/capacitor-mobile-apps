@@ -1,0 +1,53 @@
+.mobile-sign-up,
+.desktop-sign-up {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mobile-sign-up {
+  min-height: 15rem;
+}
+
+.desktop-sign-up {
+  min-height: 15rem;
+}
+
+.mobile-sign-up-form,
+.desktop-sign-up-form {
+  display: block;
+  margin: auto;
+  margin-top: 5rem;
+  padding: 0rem;
+  text-align: center;
+
+  Tsk-input-component {
+    width: 100%;
+  }
+
+  button {
+    width: 25%;
+    margin-top: 0.5rem;
+  }
+}
+
+.mobile-sign-up-form {
+  width: 90%;
+
+  button {
+    width: 35%;
+  }
+}
+
+.desktop-sign-up-form {
+  width: 55%;
+
+  button {
+    width: 25%;
+  }
+}

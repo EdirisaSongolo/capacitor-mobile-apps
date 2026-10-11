@@ -1,0 +1,155 @@
+<div
+  [ngClass]="{
+    'mobile-profile-booking-details': device === deviceTypes.mobile,
+    'desktop-profile-booking-details': device === deviceTypes.desktop,
+  }">
+  <div class="category">
+    {{
+      $safeNavigationMigration(bookingDetails.providerDetails?.businessCategory)
+        | translate
+    }}
+  </div>
+
+  <div>
+    {{ bookingDetails.eventDetails?.eventDate }}
+  </div>
+  <div>
+    {{ bookingDetails.eventDetails?.eventTime }}
+  </div>
+
+  <div class="counter-parties">
+    <div class="entity">
+      <div
+        class="profile-image"
+        [style.background]="bookingDetails.eventDetails?.eventImage"></div>
+      <p class="entity-details">
+        {{ bookingDetails.eventDetails?.eventName }}
+      </p>
+      <p class="entity-details">
+        {{ bookingDetails.eventDetails?.eventLocation }}
+      </p>
+    </div>
+
+    <div class="entity">
+      <div
+        class="profile-image"
+        [style.background]="bookingDetails.providerDetails?.profileImage"></div>
+      <p class="entity-details">
+        {{ bookingDetails.providerDetails?.profileName }}
+      </p>
+      <p class="entity-details">
+        {{ bookingDetails.providerDetails?.profileLocation }}
+      </p>
+    </div>
+  </div>
+
+  <Tsk-profile-rate
+    [profileBaseRate]="
+      $safeNavigationMigration(bookingDetails.providerDetails?.profileBaseRate)
+    "
+    [profileRateUnits]="
+      $safeNavigationMigration(bookingDetails.providerDetails?.profileRateUnits)
+    "></Tsk-profile-rate>
+
+  @if (requestStatus === requestOptions.pending) {
+    <div class="booking-request-options">
+      <button
+        id="decline-button"
+        [ngClass]="{
+          'decline-request': response === requestOptions.declined,
+        }"
+        mat-icon-button
+        (click)="bookingResponse(requestOptions.declined)">
+        <mat-icon
+          [fontIcon]="declineIcon"
+          class="material-symbols-outlined"></mat-icon>
+      </button>
+      <button
+        id="accept-button"
+        [ngClass]="{
+          'accept-request': response === requestOptions.confirmed,
+        }"
+        mat-icon-button
+        (click)="bookingResponse(requestOptions.confirmed)">
+        <mat-icon
+          [fontIcon]="acceptIcon"
+          class="material-symbols-outlined"></mat-icon>
+      </button>
+    </div>
+    <div class="booking-request-response">
+      @if (response === requestOptions.declined) {
+        <div class="response">
+          <div class="response-text">
+            {{
+              'profile-revenue.profile-booking.decline-booking.confirmation-text'
+                | translate
+            }}
+          </div>
+          <button
+            mat-raised-button
+            class="raised-button"
+            (click)="profileBookingResponse(requestOptions.declined)">
+            {{ 'button-label.decline' | translate }}
+          </button>
+        </div>
+      }
+      @if (response === requestOptions.confirmed) {
+        <div class="response">
+          <div class="response-text">
+            {{
+              'profile-revenue.profile-booking.accept-booking.confirmation-text'
+                | translate
+            }}
+          </div>
+          <form
+            [formGroup]="invoiceForm"
+            (ngSubmit)="profileBookingResponse(requestOptions.confirmed)">
+            <Tsk-input-component
+              [required]="true"
+              label="Example: 0.00"
+              [align]="'center'"
+              [money]="true"
+              formControlName="invoiceTotal">
+            </Tsk-input-component>
+            <button mat-raised-button class="raised-button">
+              {{ 'button-label.enter' | translate }}
+            </button>
+          </form>
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="booking-request-status">
+      <div class="statement">{{ statement | translate }}</div>
+      @if (bookingInvoice && requestStatus === requestOptions.confirmed) {
+        <div class="invoice">
+          <div class="invoice-details">
+            <div class="name">{{ 'common.amount' | translate }}</div>
+            <div class="value">{{ bookingDetails.invoiceTotal }}</div>
+          </div>
+          <div class="invoice-details">
+            <div class="name">{{ 'common.status' | translate }}</div>
+            <div class="value">
+              {{ bookingDetails.invoiceStatus | translate }}
+            </div>
+          </div>
+        </div>
+      }
+      <div class="status-option">
+        @if (requestStatus === requestOptions.confirmed) {
+          <button
+            mat-raised-button
+            class="raised-button"
+            (click)="profileBookingResponse(requestOptions.cancelled)">
+            {{ 'button-label.cancel' | translate }}
+          </button>
+        }
+      </div>
+    </div>
+  }
+  @if (confirmationDialog) {
+    <Tsk-confirmation-dialog
+      [confirmationMessage]="confirmationMessage"
+      (dialogAction)="propateDialogAction($event)"></Tsk-confirmation-dialog>
+  }
+</div>

@@ -1,0 +1,21 @@
+<div
+  [ngClass]="{
+    'mobile-private-event-dashboard': device === deviceTypes.mobile,
+    'desktop-private-event-dashboard': device === deviceTypes.desktop,
+  }">
+  <div class="cancel-event">
+    <p>{{ 'private-event-dashboard.cancel-event-outline' | translate }}</p>
+    <button
+      mat-raised-button
+      class="raised-button"
+      (click)="displayConfirmationDialog()">
+      {{ 'button-label.cancel' | translate }}
+    </button>
+  </div>
+
+  @if (confirmationDialog) {
+    <Tsk-confirmation-dialog
+      [confirmationMessage]="cancelConfirmation"
+      (dialogAction)="cancelDialogAction($event)"></Tsk-confirmation-dialog>
+  }
+</div>

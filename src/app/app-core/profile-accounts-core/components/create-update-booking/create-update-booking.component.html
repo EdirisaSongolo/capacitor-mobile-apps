@@ -1,0 +1,63 @@
+<div
+  [ngClass]="{
+    'mobile-profile-booking': device === deviceTypes.mobile,
+    'desktop-profile-booking': device === deviceTypes.desktop,
+  }">
+  <div class="control">
+    <button class="icon-button" mat-icon-button (click)="closeProfileBooking()">
+      <mat-icon [fontIcon]="controlIcon" class="material-symbols-outlined">
+      </mat-icon>
+    </button>
+  </div>
+
+  <div class="category">{{ providerDetails.businessCategory | translate }}</div>
+
+  <div
+    class="profile-image"
+    [style.background]="providerDetails.profileImage"></div>
+
+  <div class="profile-name">{{ providerDetails.profileName }}</div>
+
+  <div class="location">{{ providerDetails.profileLocation }}</div>
+
+  <Tsk-profile-rate
+    [profileBaseRate]="providerDetails.profileBaseRate"
+    [profileRateUnits]="providerDetails.profileRateUnits"></Tsk-profile-rate>
+
+  <Tsk-profile-services
+    [profileServices]="providerDetails.profileServices"></Tsk-profile-services>
+
+  <div class="booking-dates-list">
+    @for (date of bookingDates; track date) {
+      <button
+        mat-stroked-button
+        class="booking-date"
+        (click)="toggleDateSelection(date)"
+        [ngClass]="{
+          'date-selected': date.selected,
+        }"
+        [disabled]="bookingDates.length === 1">
+        <div>{{ date.date }}</div>
+        <div>{{ date.eventTime }}</div>
+      </button>
+    }
+  </div>
+
+  @if (bookingAction === actionOptions.create) {
+    <button
+      class="create-booking raised-button"
+      mat-raised-button
+      (click)="createProfileBooking()">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  }
+
+  @if (bookingAction === actionOptions.update) {
+    <button
+      class="create-booking raised-button"
+      mat-raised-button
+      (click)="updateProfileBooking()">
+      {{ updateLabel | translate }}
+    </button>
+  }
+</div>

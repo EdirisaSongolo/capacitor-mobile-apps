@@ -1,0 +1,77 @@
+@use 'src/styles-app' as *;
+
+.mobile-profile-media,
+.desktop-profile-media {
+  display: flex;
+  width: 100%;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  .controls {
+    display: flex;
+    width: 100%;
+    min-height: 2rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: 2.5rem;
+      height: 3rem;
+      margin: auto;
+      margin-right: 2rem;
+      padding: 0.1rem;
+      border: 1px solid;
+      border-color: $foreground;
+      border-radius: 0.5rem;
+    }
+
+    .add {
+      color: $add;
+    }
+
+    .remove {
+      color: $remove;
+    }
+  }
+
+  .no-media {
+    display: flex;
+    min-width: 60%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .media-display {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    padding: 0rem;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .media-display::-webkit-scrollbar {
+    display: none;
+  }
+
+  Tsk-confirmation-dialog {
+    width: 100%;
+    min-height: 30rem;
+    position: absolute;
+    z-index: 4;
+  }
+}

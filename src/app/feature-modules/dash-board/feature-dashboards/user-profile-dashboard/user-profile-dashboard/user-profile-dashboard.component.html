@@ -1,0 +1,22 @@
+<div
+  [ngClass]="{
+    'mobile-user-profile-dashboard': device === deviceTypes.mobile,
+    'desktop-user-profile-dashboard': device === deviceTypes.desktop,
+  }">
+  <div class="controls">
+    @for (control of userProfileControls; track control) {
+      <button
+        class="icon-button"
+        mat-icon-button
+        (click)="updateDisplayPanel(control)">
+        <mat-icon
+          [fontIcon]="control.icon"
+          class="material-symbols-outlined"></mat-icon>
+      </button>
+    }
+  </div>
+
+  <div class="dashboard-display">
+    <router-outlet></router-outlet>
+  </div>
+</div>

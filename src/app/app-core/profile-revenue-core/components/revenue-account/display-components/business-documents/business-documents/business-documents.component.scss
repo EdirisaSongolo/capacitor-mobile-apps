@@ -1,0 +1,111 @@
+@use 'src/styles-app' as *;
+
+.mobile-business-documents,
+.desktop-business-documents {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .panel {
+    display: flex;
+    width: 100%;
+    min-height: 7rem;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    .control {
+      display: flex;
+      max-width: 5rem;
+      min-height: 7rem;
+      margin: auto;
+      margin-top: 0;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      padding: 0;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      button {
+        margin: auto;
+        margin-top: 0.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .divider {
+        width: 0.2rem;
+        min-height: 4rem;
+        margin: auto;
+        background-color: $foreground;
+        border: 1px solid;
+        border-radius: 0.5rem;
+        border-color: $foreground;
+      }
+    }
+
+    .display {
+      display: flex;
+      min-width: 80%;
+      min-height: 7rem;
+      margin: auto;
+      margin-top: 0;
+      margin-left: 0rem;
+      padding: 0;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      .panel-header {
+        width: 100%;
+        margin-top: 0.9rem;
+        margin-bottom: 0.5rem;
+        padding: 0;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .form-display {
+        display: flex;
+        width: 100%;
+        min-height: 5rem;
+        margin-top: 0rem;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        Tsk-managing-profile,
+        Tsk-identity-verification,
+        Tsk-business-contacts {
+          display: block;
+          width: 100%;
+          min-height: 25rem;
+          margin: auto;
+          padding: 0;
+        }
+      }
+    }
+
+    .display-panel {
+      min-height: 25rem;
+
+      .display-panel-icon {
+        color: $accent-color;
+      }
+
+      .display-panel-divider {
+        min-height: 20rem;
+      }
+    }
+  }
+}

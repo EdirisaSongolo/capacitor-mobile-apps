@@ -1,0 +1,59 @@
+@use 'src/styles-app' as *;
+
+.mobile-name-preview,
+.desktop-name-preview {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  Tsk-private-event-plac {
+    margin: auto;
+    margin-top: 0.5rem;
+  }
+
+  #create-event {
+    display: flex;
+    width: 90%;
+    height: auto;
+    min-height: 5rem;
+    margin: auto;
+    margin-top: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+      margin: auto;
+      text-align: center;
+    }
+
+    button {
+      width: 30%;
+      margin: auto;
+      margin-top: 2rem;
+    }
+  }
+}
+
+.mobile-name-preview {
+  min-height: 30rem;
+
+  Tsk-private-event-plac {
+    width: 8rem;
+    height: 16rem;
+  }
+}
+
+.desktop-name-preview {
+  min-height: 30rem;
+
+  Tsk-private-event-plac {
+    width: 15rem;
+    height: 25rem;
+  }
+}

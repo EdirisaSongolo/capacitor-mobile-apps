@@ -1,0 +1,81 @@
+@use 'src/styles-app' as *;
+
+.mobile-venue-profile,
+.desktop-venue-profile {
+  display: flex;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  Tsk-venue-profile-header {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: auto;
+  }
+
+  .profile-options {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
+
+    button {
+      margin: auto;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .display-controls {
+    display: flex;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .venue-profile-display {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.mobile-venue-profile {
+  width: 100%;
+
+  .profile-options {
+    width: 100%;
+  }
+
+  .display-controls {
+    width: 80%;
+  }
+}
+
+.desktop-venue-profile {
+  width: 55%;
+  max-width: 50rem;
+
+  .profile-options {
+    width: 80%;
+  }
+
+  .display-controls {
+    width: 50%;
+  }
+}

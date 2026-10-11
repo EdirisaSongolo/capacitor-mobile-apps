@@ -1,0 +1,47 @@
+<div
+  [ngClass]="{
+    'mobile-profile-media': device === deviceTypes.mobile,
+    'desktop-profile-media': device === deviceTypes.desktop,
+  }">
+  @if (componentAction === actionsOptions.dashboard) {
+    <div class="controls">
+      @if (selectedMediaFiles.length === 0) {
+        <button class="add" mat-icon-button (click)="createProfileMedia()">
+          <mat-icon
+            [fontIcon]="controlIcons.add"
+            class="material-symbols-outlined">
+          </mat-icon>
+        </button>
+      }
+      @if (selectedMediaFiles.length >= 1) {
+        <button class="remove" mat-icon-button (click)="deleteSelectedMedia()">
+          <mat-icon
+            [fontIcon]="controlIcons.remove"
+            class="material-symbols-outlined">
+          </mat-icon>
+        </button>
+      }
+    </div>
+  }
+
+  @if (profileMedia.length === 0) {
+    <div class="no-media">{{ 'common.no-media' | translate }}</div>
+  }
+
+  @if (profileMedia.length >= 1) {
+    <div class="media-display">
+      @for (mediaFile of profileMedia; track mediaFile) {
+        <Tsk-media-file-plac
+          [componentAction]="componentAction"
+          [mediaFile]="mediaFile"
+          (placAction)="selectMediaFile($event)"></Tsk-media-file-plac>
+      }
+    </div>
+  }
+
+  @if (confirmationDialog) {
+    <Tsk-confirmation-dialog
+      [confirmationMessage]="deleteConfirmation"
+      (dialogAction)="propateDialogAction($event)"></Tsk-confirmation-dialog>
+  }
+</div>

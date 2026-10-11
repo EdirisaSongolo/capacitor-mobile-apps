@@ -1,0 +1,65 @@
+<div
+  [ngClass]="{
+    'mobile-business-documents': device === deviceTypes.mobile,
+    'desktop-business-documents': device === deviceTypes.desktop,
+  }">
+  @for (panel of docPanels; track panel; let index = $index) {
+    <div class="panel">
+      <div
+        class="control"
+        [ngClass]="{
+          'display-panel': panel?.display === displayPanel,
+        }">
+        <button
+          mat-icon-button
+          [ngClass]="{
+            'display-panel-icon': panel?.display === displayPanel,
+          }"
+          (click)="switchDisplayPanel(panel.display)">
+          <mat-icon
+            [fontIcon]="$safeNavigationMigration(panel?.icon)"
+            class="material-symbols-outlined"></mat-icon>
+        </button>
+        @if (docPanels.length !== index + 1) {
+          <div
+            class="divider"
+            [ngClass]="{
+              'display-panel-divider': panel?.display === displayPanel,
+            }"></div>
+        }
+      </div>
+      <div
+        class="display"
+        [ngClass]="{
+          'display-panel': panel?.display === displayPanel,
+        }">
+        <div class="panel-header" (click)="switchDisplayPanel(panel.display)">
+          {{ $safeNavigationMigration(panel?.header) | translate }}
+        </div>
+        <div class="form-display">
+          @if (
+            panel?.display === displayPanel &&
+            displayPanel === docPanelOptions.managing_profile
+          ) {
+            <Tsk-managing-profile
+              [revenueAccount]="revenueAccount"></Tsk-managing-profile>
+          }
+          @if (
+            panel?.display === displayPanel &&
+            displayPanel === docPanelOptions.id_verification
+          ) {
+            <Tsk-identity-verification
+              [revenueAccount]="revenueAccount"></Tsk-identity-verification>
+          }
+          @if (
+            panel?.display === displayPanel &&
+            displayPanel === docPanelOptions.business_contacts
+          ) {
+            <Tsk-business-contacts
+              [revenueAccount]="revenueAccount"></Tsk-business-contacts>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>

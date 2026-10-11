@@ -1,0 +1,79 @@
+@use 'src/styles-app' as *;
+
+.mobile-categories,
+.desktop-categories {
+  display: flex;
+  width: 100%;
+  min-height: 2.5rem;
+  justify-content: center;
+  align-items: center;
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    .categories {
+      display: flex;
+      min-height: 2.5rem;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      justify-content: safe center;
+      align-items: center;
+      flex-direction: row;
+      gap: 1rem;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      button {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        font-family: 'Genos-MediumItalic';
+        font-size: 18px;
+        flex-shrink: 0;
+        margin: auto;
+      }
+
+      .selected {
+        border-color: $accent-color;
+      }
+    }
+
+    .categories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .left-scroll {
+      margin: auto;
+      margin-right: 1rem;
+      opacity: 0.6;
+    }
+
+    .desktop-categories {
+      margin-left: 0rem;
+      margin-right: 0rem;
+    }
+
+    .right-scroll {
+      margin: auto;
+      margin-left: 1rem;
+      opacity: 0.6;
+    }
+  }
+}
+
+.mobile-categories {
+  .controls {
+    width: 90%;
+  }
+}
+
+.desktop-categories {
+  .controls {
+    width: 80%;
+  }
+}

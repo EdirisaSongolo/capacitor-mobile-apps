@@ -1,0 +1,64 @@
+@use 'src/styles-app' as *;
+
+.mobile-payment-rate-dialog,
+.desktop-payment-rate-dialog {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  padding: 0rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .control {
+    display: flex;
+    width: 100%;
+    min-height: 2rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    justify-content: flex-end;
+    align-items: center;
+
+    button {
+      margin-right: 0.5rem;
+      color: $remove;
+    }
+  }
+
+  .header {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  form {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    mat-select,
+    Tsk-input-component {
+      width: 35%;
+      margin: auto;
+    }
+
+    mat-select {
+      margin-bottom: 24px;
+    }
+  }
+
+  .submit {
+    width: 30%;
+    margin: auto;
+    margin-top: 0.5rem;
+  }
+}

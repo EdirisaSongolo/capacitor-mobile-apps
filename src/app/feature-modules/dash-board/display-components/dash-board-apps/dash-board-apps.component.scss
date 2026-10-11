@@ -1,0 +1,57 @@
+@use 'src/styles-app' as *;
+
+.mobile-dashboard-apps,
+.desktop-dashboard-apps {
+  display: flex;
+  height: auto;
+  min-height: 40em;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .app {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    border: 1px solid;
+    border-color: $foreground;
+    border-radius: 0.5rem;
+
+    #app-name {
+      width: 90%;
+      margin: auto;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      text-wrap: nowrap;
+      text-overflow: ellipsis;
+      white-space: none;
+      overflow: hidden;
+    }
+  }
+}
+
+.mobile-dashboard-apps {
+  width: 100%;
+
+  .app {
+    width: 9rem;
+    height: 17rem;
+    margin: 0.5rem;
+  }
+}
+
+.desktop-dashboard-apps {
+  width: 45%;
+  max-width: 35rem;
+
+  .app {
+    width: 10rem;
+    height: 18rem;
+    margin: 0.2rem;
+  }
+}

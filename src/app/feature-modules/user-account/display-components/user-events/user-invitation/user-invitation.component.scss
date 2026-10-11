@@ -1,0 +1,124 @@
+@use 'src/styles-app' as *;
+
+.mobile-user-invitation,
+.desktop-user-invitation {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .event-location {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 5rem;
+    margin: auto;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .media-list {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 10rem;
+    margin: auto;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    .media {
+      width: auto;
+      height: 8rem;
+      margin: auto;
+      margin-left: 0.2rem;
+      margin-right: 0.2rem;
+
+      img {
+        margin: auto;
+        height: 100%;
+        border-radius: 0.5rem;
+      }
+    }
+  }
+
+  .media-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .event-name {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding: 0;
+    text-align: center;
+  }
+
+  .invitation {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 5rem;
+    margin: auto;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      margin: auto;
+      text-align: center;
+    }
+  }
+
+  .invitation-responses {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 5rem;
+    margin: auto;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    justify-content: center;
+    align-items: center;
+
+    .response {
+      min-width: 20%;
+      margin: auto;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.mobile-user-invitation {
+  .invitation-responses {
+    .response {
+      min-width: 25%;
+    }
+  }
+}
+
+.desktop-user-invitation {
+  .invitation-responses {
+    .response {
+      min-width: 20%;
+    }
+  }
+}

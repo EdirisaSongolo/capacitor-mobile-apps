@@ -1,0 +1,17 @@
+<mat-sidenav-container
+  class="application-content"
+  [hasBackdrop]="sideNavBackDrop">
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  <mat-sidenav
+    [ngClass]="{
+      'mobile-side-navigation': device === deviceTypes.mobile,
+      'desktop-side-navigation': device === deviceTypes.desktop,
+    }"
+    [position]="sideNavPosition"
+    [mode]="sideNavMode"
+    [(opened)]="sideNavStatus">
+    <Tsk-side-navigation></Tsk-side-navigation>
+  </mat-sidenav>
+</mat-sidenav-container>

@@ -1,0 +1,25 @@
+@use 'src/styles-app' as *;
+
+.mobile-footer {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 8rem;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.desktop-footer {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 10rem;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

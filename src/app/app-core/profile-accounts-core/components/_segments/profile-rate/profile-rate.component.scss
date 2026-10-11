@@ -1,0 +1,48 @@
+.payment-rate {
+  display: flex;
+  width: 100%;
+  min-height: 2.5rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+
+  .no-rate-specified {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    padding: 0rem;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .rate-details {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    padding: 0rem;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: row;
+
+    .detail {
+      width: 30%;
+      margin: auto;
+    }
+
+    .per {
+      margin: auto;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+
+    #rate {
+      margin-right: 0;
+    }
+
+    #unit {
+      margin-left: 0;
+    }
+  }
+}

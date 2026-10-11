@@ -1,0 +1,26 @@
+<div class="application-main" [class.disable-ui]="apiCallInProgress$ | async">
+  <Tsk-app-header
+    [ngClass]="{
+      'mobile-header': device === deviceTypes.mobile,
+      'desktop-header': device === deviceTypes.desktop,
+    }"></Tsk-app-header>
+
+  <Tsk-app-navigation
+    id="navigation"
+    [ngClass]="{
+      'mobile-navigation': device === deviceTypes.mobile,
+      'desktop-navigation': device === deviceTypes.desktop,
+    }"></Tsk-app-navigation>
+
+  <Tsk-app-display
+    [ngClass]="{
+      'mobile-display': device === deviceTypes.mobile,
+      'desktop-display': device === deviceTypes.desktop,
+    }"></Tsk-app-display>
+
+  <Tsk-app-footer
+    [ngClass]="{
+      'mobile-footer': device === deviceTypes.mobile,
+      'desktop-footer': device === deviceTypes.desktop,
+    }"></Tsk-app-footer>
+</div>

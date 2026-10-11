@@ -1,0 +1,39 @@
+@use 'src/styles-app' as *;
+
+.profile-services {
+  display: flex;
+  width: 100%;
+  min-height: 10rem;
+  justify-content: center;
+  align-items: center;
+
+  .no-services {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    padding: 0rem;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .profile-services-list {
+    display: flex;
+    width: 100%;
+    min-height: 8rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+
+    Tsk-provider-service-plac {
+      width: 11rem;
+      height: 6rem;
+      margin: 0.2rem;
+    }
+  }
+
+  .provider-services::-webkit-scrollbar {
+    display: none;
+  }
+}

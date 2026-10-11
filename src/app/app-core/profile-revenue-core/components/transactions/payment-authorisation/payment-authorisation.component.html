@@ -1,0 +1,125 @@
+<div
+  [ngClass]="{
+    'payment-dialog-mobile': device === deviceTypes.mobile,
+    'payment-dialog-desktop': device === deviceTypes.desktop,
+  }"
+  (click)="$event.stopPropagation()"
+  #payment_dialog>
+  @if (paymentDisplay === displayOptions.transaction_details) {
+    <div class="close-control">
+      <button
+        mat-icon-button
+        (click)="closePaymentDialog(); $event.stopPropagation()">
+        <mat-icon
+          [fontIcon]="closeIcon"
+          class="material-symbols-outlined"></mat-icon>
+      </button>
+    </div>
+    <div class="transaction-header">
+      <div
+        class="receipt-image"
+        [style.background]="transactionDetails?.receiptImage"></div>
+      <p>{{ transactionDetails?.receiptHeader }}</p>
+    </div>
+    <div class="reference-date-time">
+      <p>{{ transactionDetails.referenceDate }}</p>
+      <p>{{ transactionDetails.referenceTime }}</p>
+    </div>
+    <div class="receipt-name">
+      <p>{{ transactionDetails.receiptName }}</p>
+    </div>
+    <div class="meta-data">
+      @for (
+        metaData of transactionDetails.transactionMetaData;
+        track metaData
+      ) {
+        <div class="meta-data-item">
+          <p class="name">
+            {{ metaData.name }}
+          </p>
+          @if (metaData.quantity > 1) {
+            <p class="quantity">
+              {{ metaData.price / 100 | number: '1.2-2' }} x
+              {{ metaData.quantity }}
+            </p>
+          }
+          <p class="value">{{ metaData.total / 100 | currency }}</p>
+        </div>
+      }
+    </div>
+    <div class="sub-totals">
+      <div class="list-item">
+        <p class="name">{{ 'common.sub-total' | translate }}</p>
+        <p class="value">
+          {{
+            $safeNavigationMigration(receiptDetails?.amountInCents) / 100
+              | currency
+          }}
+        </p>
+      </div>
+      <div class="list-item">
+        <p class="name">
+          {{ 'profile-revenue.transactions.service-fee' | translate }}
+        </p>
+        <p class="value">
+          {{
+            $safeNavigationMigration(receiptDetails?.serviceFeeInCents) / 100
+              | currency
+          }}
+        </p>
+      </div>
+    </div>
+    <div class="total">
+      <p class="name">
+        {{ 'profile-revenue.transactions.total' | translate }}
+      </p>
+      <p class="value">
+        {{
+          $safeNavigationMigration(receiptDetails?.grossAmountInCents) / 100
+            | currency
+        }}
+      </p>
+    </div>
+    <div class="payment-options">
+      <p>{{ 'profile-revenue.transactions.payment' | translate }}</p>
+      <div class="saved-payment-options">
+        <p class="card">
+          {{
+            $safeNavigationMigration(receiptDetails?.preferredPayment)
+              | translate
+          }}
+        </p>
+        <button
+          class="options"
+          mat-icon-button
+          (click)="displayPaymentOptions(); $event.stopPropagation()">
+          <mat-icon
+            [fontIcon]="optionsIcon"
+            class="material-symbols-outlined"></mat-icon>
+        </button>
+      </div>
+      <button
+        [disabled]="!validPayment"
+        class="submit-payment raised-button"
+        [class.valid-payment]="validPayment"
+        mat-raised-button
+        (click)="submitPaymentTransaction()">
+        {{ 'button-label.submit' | translate }}
+      </button>
+    </div>
+  }
+  @if (paymentDisplay === displayOptions.payment_options) {
+    <div class="back-control">
+      <button
+        mat-icon-button
+        (click)="displayTransactionDetails(); $event.stopPropagation()">
+        <mat-icon
+          [fontIcon]="backIcon"
+          class="material-symbols-outlined"></mat-icon>
+      </button>
+    </div>
+    <Tsk-payment-methods
+      (click)="$event.stopPropagation()"
+      (paymentAction)="refreshPaymentRequest()"></Tsk-payment-methods>
+  }
+</div>

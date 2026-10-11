@@ -1,0 +1,86 @@
+@use 'src/styles-app' as *;
+
+.mobile-service-providers,
+.desktop-service-providers {
+  display: flex;
+  width: 100%;
+  min-height: 50rem;
+  margin: auto;
+  margin-top: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .service-providers-search {
+    display: block;
+    margin: auto;
+    margin-top: 0rem;
+    margin-bottom: 0.2rem;
+
+    Tsk-input-component {
+      width: 100%;
+      margin: auto;
+    }
+  }
+
+  Tsk-categories {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .no-service-providers {
+    margin: auto;
+    margin-top: 15rem;
+
+    p {
+      font-family: 'Genos-MediumItalic';
+      font-size: 19px;
+      text-align: center;
+    }
+  }
+
+  .service-providers-list,
+  .search-results {
+    display: flex;
+    height: auto;
+    min-height: 50rem;
+    margin: auto;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-flow: row wrap;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+  }
+
+  .service-providers-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .search-results::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.mobile-service-providers {
+  .service-providers-search {
+    width: 80%;
+  }
+
+  .service-providers-list,
+  .search-results {
+    width: 100%;
+  }
+}
+
+.desktop-service-providers {
+  .service-providers-search {
+    width: 50%;
+    max-width: 30rem;
+  }
+
+  .service-providers-list,
+  .search-results {
+    width: 75%;
+  }
+}

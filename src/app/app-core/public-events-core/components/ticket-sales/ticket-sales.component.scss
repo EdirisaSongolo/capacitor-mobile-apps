@@ -1,0 +1,136 @@
+@use 'src/styles-app' as *;
+
+.ticket-sales-dialog-mobile,
+.ticket-sales-dialog-desktop {
+  display: flex;
+  width: 100%;
+  min-height: 25rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-color: $background;
+
+  .control {
+    display: flex;
+    width: 100%;
+    min-height: 2rem;
+    margin-top: 0;
+    justify-content: flex-end;
+    align-items: center;
+
+    button {
+      color: $remove;
+    }
+  }
+
+  .ticket-sales-header {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    div {
+      width: 100%;
+      margin: auto;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+  }
+
+  .ticket-sale {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    .ticket-details {
+      width: 30%;
+      margin: auto;
+      margin-left: 0.5rem;
+      text-align: left;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .sale-control {
+      width: 20%;
+      margin: auto;
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      mat-select {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+      }
+    }
+
+    .sale-count {
+      width: 20%;
+      margin: auto;
+      margin-right: 0.5rem;
+      text-align: center;
+    }
+  }
+
+  .count-and-sub-total {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .total-component {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      justify-content: right;
+      align-items: center;
+      flex-direction: row;
+
+      p {
+        min-width: 20%;
+        margin: auto;
+        margin-right: 1rem;
+        margin-left: 0.5rem;
+        text-align: left;
+      }
+
+      .labek {
+        text-align: left;
+      }
+
+      .total {
+        text-align: right;
+      }
+    }
+  }
+
+  .create-sales {
+    min-width: 20%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 0.5rem;
+  }
+}

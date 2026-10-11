@@ -1,0 +1,53 @@
+<div
+  [ngClass]="{
+    'mobile-payment-rate-dialog': device === deviceTypes.mobile,
+    'desktop-payment-rate-dialog': device === deviceTypes.desktop,
+  }"
+  (click)="$event.stopPropagation()">
+  <div class="control">
+    <button
+      mat-icon-button
+      (click)="closePaymentDialog(); $event.stopPropagation()">
+      <mat-icon
+        [fontIcon]="closeIcon"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+  </div>
+
+  <div class="header">
+    <P>
+      {{ 'profile-accounts.business-profile.set-payment-rate' | translate }}
+    </P>
+  </div>
+
+  <form [formGroup]="baseRateForm">
+    <Tsk-input-component
+      [required]="true"
+      [align]="'center'"
+      [money]="true"
+      formControlName="baseRate">
+    </Tsk-input-component>
+
+    <div>
+      {{ 'profile-accounts.business-profile.per' | translate }}
+    </div>
+
+    <mat-select
+      [(value)]="rateUnitsValue"
+      (valueChange)="rateUnitsSelection($event)">
+      @for (option of rateUnitsOptionsList; track option) {
+        <mat-option [value]="option[0]">
+          {{ option[1] | translate }}
+        </mat-option>
+      }
+    </mat-select>
+  </form>
+
+  <button
+    class="submit raised-button"
+    mat-raised-button
+    type="submit"
+    (click)="submitProviderBaseRate()">
+    {{ 'button-label.enter' | translate }}
+  </button>
+</div>

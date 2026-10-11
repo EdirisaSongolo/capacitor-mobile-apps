@@ -1,0 +1,21 @@
+<div
+  [ngClass]="{
+    'mobile-private-events-dashboard': device === deviceTypes.mobile,
+    'desktop-private-events-dashboard': device === deviceTypes.desktop,
+  }">
+  @if (managedPrivateEvents.length === 0) {
+    <div class="no-private-events">
+      {{ 'private-event-dashboard.no-private-events' | translate }}
+    </div>
+  }
+
+  @if (managedPrivateEvents.length >= 1) {
+    @for (privateEvent of managedPrivateEvents; track privateEvent) {
+      <Tsk-private-event-plac
+        [privateEventToken]="privateEvent"
+        (placAction)="
+          privateEventProfileDashboard($event)
+        "></Tsk-private-event-plac>
+    }
+  }
+</div>

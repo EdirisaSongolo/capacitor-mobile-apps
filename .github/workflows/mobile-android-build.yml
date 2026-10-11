@@ -1,0 +1,88 @@
+name: Build and publish Tuuska Android app
+
+on:
+  workflow_dispatch:
+    inputs:
+      track:
+        description: Play Console track
+        type: choice
+        options:
+          - internal
+          - alpha
+          - beta
+          - production
+        default: internal
+      release-status:
+        description: Release status
+        type: choice
+        options:
+          - draft
+          - completed
+        default: draft
+
+env:
+  ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+  ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+  ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+  ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+  PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+  PACKAGE_NAME: ${{ vars.ANDROID_PACKAGE_NAME }}
+
+jobs:
+  publish-android-app:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build angular app
+        run: npm run build -- --configuration=production
+
+      - name: Sync native project
+        run: npx cap sync android
+
+      - name: Make gradlew executable
+        run: chmod +x android/gradlew
+
+      - name: Decode keystore
+        run: echo "${{ env.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > "${{ runner.temp }}/upload.keystore"
+
+      - name: Build release bundle
+        working-directory: android
+        env:
+          ANDROID_KEYSTORE_PATH: ${{ runner.temp }}/upload.keystore
+        run: ./gradlew bundleRelease
+
+      - name: Upload to Play Console
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ env.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: ${{ env.PACKAGE_NAME }}
+          releaseFiles: android/app/build/outputs/bundle/release/app-release.aab
+          track: ${{ inputs.track }}
+          status: ${{ inputs.release-status }}
+
+      - name: Keep bundle as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tuuska-android-release-${{ github.run_number }}
+          path: android/app/build/outputs/bundle/release/app-release.aab

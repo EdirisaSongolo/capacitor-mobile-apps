@@ -1,0 +1,156 @@
+@use 'src/styles-app' as *;
+
+.mobile-date-venue,
+.desktop-date-venue {
+  display: flex;
+  width: 100%;
+  min-height: 40rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  .controls {
+    display: flex;
+    min-height: 2rem;
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .date-venue {
+    display: flex;
+    min-height: 25rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    .category {
+      display: flex;
+      width: 50%;
+      margin: auto;
+      margin-top: 0.4rem;
+      margin-bottom: 1rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      text-wrap: nowrap;
+      text-overflow: ellipsis;
+      white-space: none;
+      overflow: hidden;
+    }
+
+    .profile-image {
+      display: flex;
+      margin: auto;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding: 0rem;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      box-shadow: $card-shadow;
+    }
+
+    .profile-name,
+    .location {
+      display: flex;
+      width: 50%;
+      margin: auto;
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      text-wrap: nowrap;
+      text-overflow: ellipsis;
+      white-space: none;
+      overflow: hidden;
+    }
+
+    .payment-rate {
+      display: flex;
+      min-height: 5rem;
+      margin: auto;
+      padding: 0rem;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .rate-details {
+        display: flex;
+        width: 100%;
+        margin: auto;
+        padding: 0rem;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+
+        .detail {
+          width: 30%;
+          margin: auto;
+          padding-bottom: 0.5rem;
+          text-align: center;
+        }
+      }
+    }
+
+    Tsk-profile-services {
+      display: block;
+      width: 100%;
+      min-height: 8rem;
+    }
+  }
+
+  Tsk-venue-search {
+    display: block;
+    width: 100%;
+    min-height: 30rem;
+    margin: auto;
+    padding: 0rem;
+  }
+}
+
+.mobile-date-venue {
+  .controls {
+    width: 90%;
+  }
+
+  .date-venue {
+    width: 100%;
+  }
+
+  .profile-image {
+    width: 4rem;
+    height: 6rem;
+  }
+
+  .payment-rate {
+    width: 95%;
+  }
+}
+
+.desktop-date-venue {
+  .controls {
+    width: 70%;
+  }
+
+  .date-venue {
+    width: 80%;
+  }
+
+  .profile-image {
+    width: 5rem;
+    height: 7rem;
+  }
+
+  .payment-rate {
+    width: 70%;
+  }
+}

@@ -1,0 +1,28 @@
+<div
+  [ngClass]="{
+    'mobile-private-events-dashboard': device === deviceTypes.mobile,
+    'desktop-private-events-dashboard': device === deviceTypes.desktop,
+  }">
+  <div
+    class="profile-image"
+    [style.background]="profileImage"
+    (click)="updateEventInvitationCard()"></div>
+
+  <form [formGroup]="detailsForm" (ngSubmit)="updatePrivateEventDetails()">
+    <Tsk-input-component
+      [label]="'private-event-dashboard.details.event-name' | translate"
+      formControlName="eventName">
+    </Tsk-input-component>
+
+    <textarea
+      formControlName="eventInvitation"
+      [placeholder]="
+        'private-event-dashboard.details.event-invitation' | translate
+      ">
+    </textarea>
+
+    <button mat-raised-button class="raised-button" type="submit">
+      {{ 'button-label.enter' | translate }}
+    </button>
+  </form>
+</div>

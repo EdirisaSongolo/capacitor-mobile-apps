@@ -1,0 +1,45 @@
+<div
+  [ngClass]="{
+    'mobile-user-invitation': device === deviceTypes.mobile,
+    'desktop-user-invitation': device === deviceTypes.desktop,
+  }">
+  @if (eventHost) {
+    <Tsk-user-profile-plac
+      class="event-provider"
+      [userTokenDTO]="hostUserToken"></Tsk-user-profile-plac>
+  }
+
+  <div class="event-location">
+    <p>{{ eventDate }}</p>
+    <p>{{ eventTime }}</p>
+    <p>{{ venueAddress }}</p>
+  </div>
+
+  <div class="media-list">
+    @for (mediaFile of mediaFileList; track mediaFile) {
+      <div class="media">
+        <img [src]="mediaFile.mediaFileUrl" />
+      </div>
+    }
+  </div>
+
+  <div class="event-name">{{ eventName }}</div>
+  <div class="invitation">
+    <p>{{ userInvitation }}</p>
+  </div>
+
+  <div class="invitation-responses">
+    <button
+      class="response raised-button"
+      mat-raised-button
+      (click)="invitationResponse(responseOptions.declined)">
+      {{ 'button-label.decline' | translate }}
+    </button>
+    <button
+      class="response raised-button"
+      mat-raised-button
+      (click)="invitationResponse(responseOptions.confirmed)">
+      {{ 'button-label.accept' | translate }}
+    </button>
+  </div>
+</div>

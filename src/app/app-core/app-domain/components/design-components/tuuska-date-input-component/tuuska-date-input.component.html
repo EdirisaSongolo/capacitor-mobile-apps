@@ -1,0 +1,34 @@
+<div
+  class="field"
+  [class.focused]="focused"
+  [class.has-value]="value !== null"
+  [class.disabled]="disabled"
+  [class.error]="errorMessage"
+  [class.align-center]="align === 'center'">
+  <input
+    [id]="inputId"
+    [value]="value"
+    [min]="min"
+    [max]="max"
+    [matDatepicker]="picker"
+    [disabled]="disabled"
+    [attr.aria-invalid]="errorMessage ? true : null"
+    [attr.aria-describedby]="errorMessage ? inputId + '-error' : null"
+    (dateChange)="onDateChange($event)"
+    (click)="picker.open()"
+    (focus)="onFocus()"
+    (blur)="onBlur()" />
+  <label [for]="inputId">
+    {{ label }}
+    @if (required) {
+      <span class="required"> *</span>
+    }
+  </label>
+  <mat-datepicker #picker color="accent"></mat-datepicker>
+  <div class="line"></div>
+  @if (errorMessage) {
+    <div class="err" [id]="inputId + '-error'">
+      {{ errorMessage }}
+    </div>
+  }
+</div>

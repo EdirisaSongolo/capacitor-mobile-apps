@@ -1,0 +1,88 @@
+<div
+  [ngClass]="{
+    'mobile-app-navigation': device === deviceTypes.mobile,
+    'desktop-app-navigation': device === deviceTypes.desktop,
+  }">
+  <div class="controls">
+    <div class="left-controls">
+      @for (control of leftControls; track control) {
+        <a class="icon-button" mat-icon-button [routerLink]="control.route">
+          <mat-icon
+            [fontIcon]="control.icon"
+            class="material-symbols-outlined"></mat-icon>
+        </a>
+      }
+    </div>
+
+    <div class="right-controls">
+      @for (control of rightControls; track control) {
+        <a class="icon-button" mat-icon-button [routerLink]="control.route">
+          <mat-icon
+            [fontIcon]="control.icon"
+            class="material-symbols-outlined"></mat-icon>
+        </a>
+      }
+    </div>
+  </div>
+
+  <div class="location">
+    <form [formGroup]="locationForm" (ngSubmit)="updateUserLocation()">
+      <input
+        #locationInput
+        class="location-input"
+        matInput
+        type="text"
+        formControlName="userLocation"
+        [placeholder]="locationLabel | translate"
+        [matAutocomplete]="auto_complete"
+        matAutocompletePosition="below" />
+
+      <mat-autocomplete
+        #auto_complete="matAutocomplete"
+        (closed)="locationInput.blur()">
+        <mat-option
+          class="current-location"
+          (onSelectionChange)="useCurrentLocation($event)">
+          {{ 'app-nav-links.current-location' | translate }}
+        </mat-option>
+        @for (location of possibleLocations | async; track location) {
+          <mat-option
+            [value]="location"
+            (onSelectionChange)="updateUserLocation($event)">
+            {{ location }}
+          </mat-option>
+        }
+      </mat-autocomplete>
+    </form>
+  </div>
+
+  <div class="app-response">
+    @if (appResponse.messages.length !== 0) {
+      <ul
+        [ngClass]="{
+          success:
+            appResponse !== null && appResponse.type === responseTypes.success,
+          warning:
+            appResponse !== null && appResponse.type === responseTypes.warning,
+          error:
+            appResponse !== null && appResponse.type === responseTypes.error,
+        }">
+        @for (message of appResponse.messages; track message) {
+          <li>
+            {{ message }}
+          </li>
+        }
+      </ul>
+    }
+
+    @if (apiCallInProgress) {
+      <div class="api-call-progress">
+        <p>{{ 'api-call-in-progress' | translate }}</p>
+        <mat-progress-bar
+          class="progress-bar"
+          mode="indeterminate"
+          color="accent"></mat-progress-bar>
+      </div>
+    }
+  </div>
+</div>

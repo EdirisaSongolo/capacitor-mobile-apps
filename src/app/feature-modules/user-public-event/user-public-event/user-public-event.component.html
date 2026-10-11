@@ -1,0 +1,121 @@
+<div
+  [ngClass]="{
+    'mobile-user-public-events': device === deviceTypes.mobile,
+    'desktop-user-public-events': device === deviceTypes.desktop,
+  }">
+  <div class="profile-image" [style.background]="profileImage"></div>
+  <div class="event-name">{{ eventName }}</div>
+  <div class="event-location">
+    <div class="location-components venue-details">
+      <Tsk-venue-plac
+        class="profile-reference"
+        [venueToken]="venueToken"></Tsk-venue-plac>
+    </div>
+    <div class="location-components event-details">
+      <p>{{ eventDate }}</p>
+      <p>{{ eventTime }}</p>
+      <p>{{ venueAddress }}</p>
+    </div>
+  </div>
+
+  <div class="display-controls">
+    @for (control of userEventControls; track control) {
+      <button
+        class="control"
+        mat-icon-button
+        (click)="switchUserEventsDisplay(control.display)">
+        <mat-icon
+          [fontIcon]="control.icon"
+          class="material-symbols-outlined"></mat-icon>
+      </button>
+    }
+  </div>
+
+  <div class="public-event-display">
+    @if (userEventDisplay === displayOptions.media) {
+      <Tsk-profile-media></Tsk-profile-media>
+    }
+
+    @if (userEventDisplay === displayOptions.user_tickets) {
+      <div class="user-tickets">
+        <div class="ticket-controls">
+          <button mat-icon-button (click)="createTicketSales()">
+            <mat-icon
+              [fontIcon]="ticketControls"
+              class="material-symbols-outlined"></mat-icon>
+          </button>
+        </div>
+        @for (userTicket of userTickets; track userTicket) {
+          <div class="user-ticket">
+            <div class="qr-code">
+              <qrcode
+                [qrdata]="userTicket.userTicketId"
+                [width]="75"
+                errorCorrectionLevel="L"></qrcode>
+            </div>
+            <div class="details">{{ userTicket.ticketName }}</div>
+            <div class="details">{{ userTicket.ticketStatus }}</div>
+          </div>
+        }
+      </div>
+    }
+
+    @if (userEventDisplay === displayOptions.communications) {
+      <Tsk-event-posts
+        [eventType]="eventTypes.publicEvent"
+        [eventReferenceId]="publicEventDate?.dateId"></Tsk-event-posts>
+    }
+
+    @if (userEventDisplay === displayOptions.date_profile) {
+      <div class="date-features">
+        @if (dateFeatures.length === 0) {
+          <div class="no-features">
+            <p>{{ 'public-event-profile.no-features' | translate }}</p>
+          </div>
+        }
+        @if (dateFeatures.length >= 1) {
+          @for (serviceProvider of dateFeatures; track serviceProvider) {
+            @if (serviceProvider.profile === profileOptions.userProfile) {
+              <Tsk-user-profile-plac
+                class="event-provider"
+                [userTokenDTO]="asUserToken(serviceProvider)"
+                (placAction)="
+                  serviceProviderProfilePage(serviceProvider.profile, $event)
+                "></Tsk-user-profile-plac>
+            }
+            @if (serviceProvider.profile === profileOptions.vendorProfile) {
+              <Tsk-vendor-plac
+                class="event-provider"
+                [vendorToken]="asVendorToken(serviceProvider)"
+                (placAction)="
+                  serviceProviderProfilePage(serviceProvider.profile, $event)
+                "></Tsk-vendor-plac>
+            }
+          }
+        }
+      </div>
+    }
+  </div>
+
+  @if (salesDialog) {
+    <div class="ticket-sales-dialog">
+      <Tsk-ticket-sales
+        [publicEventDate]="publicEventDate"
+        [eventTickets]="eventTickets"
+        (closeDialog)="closeDialogs()"
+        (ticketSales)="processTicketSales($event)"></Tsk-ticket-sales>
+    </div>
+  }
+
+  @if (paymentDialog) {
+    <div class="payment-dialog">
+      <Tsk-payment-authorisation
+        [paymentIntent]="paymentIntent"
+        [transactionDetails]="transactionDetails"
+        (closeDialog)="closeDialogs()"
+        (submitTransaction)="
+          submitTicketPayment($event)
+        "></Tsk-payment-authorisation>
+    </div>
+  }
+</div>

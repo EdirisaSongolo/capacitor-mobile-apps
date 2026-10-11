@@ -1,0 +1,81 @@
+@use 'src/styles-app' as *;
+
+.mobile-create-edit-staff,
+.desktop-create-edit-staff {
+  display: flex;
+  width: 100%;
+  height: 45rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+
+  .controls {
+    display: flex;
+    min-height: 2rem;
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .no-staff {
+    display: flex;
+    width: 100%;
+    min-height: 30rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .staff-list {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    margin-top: 0;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-flow: row wrap;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+  }
+
+  Tsk-domain-service-providers {
+    display: block;
+    width: 100%;
+    min-height: 30rem;
+    margin: 0rem;
+    padding: 0rem;
+  }
+}
+
+.mobile-create-edit-staff {
+  .controls {
+    width: 90%;
+  }
+}
+
+.desktop-create-edit-staff {
+  .controls {
+    width: 70%;
+  }
+}
+
+.mobile-create-edit-staff::-webkit-scrollbar {
+  display: none;
+}
+
+.desktop-create-edit-staff::-webkit-scrollbar {
+  display: none;
+}
+
+.staff-list::-webkit-scrollbar {
+  display: none;
+}

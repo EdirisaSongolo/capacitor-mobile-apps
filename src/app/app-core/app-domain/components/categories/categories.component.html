@@ -1,0 +1,37 @@
+<div
+  [ngClass]="{
+    'mobile-categories': device === deviceTypes.mobile,
+    'desktop-categories': device === deviceTypes.desktop,
+  }">
+  <div class="controls">
+    @if (device === deviceTypes.desktop) {
+      <button mat-icon-button class="left-scroll" (click)="scrollLeft()">
+        <mat-icon [fontIcon]="controls.left" class="material-symbols-outlined">
+        </mat-icon>
+      </button>
+    }
+
+    <div
+      #categories
+      class="categories"
+      [ngClass]="{ 'desktop-categories': device === deviceTypes.desktop }">
+      @for (category of locationCategories; track category) {
+        <button
+          mat-stroked-button
+          [ngClass]="{
+            selected: category.selected,
+          }"
+          (click)="selectLocationCategory(category.name)">
+          {{ category.value | translate }}
+        </button>
+      }
+    </div>
+
+    @if (device === deviceTypes.desktop) {
+      <button mat-icon-button class="right-scroll" (click)="scrollRight()">
+        <mat-icon [fontIcon]="controls.right" class="material-symbols-outlined">
+        </mat-icon>
+      </button>
+    }
+  </div>
+</div>

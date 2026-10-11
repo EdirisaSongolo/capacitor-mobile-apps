@@ -1,0 +1,55 @@
+@use 'src/styles-app' as *;
+
+.mobile-booking-invoices,
+.desktop-booking-invoices {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+
+  .no-managed-invoices {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      width: 80%;
+      height: auto;
+      margin: auto;
+      text-align: center;
+    }
+  }
+
+  .managed-invoices {
+    display: flex;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+
+    Tsk-booking-invoice-plac {
+      display: block;
+      width: 98%;
+      margin: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding: 0;
+    }
+  }
+
+  .managed-invoices::-webkit-scrollbar {
+    display: none;
+  }
+}

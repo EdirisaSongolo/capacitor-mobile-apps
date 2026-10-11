@@ -1,0 +1,43 @@
+<div
+  [ngClass]="{
+    'mobile-managed-profiles': device === deviceTypes.mobile,
+    'desktop-managed-profiles': device === deviceTypes.desktop,
+  }">
+  @if (profilesDisplay === displayOptions.profiles_list) {
+    @if (managedProfiles.length === 0) {
+      <div class="no-service-providers">
+        <p>{{ 'dash-board.no-managed-profiles' | translate }}</p>
+      </div>
+    }
+    @if (managedProfiles.length >= 1) {
+      <div class="service-providers-list">
+        @for (managedProfile of managedProfiles; track managedProfile) {
+          @if (managedProfile.profile === profileOptions.venueProfile) {
+            <Tsk-venue-plac
+              (click)="$event.stopPropagation()"
+              [componentAction]="componentAction"
+              [venueToken]="asVenueToken(managedProfile)"
+              (placAction)="processProfileAction($event)"></Tsk-venue-plac>
+          }
+          @if (managedProfile.profile === profileOptions.vendorProfile) {
+            <Tsk-vendor-plac
+              (click)="$event.stopPropagation()"
+              [componentAction]="componentAction"
+              [vendorToken]="asVendorToken(managedProfile)"
+              (placAction)="processProfileAction($event)"></Tsk-vendor-plac>
+          }
+        }
+      </div>
+    }
+  }
+
+  @if (profilesDisplay === displayOptions.venues) {
+    <div class="profile-header">{{ profileName }}</div>
+    <Tsk-venue-profile-managers></Tsk-venue-profile-managers>
+  }
+
+  @if (profilesDisplay === displayOptions.vendors) {
+    <div class="profile-header">{{ profileName }}</div>
+    <Tsk-vendor-profile-managers></Tsk-vendor-profile-managers>
+  }
+</div>

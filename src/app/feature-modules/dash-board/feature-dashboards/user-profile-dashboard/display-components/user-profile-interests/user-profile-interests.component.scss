@@ -1,0 +1,62 @@
+@use 'src/styles-app' as *;
+
+.mobile-user-profile-dashboard,
+.desktop-user-profile-dashboard {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .header-text {
+    width: 80%;
+    height: auto;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .options {
+    display: table;
+    height: auto;
+    margin: auto;
+    margin-top: 0.5rem;
+    padding: 0.2rem;
+    text-align: center;
+
+    button {
+      margin: 0.2rem;
+    }
+
+    .selected {
+      border-color: $accent-color;
+    }
+  }
+}
+
+.mobile-user-profile-dashboard {
+  .options {
+    width: 100%;
+
+    button {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+}
+
+.desktop-user-profile-dashboard {
+  .options {
+    width: 80%;
+
+    button {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}

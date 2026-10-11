@@ -1,0 +1,16 @@
+<div class="profile-services">
+  @if (!profileServices || profileServices.length === 0) {
+    <div class="no-services">
+      <p>
+        {{ 'profile-accounts.business-profile.no-services' | translate }}
+      </p>
+    </div>
+  } @else {
+    <div class="profile-services-list">
+      @for (service of profileServices; track service) {
+        <Tsk-provider-service-plac [profileService]="service">
+        </Tsk-provider-service-plac>
+      }
+    </div>
+  }
+</div>
