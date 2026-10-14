@@ -10,7 +10,6 @@ import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { UserProfileConstants } from '@app-core/user-profile-core/data-models';
 import { userProfileInfoSelector } from '@app-store/app.selectors';
-import { logout } from '@core-modules';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import {
   AppTheme,
@@ -23,6 +22,7 @@ import {
   ThemeService,
 } from '@domain-services/index';
 import { UserProfileInfo } from '@domain-data-models/app-domain.interfaces';
+import { LogOutService } from '@app-main/services/log-out/log-out.service';
 
 interface SideNavLinks {
   name: string;
@@ -75,7 +75,8 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private router: Router,
     private store: Store,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private logOutService: LogOutService
   ) {}
 
   public ngOnInit(): void {
@@ -137,10 +138,7 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
 
   public userLogOut(): void {
     if (this.authenticated) {
-      this.themeService.clearUserTheme();
-      this.authService.deleteClientTokens();
-      this.store.dispatch(logout());
-      this.sideNav.updateIsOpen();
+      this.logOutService.logOutUser();
       this.router.navigate(['/public-events']);
     }
   }

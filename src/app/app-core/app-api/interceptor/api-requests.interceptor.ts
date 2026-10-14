@@ -4,8 +4,11 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
+  HttpErrorResponse,
+  HttpStatusCode,
 } from '@angular/common/http';
-import { finalize, Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { catchError, finalize, Observable, throwError } from 'rxjs';
 
 import { AppDomainConstants } from '@domain-data-models/app-domain.constants';
 
@@ -13,6 +16,7 @@ import { AuthService } from '@auth-core/auth-service';
 import { ApiRestConstants } from '@app-core/app-api/app-api.rest-constants';
 import { ApiCallIndicatorService } from '@app-core/app-api/api-call-indicator/api-call-indicator.service';
 import { AuthDTO } from '@auth-core/api';
+import { LogOutService } from '@app-main/services/log-out/log-out.service';
 
 @Injectable()
 export class ApiRequestsInterceptor implements HttpInterceptor {
@@ -20,7 +24,9 @@ export class ApiRequestsInterceptor implements HttpInterceptor {
 
   constructor(
     private authService: AuthService,
-    private apiCallIndicator: ApiCallIndicatorService
+    private apiCallIndicator: ApiCallIndicatorService,
+    private logOutService: LogOutService,
+    private router: Router
   ) {}
 
   intercept(
@@ -58,10 +64,21 @@ export class ApiRequestsInterceptor implements HttpInterceptor {
       headers: httpHeaders,
     });
 
-    return next
-      .handle(configuredRequest)
-      .pipe(
-        finalize(() => this.apiCallIndicator.updateApiCallIndicator(false))
-      );
+    return next.handle(configuredRequest).pipe(
+      catchError((errorResponse: HttpErrorResponse) => {
+        if (errorResponse.status === HttpStatusCode.Unauthorized) {
+          this.logOutService.logOutUser();
+
+          if (!this.router.url.startsWith('/auth')) {
+            this.router.navigate(['/auth'], {
+              queryParams: { returnUrl: this.router.url },
+            });
+          }
+        }
+
+        return throwError(() => errorResponse);
+      }),
+      finalize(() => this.apiCallIndicator.updateApiCallIndicator(false))
+    );
   }
 }
