@@ -141,9 +141,10 @@
       }
     },
     "authorisation": {
-      "invalid-credentials": "Looks like you're not authorised to access this resource. Please try logging in again",
+      "invalid-credentials": "Your session has expired. Please log in again",
       "restricted-profile": "This user profile has been restricted or revoked",
-      "system-error": "We are having trouble completing your request at the moment. Try again in a couple mins."
+      "system-error": "We are having trouble completing your request at the moment. Try again in a couple mins.",
+      "unauthorised-access": "Your session has expired. Please log in again"
     }
   },
   "side-nav-links": {
