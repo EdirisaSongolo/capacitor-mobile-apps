@@ -43,3 +43,6 @@ Thumbs.db
 
 #proxy for dev
 /src/proxy.config.json
+
+#local claude files
+CLAUDE.local.md
