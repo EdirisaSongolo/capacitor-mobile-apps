@@ -40,7 +40,7 @@ export class PublicEventLocationPlacComponent
   public actionOptions: typeof ComponentAction = ComponentAction;
   public removeIcon: string = 'remove';
 
-  public posterImagePath: string = `url(${PublicEventConstants.DEFAULT_PROFILE_IMAGE}) center/ contain no-repeat`;
+  public posterImagePath: string = `${PublicEventConstants.DEFAULT_PROFILE_IMAGE} center/ contain no-repeat`;
   private breakPoint$: Observable<Device> = this.breakPoint.deviceObservable;
   private subscriptions: Subscription = new Subscription();
 

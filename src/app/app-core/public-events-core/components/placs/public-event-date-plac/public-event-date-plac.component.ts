@@ -30,7 +30,7 @@ export class PublicEventDatePlacComponent implements OnInit, OnDestroy {
   @Output() public deleteAction: EventEmitter<DateTokenDTO> =
     new EventEmitter();
 
-  public posterImagePath: string = `url(${PublicEventConstants.DEFAULT_PROFILE_IMAGE}) 50% 10% / 10rem no-repeat`;
+  public posterImagePath: string = `${PublicEventConstants.DEFAULT_PROFILE_IMAGE} 50% 10% / 10rem no-repeat`;
   public device: Device = Device.desktop;
   public deviceTypes: typeof Device = Device;
   public actionOptions: typeof ComponentAction = ComponentAction;

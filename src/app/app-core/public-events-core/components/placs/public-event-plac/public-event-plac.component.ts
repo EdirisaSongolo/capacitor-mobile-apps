@@ -44,7 +44,7 @@ export class PublicEventPlacComponent implements OnInit, OnChanges, OnDestroy {
 
   public previewFields: any = {
     name: 'create-event.public-event.preview-fields.event-name',
-    profileImage: `url(${PublicEventConstants.DEFAULT_PROFILE_IMAGE}) 50% 10% / 10rem no-repeat`,
+    profileImage: `${PublicEventConstants.DEFAULT_PROFILE_IMAGE} 50% 10% / 10rem no-repeat`,
     location: 'create-event.public-event.preview-fields.event-location',
     date: 'create-event.public-event.preview-fields.event-date',
     fee: 'create-event.public-event.preview-fields.event-fee',

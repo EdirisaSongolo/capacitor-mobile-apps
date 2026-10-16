@@ -41,7 +41,6 @@ export class CreatePrivateEventComponent implements OnInit, OnDestroy {
   public componentAction: ComponentAction = ComponentAction.dashboard;
   public eventType: EventTypes = EventTypes.privateEvent;
 
-  public publicEventsIcon: string = 'public-events';
   public displayPanel: CreatePrivateEventPanel;
   public createEventPanel: typeof CreatePrivateEventPanel =
     CreatePrivateEventPanel;

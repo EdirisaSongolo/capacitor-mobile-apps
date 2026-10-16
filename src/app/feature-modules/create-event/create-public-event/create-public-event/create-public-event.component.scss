@@ -28,13 +28,13 @@
       justify-content: center;
       align-items: center;
 
-      mat-icon {
+      #private-events-icon {
+        display: block;
         width: 3rem;
         height: 3rem;
-
-        svg {
-          display: block;
-        }
+        background-color: $foreground;
+        mask: url('/assets/event-nav-icons/black.png') center / contain
+          no-repeat;
       }
     }
   }

@@ -33,7 +33,7 @@ export class PublicEventHeaderComponent implements OnInit, OnDestroy {
   public device: Device = Device.desktop;
   public deviceTypes: typeof Device = Device;
 
-  public profileImage: string = `url(${PublicEventConstants.DEFAULT_PROFILE_IMAGE}) center center / contain no-repeat`;
+  public profileImage: string = `${PublicEventConstants.DEFAULT_PROFILE_IMAGE} center center / contain no-repeat`;
   public publicEvent: PublicEventTokenDTO;
 
   public eventName: string;

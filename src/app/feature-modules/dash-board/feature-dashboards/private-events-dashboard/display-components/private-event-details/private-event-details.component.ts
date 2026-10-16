@@ -38,7 +38,7 @@ export class PrivateEventDetailsComponent implements OnInit, OnDestroy {
   public device: Device = Device.desktop;
   public deviceTypes: typeof Device = Device;
 
-  public profileImage: string = `url(${PrivateEventConstants.DEFAULT_PROFILE_IMAGE}) center center / contain no-repeat`;
+  public profileImage: string = `${PrivateEventConstants.DEFAULT_PROFILE_IMAGE} center center / contain no-repeat`;
   public detailsForm: FormGroup = this.formBuilder.group({
     eventName: ['', Validators.required],
     eventInvitation: ['', Validators.required],

@@ -39,7 +39,7 @@ export class PublicEventProfileComponent implements OnInit, OnDestroy {
   public componentAction: typeof ComponentAction = ComponentAction;
   public displayPanel: ProfileDisplayPanel = ProfileDisplayPanel.media;
   public panelOptions: typeof ProfileDisplayPanel = ProfileDisplayPanel;
-  public profileImage: string = `url(${PublicEventConstants.DEFAULT_PROFILE_IMAGE}) center / contain no-repeat`;
+  public profileImage: string = `${PublicEventConstants.DEFAULT_PROFILE_IMAGE} center / contain no-repeat`;
 
   public profileDTO: ProfileDTO;
   public eventComponent: EventComponentDTO;

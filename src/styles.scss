@@ -38,6 +38,8 @@ html[data-theme='light'] {
   --tsk-card-surface: #ffffff;
   --tsk-card-shadow:
     1px 1px 2px rgba(15, 23, 42, 0.12), 3px 4px 8px rgba(15, 23, 42, 0.1);
+  --tsk-public-event-poster: url('/assets/default-posters/public-event-light-theme.png');
+  --tsk-private-event-poster: url('/assets/default-posters/private-event-light-theme.png');
   color-scheme: light;
 }
 
@@ -49,6 +51,8 @@ html[data-theme='dark'] {
   --tsk-card-surface: #2d2e31;
   --tsk-card-shadow:
     1px 1px 2px rgba(255, 255, 255, 0.07), 3px 4px 8px rgba(255, 255, 255, 0.05);
+  --tsk-public-event-poster: url('/assets/default-posters/public-event-dark-theme.png');
+  --tsk-private-event-poster: url('/assets/default-posters/private-event-dark-theme.png');
   color-scheme: dark;
 }
 

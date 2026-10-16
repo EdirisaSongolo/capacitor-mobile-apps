@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
-import { MatIconRegistry } from '@angular/material/icon';
 
 import { MaterialImportsModules } from '@core-modules';
 
@@ -61,16 +59,4 @@ import { AppDomainModule } from '@app-domain/app-domain.module';
     PrivateEventGuestsComponent,
   ],
 })
-export class PrivateEventsCoreModule {
-  constructor(
-    private iconRegistry: MatIconRegistry,
-    private sanitizer: DomSanitizer
-  ) {
-    this.iconRegistry.addSvgIcon(
-      'private-events',
-      this.sanitizer.bypassSecurityTrustResourceUrl(
-        '/assets/app-icons/private-events.svg'
-      )
-    );
-  }
-}
+export class PrivateEventsCoreModule {}

@@ -32,12 +32,12 @@ export class DashBoardAppsComponent implements OnInit, OnDestroy {
   public dashBoardApps: any[] = [
     {
       route: `${DashBordRoutes.DASH_BOARD}/${DashBordRoutes.VENUES}`,
-      placImage: VenuesConstants.DEFAULT_PROFILE_IMAGE,
+      placImage: `url(${VenuesConstants.DEFAULT_PROFILE_IMAGE})`,
       name: 'labels.venue',
     },
     {
       route: `${DashBordRoutes.DASH_BOARD}/${DashBordRoutes.VENDORS}`,
-      placImage: VendorsConstants.DEFAULT_PROFILE_IMAGE,
+      placImage: `url(${VendorsConstants.DEFAULT_PROFILE_IMAGE})`,
       name: 'labels.vendor',
     },
     {

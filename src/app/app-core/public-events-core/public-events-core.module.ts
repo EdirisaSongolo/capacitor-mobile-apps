@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialImportsModules } from '@core-modules';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
 
 import { PublicEventStoreModule } from '@public-events-core/store';
 import { ProfileRevenueStoreModule } from '@profile-revenue-core/store';
@@ -80,16 +78,4 @@ import {
     TicketSalesComponent,
   ],
 })
-export class PublicEventsCoreModule {
-  constructor(
-    private iconRegistry: MatIconRegistry,
-    private sanitizer: DomSanitizer
-  ) {
-    this.iconRegistry.addSvgIcon(
-      'public-events',
-      this.sanitizer.bypassSecurityTrustResourceUrl(
-        '/assets/app-icons/public-events.svg'
-      )
-    );
-  }
-}
+export class PublicEventsCoreModule {}

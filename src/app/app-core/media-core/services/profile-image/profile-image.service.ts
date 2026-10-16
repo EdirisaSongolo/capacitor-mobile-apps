@@ -29,9 +29,9 @@ export class ProfileImageService {
 
   public defaultProfileImage(profile: Profiles): string {
     if (profile === Profiles.publicEventProfile) {
-      return `url(${PublicEventConstants.DEFAULT_PROFILE_IMAGE}) center / contain no-repeat`;
+      return `${PublicEventConstants.DEFAULT_PROFILE_IMAGE} center / contain no-repeat`;
     } else if (profile === Profiles.privateEventProfile) {
-      return `url(${PrivateEventConstants.DEFAULT_PROFILE_IMAGE}) center / contain no-repeat`;
+      return `${PrivateEventConstants.DEFAULT_PROFILE_IMAGE} center / contain no-repeat`;
     } else if (profile === Profiles.vendorProfile) {
       return `url(${VendorsConstants.DEFAULT_PROFILE_IMAGE}) center / contain no-repeat`;
     } else if (profile === Profiles.venueProfile) {

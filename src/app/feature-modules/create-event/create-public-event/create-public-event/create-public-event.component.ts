@@ -31,7 +31,6 @@ export class CreatePublicEventComponent implements OnInit, OnDestroy {
   public device: Device = Device.desktop;
   public deviceTypes: typeof Device = Device;
 
-  public privateEventsIcon: string = 'private-events';
   public eventType: EventTypes = EventTypes.publicEvent;
 
   public displayPanel: CreatePublicEventPanel =

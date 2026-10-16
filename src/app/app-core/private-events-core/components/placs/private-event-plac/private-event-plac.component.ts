@@ -41,7 +41,7 @@ export class PrivateEventPlacComponent implements OnInit, OnChanges, OnDestroy {
 
   public previewFields: any = {
     eventName: 'create-event.private-event.preview-fields.event-name',
-    profileImage: `url(${PrivateEventConstants.DEFAULT_PROFILE_IMAGE}) 50% 10% / 10rem no-repeat`,
+    profileImage: `${PrivateEventConstants.DEFAULT_PROFILE_IMAGE} 50% 10% / 10rem no-repeat`,
     eventAddress: 'create-event.private-event.preview-fields.event-address',
     eventDate: 'create-event.private-event.preview-fields.event-date',
     eventTime: 'create-event.private-event.preview-fields.event-time',

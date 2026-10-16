@@ -102,7 +102,7 @@ export class UserPublicEventComponent implements OnInit, OnDestroy {
   public publicEventDate: PublicEventDateDTO;
   public venueToken: VenueTokenDTO;
 
-  public profileImage: string = `url(${PublicEventConstants.DEFAULT_PROFILE_IMAGE}) center center / contain no-repeat`;
+  public profileImage: string = `${PublicEventConstants.DEFAULT_PROFILE_IMAGE} center center / contain no-repeat`;
   public eventName: string;
   public eventDate: string;
   public eventTime: string;

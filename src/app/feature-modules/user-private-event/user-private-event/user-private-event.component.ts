@@ -50,7 +50,7 @@ export class UserPrivateEventComponent implements OnInit, OnDestroy {
   public eventTypes: typeof EventTypes = EventTypes;
   public eventId: string;
 
-  public profileImage: string = `url(${PrivateEventConstants.DEFAULT_PROFILE_IMAGE}) center center / contain no-repeat`;
+  public profileImage: string = `${PrivateEventConstants.DEFAULT_PROFILE_IMAGE} center center / contain no-repeat`;
   public eventName: string;
   public eventDate: string;
   public eventTime: string;
