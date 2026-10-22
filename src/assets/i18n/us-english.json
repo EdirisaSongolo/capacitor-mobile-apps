@@ -148,12 +148,13 @@
     }
   },
   "side-nav-links": {
+    "toggle-theme": "Toggle Theme",
+    "light": "Light",
+    "dark": "Dark",
     "payment-methods": "Payment Methods",
     "profile-management": "Profile Management",
     "password": "password",
-    "toggle-theme": "Toggle Theme",
-    "light": "Light",
-    "dark": "Dark"
+    "ticket-scan": "Scan Tickets"
   },
   "app-nav-links": {
     "dashboard": "DashBoard",
@@ -473,6 +474,17 @@
     "confirm-delete-action": "Are you sure you want to remove this public event",
     "confirm-feature-removal-action": "Are you sure you want to remove this feature from this date",
     "confirm-staff-removal-action": "Are you sure you want to remove this staffer from this date",
+    "event-account": {
+      "selection-options": {
+        "ticket-sales-title": "Ticket Sales",
+        "ticket-sales-description": "Ticket sales and revenue for your event",
+        "gate-personnel-title": "Gate Personnel",
+        "gate-personnel-description": "People who can scan tickets at your event"
+      }
+    },
+    "gate-personnel": {
+      "no-personnel": "There are no gate personnel for this location"
+    },
     "api-responses": {
       "event-updated-successfully": "Event Details have been updated",
       "created-event-location": "You have have added a new location to your event",
@@ -483,7 +495,9 @@
       "cancelled-event-feature": "{{profileName}}, has been removed from your event",
       "created-event-staff": "A Booking request(s) has been sent to {{profileName}}",
       "updated-event-staff": "Your event staff has been updated",
-      "cancelled-event": "You have cancelled {{eventName}}. Any ticket and invoice payments will be refunded if applicable"
+      "cancelled-event": "You have cancelled {{eventName}}. Any ticket and invoice payments will be refunded if applicable",
+      "gate-crew-created": "Gate Crew member added",
+      "gate-crew-updated": "The Gate Crew has been updated"
     },
     "api-errors": {
       "no-changes-in-event-details": "You didn't make any changes in your event details",
@@ -492,7 +506,8 @@
       "feature-cancellation-failed": "We weren't able to cancel this feature booking. Nothing has been changed. Please try again",
       "staff-cancellation-failed": "We weren't able to cancel this staff booking. Nothing has been changed. Please try again",
       "venue-cancellation-failed": "We weren't able to cancel this venue booking. Nothing has been changed. Please try again",
-      "booking-not-active": "This booking has already been cancelled or declined"
+      "booking-not-active": "This booking has already been cancelled or declined",
+      "duplicate-gate-crew": "Already on the Gate Crew for this date"
     }
   },
   "private-event-dashboard": {
@@ -735,6 +750,21 @@
   "user-private-event": {
     "no-guests": "No confirmed guests for this event yet",
     "no-features": "There are no featured profiles for this event"
+  },
+  "operations": {
+    "api-responses": {
+      "user-ticket-scanned": "Ticket has been scanned and updated",
+      "ticket-already-scanned": "This ticket has already been scanned"
+    },
+    "api-errors": {
+      "invalid-ticket-signature": "This ticket is not valid for this event"
+    },
+    "ticket-scan": {
+      "camera-denied": "Camera access was denied. Allow camera access for this site to scan tickets",
+      "camera-unavailable": "No camera is available to scan tickets",
+      "scanner-unavailable": "Scanner is not available",
+      "no-gate-crew-dates": "You are not on the Gate Crew for any upcoming dates"
+    }
   },
   "messaging": {
     "no-conversations": "You do not have any messages",

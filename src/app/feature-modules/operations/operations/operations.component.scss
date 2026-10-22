@@ -1,0 +1,14 @@
+@use 'src/styles-app' as *;
+
+.mobile-operations,
+.desktop-operations {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}

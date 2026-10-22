@@ -7,6 +7,7 @@ import {
 } from '@public-events-dashboard/index';
 import {
   CancelPublicEventComponent,
+  GatePersonelComponent,
   PublicEventAccountComponent,
   PublicEventDetailsComponent,
 } from '@public-events-dashboard/display-components';
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path: PublicEventDashboardRoutes.PRINCIPAL,
         component: PublicEventAccountComponent,
+      },
+      {
+        path: PublicEventDashboardRoutes.GATE_PERSONALE,
+        component: GatePersonelComponent,
       },
       {
         path: PublicEventDashboardRoutes.CANCEL,

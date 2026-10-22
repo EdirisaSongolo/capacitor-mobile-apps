@@ -1,0 +1,33 @@
+<div
+  [ngClass]="{
+    'mobile-date-features': device === deviceTypes.mobile,
+    'desktop-date-features': device === deviceTypes.desktop,
+  }">
+  @if (dateFeatures.length === 0) {
+    <div class="no-features">
+      <p>{{ 'public-event-profile.no-features' | translate }}</p>
+    </div>
+
+  } @else {
+    <div class="date-features">
+      @for (serviceProvider of dateFeatures; track serviceProvider) {
+        @if (serviceProvider.profile === profileOptions.userProfile) {
+          <Tsk-user-profile-plac
+            class="event-provider"
+            [userTokenDTO]="asUserToken(serviceProvider)"
+            (placAction)="
+              serviceProviderProfilePage(serviceProvider.profile, $event)
+            "></Tsk-user-profile-plac>
+        }
+        @if (serviceProvider.profile === profileOptions.vendorProfile) {
+          <Tsk-vendor-plac
+            class="event-provider"
+            [vendorToken]="asVendorToken(serviceProvider)"
+            (placAction)="
+              serviceProviderProfilePage(serviceProvider.profile, $event)
+            "></Tsk-vendor-plac>
+        }
+      }
+    </div>
+  }
+</div>

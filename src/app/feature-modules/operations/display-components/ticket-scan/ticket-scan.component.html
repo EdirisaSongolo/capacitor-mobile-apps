@@ -1,0 +1,48 @@
+<div
+  [ngClass]="{
+    'mobile-ticket-scan': device === deviceTypes.mobile,
+    'desktop-ticket-scan': device === deviceTypes.desktop,
+  }">
+  <div class="controls">
+    <button
+      class="control-button"
+      [disabled]="ticketScanDisplay === displayOptions.gate_crew_dates"
+      mat-icon-button
+      (click)="updateDisplayPanel()">
+      <mat-icon
+        [fontIcon]="controlIcon"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+  </div>
+
+  @if (ticketScanDisplay === displayOptions.gate_crew_dates) {
+    @if (userGateCrewDates.length === 0) {
+      <div class="no-dates">
+        <p>{{ 'operations.ticket-scan.no-gate-crew-dates' | translate }}</p>
+      </div>
+    } @else {
+      <div class="dates-list">
+        @for (dateToken of userGateCrewDates; track dateToken) {
+          <Tsk-public-event-date-plac
+            [dateToken]="dateToken"
+            [profileImage]="dateToken.profileImage"
+            (placAction)="setGateCrewDate($event)"></Tsk-public-event-date-plac>
+        }
+      </div>
+    }
+  }
+
+  @if (ticketScanDisplay === displayOptions.ticket_scanner) {
+    <zxing-scanner
+      class="scanner"
+      [formats]="scanFormats"
+      [delayBetweenScanSuccess]="scanDelay"
+      (permissionResponse)="processCameraPermission($event)"
+      (scanSuccess)="processTicketScan($event)"></zxing-scanner>
+    @if (!scannerAvailable) {
+      <p class="scanner-unavailable">
+        {{ 'operations.ticket-scan.scanner-unavailable' | translate }}
+      </p>
+    }
+  }
+</div>

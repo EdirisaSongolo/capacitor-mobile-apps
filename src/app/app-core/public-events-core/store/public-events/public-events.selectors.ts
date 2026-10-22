@@ -61,3 +61,8 @@ export const publicEventPrincipalSelector = createSelector(
   publicEventStore,
   publicEvent => publicEvent.eventPrincipal
 );
+
+export const userGateCrewDatesSelector = createSelector(
+  publicEventStore,
+  publicEvent => publicEvent.userGateCrewDates
+);

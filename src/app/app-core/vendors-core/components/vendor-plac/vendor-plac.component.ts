@@ -107,12 +107,12 @@ export class VendorPlacComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   private processVendorData(): void {
-    if (this.vendorToken.profileImage !== null) {
-      const imagePath = this.vendorToken.profileImage;
+    if (this.vendorToken?.profileImage) {
+      const imagePath = this.vendorToken?.profileImage;
       this.vendorProfileImage = `url(${imagePath}) center / contain no-repeat`;
     }
 
-    this.vendorName = this.vendorToken.vendorName;
+    this.vendorName = this.vendorToken?.vendorName;
 
     const providerPlacDetails =
       this.profileProcessor.processProviderPlacDetails(this.vendorToken);

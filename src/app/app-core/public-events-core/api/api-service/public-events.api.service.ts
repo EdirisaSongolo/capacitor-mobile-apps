@@ -18,6 +18,7 @@ import {
   EventDateProfileDTO,
   UserPublicEventDTO,
   DateDetailsDTO,
+  TicketScanDTO,
 } from '@public-events-core/api';
 import { PublicEventTokenDTO } from '@public-events-core/api';
 import {
@@ -323,5 +324,54 @@ export class PublicEventsApiService {
       requestMapping,
       eventComponent
     );
+  }
+
+  public scanUserTicket(
+    ticketScan: TicketScanDTO
+  ): Observable<SuccessResponseDTO> {
+    const requestMapping: string = `${PublicEventsRestConstants.PUBLIC_EVENTS}/${PublicEventsRestConstants.SCAN_USER_TICKET}`;
+    return this.apiService.post<SuccessResponseDTO>(requestMapping, ticketScan);
+  }
+
+  public createGateCrew(
+    providerRequests: ProviderRequestDTO[]
+  ): Observable<SuccessResponseDTO> {
+    const requestMapping: string = `${PublicEventsRestConstants.PUBLIC_EVENTS}/${PublicEventsRestConstants.CREATE_GATE_CREW}`;
+    return this.apiService.post<SuccessResponseDTO>(
+      requestMapping,
+      providerRequests
+    );
+  }
+
+  public updateGateCrew(
+    providerRequests: ProviderRequestDTO[]
+  ): Observable<SuccessResponseDTO> {
+    const requestMapping: string = `${PublicEventsRestConstants.PUBLIC_EVENTS}/${PublicEventsRestConstants.UPDATE_GATE_CREW}`;
+    return this.apiService.post<SuccessResponseDTO>(
+      requestMapping,
+      providerRequests
+    );
+  }
+
+  public retrieveLocationGateCrew(
+    eventLocation: EventComponentDTO
+  ): Observable<ServiceProviderDTO[]> {
+    const requestMapping: string = `${PublicEventsRestConstants.PUBLIC_EVENTS}/${PublicEventsRestConstants.RETRIEVE_LOCATION_GATE_CREW}`;
+    return this.apiService.post<ServiceProviderDTO[]>(
+      requestMapping,
+      eventLocation
+    );
+  }
+
+  public retrieveGateCrewLocationDates(
+    eventProvider: EventProviderDTO
+  ): Observable<DateTokenDTO[]> {
+    const requestMapping: string = `${PublicEventsRestConstants.PUBLIC_EVENTS}/${PublicEventsRestConstants.RETRIEVE_GATE_CREW_LOCATION_DATES}`;
+    return this.apiService.post<DateTokenDTO[]>(requestMapping, eventProvider);
+  }
+
+  public retrieveUserGateCrewDates(): Observable<DateTokenDTO[]> {
+    const requestMapping: string = `${PublicEventsRestConstants.PUBLIC_EVENTS}/${PublicEventsRestConstants.RETRIEVE_USER_GATE_CREW_DATES}`;
+    return this.apiService.get<DateTokenDTO[]>(requestMapping);
   }
 }

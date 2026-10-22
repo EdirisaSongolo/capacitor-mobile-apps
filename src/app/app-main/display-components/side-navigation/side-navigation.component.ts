@@ -53,12 +53,16 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
       route: '/dash-board/user-profile/payment-methods',
     },
     {
+      name: 'side-nav-links.password',
+      route: '/dash-board/user-profile/password',
+    },
+    {
       name: 'side-nav-links.profile-management',
       route: '/dash-board/profile-management',
     },
     {
-      name: 'side-nav-links.password',
-      route: '/dash-board/user-profile/password',
+      name: 'side-nav-links.ticket-scan',
+      route: '/operations/ticket-scan',
     },
   ];
 

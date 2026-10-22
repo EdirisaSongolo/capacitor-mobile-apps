@@ -6,6 +6,7 @@ import {
   LocationTokenDTO,
   PublicEventTokenDTO,
   UserPublicEventDTO,
+  TicketScanDTO,
 } from '@public-events-core/api';
 import {
   LocationCategoriesDTO,
@@ -187,4 +188,23 @@ export const STORE_USER_PUBLIC_EVENT = '[User Account] Store user public event';
 export const storeUserPublicEvent = createAction(
   STORE_USER_PUBLIC_EVENT,
   props<{ userPublicEvent: UserPublicEventDTO }>()
+);
+
+export const RETRIEVE_USER_GATE_CREW_DATES =
+  '[Operations] Retrieve user gate crew dates';
+export const retrieveUserGateCrewDates = createAction(
+  RETRIEVE_USER_GATE_CREW_DATES
+);
+
+export const STORE_USER_GATE_CREW_DATES =
+  '[Operations] Store user gate crew dates';
+export const storeUserGateCrewDates = createAction(
+  STORE_USER_GATE_CREW_DATES,
+  props<{ userGateCrewDates: DateTokenDTO[] }>()
+);
+
+export const SCAN_USER_TICKET = '[Operations] Scan user ticket';
+export const scanUserTicket = createAction(
+  SCAN_USER_TICKET,
+  props<{ ticketScan: TicketScanDTO }>()
 );

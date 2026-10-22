@@ -29,7 +29,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: UserAccountRoutes.MEDIA,
+        redirectTo: UserAccountRoutes.USER_EVENTS,
         pathMatch: 'full',
       },
       {
@@ -37,12 +37,12 @@ const routes: Routes = [
         component: AccountSocialsComponent,
       },
       {
-        path: UserAccountRoutes.MEDIA,
-        component: ProfileMediaComponent,
-      },
-      {
         path: UserAccountRoutes.USER_EVENTS,
         component: UserEventsComponent,
+      },
+      {
+        path: UserAccountRoutes.MEDIA,
+        component: ProfileMediaComponent,
       },
       {
         path: `${UserAccountRoutes.EVENT_INVITATION}/:${UserAccountRoutes.EVENT_ID}`,

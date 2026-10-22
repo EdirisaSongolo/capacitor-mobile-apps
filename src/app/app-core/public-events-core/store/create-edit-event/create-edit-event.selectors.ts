@@ -92,6 +92,16 @@ export const staffLocationDatesSelector = createSelector(
   createPublicEvent => createPublicEvent.staffLocationDates
 );
 
+export const locationGateCrewSelector = createSelector(
+  createEditPublicEventFeature,
+  createPublicEvent => createPublicEvent.locationGateCrew
+);
+
+export const gateCrewLocationDatesSelector = createSelector(
+  createEditPublicEventFeature,
+  createPublicEvent => createPublicEvent.gateCrewLocationDates
+);
+
 export const eventPrincipalSelector = createSelector(
   createEditPublicEventFeature,
   createPublicEvent => createPublicEvent.eventPrincipal

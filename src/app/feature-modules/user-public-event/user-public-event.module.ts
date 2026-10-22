@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { QRCodeComponent } from 'angularx-qrcode';
 
 import { TranslateModule } from '@ngx-translate/core';
@@ -10,14 +11,22 @@ import { ProfileRevenueCoreModule } from '@profile-revenue-core/profile-revenue-
 import { UserProfileCoreModule } from '@user-profile-core/user-profile-core.module';
 import { VenuesCoreModule } from '@venues-core/venues-core.module';
 import { VendorsCoreModule } from '@vendors-core/vendors-core.module';
+import { MediaCoreModule } from '@media-core/media-core.module';
+import { CommunicationsCoreModule } from '@communications-core/communications-core.module';
 import { UserPublicEventRoutingModule } from '@user-public-event/user-public-event.routing.module';
 
 import { UserPublicEventComponent } from '@user-public-event/user-public-event/user-public-event.component';
-import { MediaCoreModule } from '@media-core/media-core.module';
-import { CommunicationsCoreModule } from '@communications-core/communications-core.module';
+import {
+  DateFeaturesComponent,
+  UserTicketsComponent,
+} from '@user-public-event/display-components';
 
 @NgModule({
-  declarations: [UserPublicEventComponent],
+  declarations: [
+    UserPublicEventComponent,
+    UserTicketsComponent,
+    DateFeaturesComponent,
+  ],
   imports: [
     CommonModule,
     TranslateModule,

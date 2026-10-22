@@ -57,4 +57,13 @@ export class PublicEventsRestConstants {
     'retrieve-user-public-event-token';
   public static readonly RETRIEVE_USER_PUBLIC_EVENT =
     'retrieve-user-public-event';
+  public static readonly SCAN_USER_TICKET = 'scan-user-ticket';
+  public static readonly CREATE_GATE_CREW = 'create-gate-crew';
+  public static readonly UPDATE_GATE_CREW = 'update-gate-crew';
+  public static readonly RETRIEVE_LOCATION_GATE_CREW =
+    'retrieve-location-gate-crew';
+  public static readonly RETRIEVE_GATE_CREW_LOCATION_DATES =
+    'retrieve-gate-crew-location-dates';
+  public static readonly RETRIEVE_USER_GATE_CREW_DATES =
+    'retrieve-user-gate-crew-dates';
 }

@@ -47,6 +47,7 @@
       "@communications-core/*": ["./src/app/app-core/communications-core/*"],
       "@media-core/*": ["./src/app/app-core/media-core/*"],
       "@composite-core/*": ["./src/app/app-core/composite-core/*"],
+      "@operations-core/*": ["./src/app/app-core/operations-core/*"],
       "@app-core/*": ["./src/app/app-core/*"],
       "@app-main/*": ["./src/app/app-main/*"],
       "@app-auth/*": ["./src/app/feature-modules/app-auth/*"],
@@ -89,7 +90,8 @@
       "@user-public-event/*": ["./src/app/feature-modules/user-public-event/*"],
       "@user-private-event/*": [
         "./src/app/feature-modules/user-private-event/*"
-      ]
+      ],
+      "@operations/*": ["./src/app/feature-modules/operations/*"]
     },
     "useDefineForClassFields": false
   },

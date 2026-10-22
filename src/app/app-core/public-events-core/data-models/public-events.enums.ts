@@ -101,3 +101,9 @@ export enum EventComponents {
   event_feature = 'EVENT_FEATURE',
   event_staff = 'EVENT_STAFF',
 }
+
+export enum TicketStatus {
+  scanned = 'SCANNED',
+  not_scanned = 'NOT_SCANNED',
+  refunded = 'REFUNDED',
+}

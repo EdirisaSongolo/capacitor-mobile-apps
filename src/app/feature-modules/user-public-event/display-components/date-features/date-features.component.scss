@@ -1,0 +1,29 @@
+@use 'src/styles-app' as *;
+
+.mobile-date-features,
+.desktop-date-features {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .no-features {
+    width: 90%;
+    margin: auto;
+  }
+
+  .date-features {
+    display: flex;
+    width: 100%;
+    min-height: 30rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: center;
+    align-items: center;
+  }
+}

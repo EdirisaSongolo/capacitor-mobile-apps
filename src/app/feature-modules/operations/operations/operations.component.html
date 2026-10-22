@@ -1,0 +1,7 @@
+<div
+  [ngClass]="{
+    'mobile-operations': device === deviceTypes.mobile,
+    'desktop-operations': device === deviceTypes.desktop,
+  }">
+  <router-outlet></router-outlet>
+</div>

@@ -26,6 +26,12 @@ import {
   updatePublicEventStaff,
   cancelPublicEvent,
   resetCreatePublicEventValues,
+  createGateCrew,
+  updateGateCrew,
+  retrieveLocationGateCrew,
+  setLocationGateCrew,
+  retrieveGateCrewLocationDates,
+  setGateCrewLocationDates,
 } from '@public-events-core/store/create-edit-event/create-edit-event.actions';
 import { catchError, concatMap, map, mergeMap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -376,6 +382,90 @@ export class CreateEditEventEffects {
           .pipe(
             map(principalProfile =>
               setEventPrincipalProfile({ eventPrincipal: principalProfile })
+            ),
+            catchError((errorResponse: HttpErrorResponse) =>
+              this.apiResponseService.createApiCallErrorResponse(errorResponse)
+            )
+          )
+      )
+    )
+  );
+
+  public createGateCrewEffect = createEffect(() =>
+    this.actions.pipe(
+      ofType(createGateCrew),
+      concatMap(action =>
+        this.publicEventsApiService
+          .createGateCrew(action.providerRequests)
+          .pipe(
+            mergeMap(successResponse => [
+              this.apiResponseService.createApiCallSuccessResponse(
+                successResponse
+              ),
+              retrieveLocationGateCrew({
+                eventLocation: action.eventLocation,
+              }),
+            ]),
+            catchError((errorResponse: HttpErrorResponse) =>
+              this.apiResponseService.createApiCallErrorResponse(errorResponse)
+            )
+          )
+      )
+    )
+  );
+
+  public updateGateCrewEffect = createEffect(() =>
+    this.actions.pipe(
+      ofType(updateGateCrew),
+      concatMap(action =>
+        this.publicEventsApiService
+          .updateGateCrew(action.providerRequests)
+          .pipe(
+            mergeMap(successResponse => [
+              this.apiResponseService.createApiCallSuccessResponse(
+                successResponse
+              ),
+              retrieveLocationGateCrew({
+                eventLocation: action.eventLocation,
+              }),
+            ]),
+            catchError((errorResponse: HttpErrorResponse) =>
+              this.apiResponseService.createApiCallErrorResponse(errorResponse)
+            )
+          )
+      )
+    )
+  );
+
+  public retrieveLocationGateCrewEffect = createEffect(() =>
+    this.actions.pipe(
+      ofType(retrieveLocationGateCrew),
+      concatMap(action =>
+        this.publicEventsApiService
+          .retrieveLocationGateCrew(action.eventLocation)
+          .pipe(
+            map(locationGateCrew =>
+              setLocationGateCrew({ locationGateCrew: locationGateCrew })
+            ),
+            catchError((errorResponse: HttpErrorResponse) =>
+              this.apiResponseService.createApiCallErrorResponse(errorResponse)
+            )
+          )
+      )
+    )
+  );
+
+  public retrieveGateCrewLocationDatesEffect = createEffect(() =>
+    this.actions.pipe(
+      ofType(retrieveGateCrewLocationDates),
+      concatMap(action =>
+        this.publicEventsApiService
+          .retrieveGateCrewLocationDates(action.eventProvider)
+          .pipe(
+            map(gateCrewLocationDates =>
+              setGateCrewLocationDates({
+                gateCrewLocationDates: gateCrewLocationDates,
+              })
             ),
             catchError((errorResponse: HttpErrorResponse) =>
               this.apiResponseService.createApiCallErrorResponse(errorResponse)

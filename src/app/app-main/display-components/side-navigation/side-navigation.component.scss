@@ -36,7 +36,7 @@
     width: 90%;
     margin: auto;
     margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
@@ -55,9 +55,9 @@
   .profile-image-and-name {
     display: flex;
     margin: auto;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     margin-right: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -111,7 +111,7 @@
     display: flex;
     width: 20rem;
     height: auto;
-    min-height: 8rem;
+    min-height: 10rem;
     margin: auto;
     margin-top: 0.5rem;
     margin-left: 0.5em;
@@ -161,7 +161,7 @@
     width: 50%;
 
     #profile-image {
-      width: 4rem;
+      width: 4.5rem;
       height: 6.5rem;
     }
 

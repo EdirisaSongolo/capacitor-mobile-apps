@@ -27,6 +27,8 @@ import {
   setEventPrincipalProfile,
   setEventStaffDisplay,
   resetCreatePublicEventValues,
+  setLocationGateCrew,
+  setGateCrewLocationDates,
 } from '@public-events-core/store/create-edit-event/create-edit-event.actions';
 
 export const createEditPublicEvent: CreatePublicEventStore = {
@@ -50,6 +52,8 @@ export const createEditPublicEvent: CreatePublicEventStore = {
   publicEventDate: null,
   eventPrincipal: null,
   staffLocationDates: [],
+  locationGateCrew: [],
+  gateCrewLocationDates: [],
 };
 
 export const createEditPublicEventReducer = createReducer(
@@ -125,6 +129,14 @@ export const createEditPublicEventReducer = createReducer(
   on(setStaffLocationDates, (state, { staffLocationDates }) => ({
     ...state,
     staffLocationDates: staffLocationDates,
+  })),
+  on(setLocationGateCrew, (state, { locationGateCrew }) => ({
+    ...state,
+    locationGateCrew: locationGateCrew,
+  })),
+  on(setGateCrewLocationDates, (state, { gateCrewLocationDates }) => ({
+    ...state,
+    gateCrewLocationDates: gateCrewLocationDates,
   })),
   on(setEventPrincipalProfile, (state, { eventPrincipal }) => ({
     ...state,

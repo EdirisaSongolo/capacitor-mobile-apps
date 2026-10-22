@@ -9,6 +9,8 @@ import { PublicEventsCoreModule } from '@public-events-core/public-events-core.m
 import { PublicEventsDashboardRoutingModule } from '@public-events-dashboard/public-events-dashboard-routing.module';
 import { MediaCoreModule } from '@media-core/media-core.module';
 import { VendorsCoreModule } from '@vendors-core/vendors-core.module';
+import { UserProfileCoreModule } from '@user-profile-core/user-profile-core.module';
+import { ProfileAccountsCoreModule } from '@profile-accounts-core/profile-accounts-core.module';
 
 import { PublicEventsDashboardMainComponent } from '@public-events-dashboard/public-events-dashboard-main/public-events-dashboard-main.component';
 import { PublicEventProfileDashboardComponent } from '@public-events-dashboard/public-event-profile-dashboard/public-event-profile-dashboard.component';
@@ -17,6 +19,8 @@ import {
   PublicEventAccountComponent,
   PublicEventDetailsComponent,
   CancelPublicEventComponent,
+  GatePersonelComponent,
+  CreateEditGatePersonelComponent,
 } from '@public-events-dashboard/display-components';
 
 @NgModule({
@@ -26,6 +30,8 @@ import {
     PublicEventDetailsComponent,
     CancelPublicEventComponent,
     PublicEventAccountComponent,
+    GatePersonelComponent,
+    CreateEditGatePersonelComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +44,8 @@ import {
     PublicEventsCoreModule,
     MediaCoreModule,
     VendorsCoreModule,
+    UserProfileCoreModule,
+    ProfileAccountsCoreModule,
   ],
 })
 export class PublicEventsDashboardModule {}

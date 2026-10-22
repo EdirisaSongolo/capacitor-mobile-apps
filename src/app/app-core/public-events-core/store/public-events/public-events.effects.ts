@@ -26,6 +26,9 @@ import {
   retrieveDateEventToken,
   retrieveUserPublicEvent,
   storeUserPublicEvent,
+  scanUserTicket,
+  retrieveUserGateCrewDates,
+  storeUserGateCrewDates,
 } from '@public-events-core/store/public-events/public-events.actions';
 
 import { ApiResponseService } from '@app-core/app-api';
@@ -277,6 +280,44 @@ export class PublicEventEffects {
           .pipe(
             map(userPublicEvent =>
               storeUserPublicEvent({ userPublicEvent: userPublicEvent })
+            ),
+            catchError((errorResponse: HttpErrorResponse) =>
+              this.apiResponseService.createApiCallErrorResponse(errorResponse)
+            )
+          )
+      )
+    )
+  );
+
+  public scanUserTicketEffect = createEffect(() =>
+    this.actions.pipe(
+      ofType(scanUserTicket),
+      concatMap(action =>
+        this.publicEventsApiService
+          .scanUserTicket(action.ticketScan)
+          .pipe(
+            map(successResponse =>
+              this.apiResponseService.createApiCallSuccessResponse(
+                successResponse
+              )
+            ),
+            catchError((errorResponse: HttpErrorResponse) =>
+              this.apiResponseService.createApiCallErrorResponse(errorResponse)
+            )
+          )
+      )
+    )
+  );
+
+  public retrieveUserGateCrewDatesEffect = createEffect(() =>
+    this.actions.pipe(
+      ofType(retrieveUserGateCrewDates),
+      concatMap(() =>
+        this.publicEventsApiService
+          .retrieveUserGateCrewDates()
+          .pipe(
+            map(userGateCrewDates =>
+              storeUserGateCrewDates({ userGateCrewDates: userGateCrewDates })
             ),
             catchError((errorResponse: HttpErrorResponse) =>
               this.apiResponseService.createApiCallErrorResponse(errorResponse)

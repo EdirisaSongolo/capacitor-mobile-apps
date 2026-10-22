@@ -9,6 +9,7 @@ import {
   storePublicEventPrincipal,
   storeEventDateProfile,
   storeUserPublicEvent,
+  storeUserGateCrewDates,
   setDatesDisplay,
   setEventComponent,
 } from '@public-events-core/store/public-events/public-events.actions';
@@ -28,6 +29,7 @@ export const PublicEvent: PublicEventStore = {
   eventFeatures: [],
   eventPrincipal: null,
   publicEventsSearch: [],
+  userGateCrewDates: [],
 };
 
 export const publicEventReducer = createReducer(
@@ -77,5 +79,9 @@ export const publicEventReducer = createReducer(
   on(storePublicEventSearchResults, (state, { publicEvents }) => ({
     ...state,
     publicEventsSearch: publicEvents,
+  })),
+  on(storeUserGateCrewDates, (state, { userGateCrewDates }) => ({
+    ...state,
+    userGateCrewDates: userGateCrewDates,
   }))
 );

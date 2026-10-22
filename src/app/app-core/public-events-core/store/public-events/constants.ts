@@ -25,4 +25,5 @@ export interface PublicEventStore {
   eventFeatures: ServiceProviderDTO[];
   eventPrincipal: ServiceProviderDTO;
   publicEventsSearch: PublicEventTokenDTO[];
+  userGateCrewDates: DateTokenDTO[];
 }

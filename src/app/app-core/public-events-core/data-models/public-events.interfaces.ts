@@ -2,6 +2,7 @@ import {
   CreatePublicEventPanel,
   DashboardDisplayPanel,
   ProfileDisplayPanel,
+  UserPublicEventRoutes,
 } from '@public-events-core/data-models';
 
 import {
@@ -44,4 +45,10 @@ export interface DashboardDisplay {
   display: DashboardDisplayPanel;
   route: string;
   icon: string;
+}
+
+export interface UserPublicEventDisplay {
+  name: string;
+  icon: string;
+  route: UserPublicEventRoutes;
 }

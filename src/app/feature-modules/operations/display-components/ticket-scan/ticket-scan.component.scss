@@ -1,0 +1,71 @@
+@use 'src/styles-app' as *;
+
+.mobile-ticket-scan,
+.desktop-ticket-scan {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  margin: auto;
+  padding: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .controls {
+    display: flex;
+    min-height: 2rem;
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .scanner {
+    display: block;
+    margin: auto;
+  }
+
+  .scanner-unavailable {
+    margin: auto;
+    text-align: center;
+  }
+
+  .no-dates {
+    margin: auto;
+  }
+
+  .dates-list {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 30rem;
+    margin: auto;
+    padding: 0rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+.mobile-ticket-scan {
+  .controls {
+    width: 90%;
+  }
+
+  .scanner {
+    width: 90%;
+  }
+}
+
+.desktop-ticket-scan {
+  max-width: 50rem;
+
+  .controls {
+    width: 70%;
+  }
+
+  .scanner {
+    width: 60%;
+  }
+}

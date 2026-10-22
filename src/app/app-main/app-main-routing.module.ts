@@ -118,7 +118,6 @@ const routes: Routes = [
             mod => mod.UserPrivateEventModule
           ),
       },
-
       {
         path: 'messaging',
         loadChildren: () =>
@@ -132,6 +131,14 @@ const routes: Routes = [
         loadChildren: () =>
           import('@notifications/notifications.module').then(
             mod => mod.NotificationsModule
+          ),
+        canActivate: [authGuard],
+      },
+      {
+        path: 'operations',
+        loadChildren: () =>
+          import('@operations/operations.module').then(
+            mod => mod.OperationsModule
           ),
         canActivate: [authGuard],
       },

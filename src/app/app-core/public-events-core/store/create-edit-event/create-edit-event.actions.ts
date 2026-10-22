@@ -22,6 +22,7 @@ import {
   DateTokenDTO,
 } from '@app-core/public-events-core/api';
 import { ProviderRequestDTO, ProfileDTO } from '@app-core/app-api';
+import { ServiceProviderDTO } from '@profile-accounts-core/api';
 
 export const SET_PUBLIC_EVENT_ACTION =
   '[Event Creation and Dashboard] Set event creation action';
@@ -304,4 +305,50 @@ export const CANCEL_PUBLIC_EVENT =
 export const cancelPublicEvent = createAction(
   CANCEL_PUBLIC_EVENT,
   props<{ profileDTO: ProfileDTO }>()
+);
+
+export const CREATE_GATE_CREW = '[Public Event Dashboard] Create gate crew';
+export const createGateCrew = createAction(
+  CREATE_GATE_CREW,
+  props<{
+    providerRequests: ProviderRequestDTO[];
+    eventLocation: EventComponentDTO;
+  }>()
+);
+
+export const UPDATE_GATE_CREW = '[Public Event Dashboard] Update gate crew';
+export const updateGateCrew = createAction(
+  UPDATE_GATE_CREW,
+  props<{
+    providerRequests: ProviderRequestDTO[];
+    eventLocation: EventComponentDTO;
+  }>()
+);
+
+export const RETRIEVE_LOCATION_GATE_CREW =
+  '[Public Event Dashboard] Retrieve location gate crew';
+export const retrieveLocationGateCrew = createAction(
+  RETRIEVE_LOCATION_GATE_CREW,
+  props<{ eventLocation: EventComponentDTO }>()
+);
+
+export const SET_LOCATION_GATE_CREW =
+  '[Public Event Dashboard] Set location gate crew';
+export const setLocationGateCrew = createAction(
+  SET_LOCATION_GATE_CREW,
+  props<{ locationGateCrew: ServiceProviderDTO[] }>()
+);
+
+export const RETRIEVE_GATE_CREW_LOCATION_DATES =
+  '[Public Event Dashboard] Retrieve gate crew location dates';
+export const retrieveGateCrewLocationDates = createAction(
+  RETRIEVE_GATE_CREW_LOCATION_DATES,
+  props<{ eventProvider: EventProviderDTO }>()
+);
+
+export const SET_GATE_CREW_LOCATION_DATES =
+  '[Public Event Dashboard] Set gate crew location dates';
+export const setGateCrewLocationDates = createAction(
+  SET_GATE_CREW_LOCATION_DATES,
+  props<{ gateCrewLocationDates: DateTokenDTO[] }>()
 );

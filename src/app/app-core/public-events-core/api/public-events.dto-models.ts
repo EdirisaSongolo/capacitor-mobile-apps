@@ -175,9 +175,13 @@ export interface UserPublicEventDTO {
 export interface UserTicketsDTO {
   userTicketId: string;
   userEventId: string;
-  ticketQRCode: string;
   ticketName: string;
+  ticketSignature: string;
   ticketPrice: number;
-  scanStatus: string;
+  ticketStatus: string;
+}
+
+export interface TicketScanDTO {
+  userTicketId: string;
   ticketStatus: string;
 }

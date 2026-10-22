@@ -15,6 +15,7 @@ import {
   PublicEventLocationDTO,
   PublicEventPrincipalDTO,
 } from '@public-events-core/api/public-events.dto-models';
+import { ServiceProviderDTO } from '@profile-accounts-core/api';
 
 export const CREATE_PUBLIC_EVENT = 'create-public-event';
 
@@ -39,4 +40,6 @@ export interface CreatePublicEventStore {
   publicEventDate: PublicEventDateDTO;
   eventPrincipal: PublicEventPrincipalDTO;
   staffLocationDates: DateTokenDTO[];
+  locationGateCrew: ServiceProviderDTO[];
+  gateCrewLocationDates: DateTokenDTO[];
 }

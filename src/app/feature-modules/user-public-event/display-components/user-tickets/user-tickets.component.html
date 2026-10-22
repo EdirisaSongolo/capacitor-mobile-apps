@@ -1,0 +1,48 @@
+<div
+  [ngClass]="{
+    'mobile-user-tickets': device === deviceTypes.mobile,
+    'desktop-user-tickets': device === deviceTypes.desktop,
+  }">
+  <div class="ticket-controls">
+    <button mat-icon-button (click)="createTicketSales()">
+      <mat-icon
+        [fontIcon]="ticketControls"
+        class="material-symbols-outlined"></mat-icon>
+    </button>
+  </div>
+
+  @for (userTicket of userTickets; track userTicket) {
+    <div class="user-ticket">
+      <div class="qr-code">
+        <qrcode
+          [qrdata]="userTicket.userTicketId"
+          [width]="75"
+          errorCorrectionLevel="L"></qrcode>
+      </div>
+      <div class="details">{{ userTicket.ticketName }}</div>
+      <div class="details">{{ userTicket.ticketStatus }}</div>
+    </div>
+  }
+
+  @if (salesDialog) {
+    <div class="ticket-sales-dialog">
+      <Tsk-ticket-sales
+        [publicEventDate]="publicEventDate"
+        [eventTickets]="eventTickets"
+        (closeDialog)="closeDialogs()"
+        (ticketSales)="processTicketSales($event)"></Tsk-ticket-sales>
+    </div>
+  }
+
+  @if (paymentDialog) {
+    <div class="payment-dialog">
+      <Tsk-payment-authorisation
+        [paymentIntent]="paymentIntent"
+        [transactionDetails]="transactionDetails"
+        (closeDialog)="closeDialogs()"
+        (submitTransaction)="
+          submitTicketPayment($event)
+        "></Tsk-payment-authorisation>
+    </div>
+  }
+</div>

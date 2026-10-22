@@ -1,0 +1,29 @@
+<div
+  [ngClass]="{
+    'mobile-gate-personel': device === deviceTypes.mobile,
+    'desktop-gate-personel': device === deviceTypes.desktop,
+  }">
+  @if (locationsDisplay === displayOptions.event_locations) {
+    @if (locationsTokens.length === 0) {
+      <div class="no-locations">
+        {{ 'create-event.public-event.location.no-locations' | translate }}
+      </div>
+    }
+    @if (locationsTokens.length >= 1) {
+      <div class="locations-list">
+        @for (locationToken of locationsTokens; track locationToken) {
+          <Tsk-public-event-location-plac
+            [profileImage]="profileImage"
+            [locationToken]="locationToken"
+            (placAction)="
+              setPublicEventLocation($event)
+            "></Tsk-public-event-location-plac>
+        }
+      </div>
+    }
+  }
+
+  @if (locationsDisplay === displayOptions.create_edit_personnel) {
+    <Tsk-create-edit-gate-personel></Tsk-create-edit-gate-personel>
+  }
+</div>

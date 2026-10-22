@@ -3,9 +3,23 @@
     'mobile-public-event-account': device === deviceTypes.mobile,
     'desktop-public-event-account': device === deviceTypes.desktop,
   }">
-  <div class="header">{{ 'Account on File' | translate }}</div>
   <Tsk-vendor-plac
     class="event-provider"
     [vendorToken]="vendorToken"
     [componentAction]="componentAction"></Tsk-vendor-plac>
+
+  <div class="controls">
+    @for (control of accountControls; track $index) {
+      <div class="selection" (click)="navigateToRoute(control.route)">
+        <div class="icon">
+          <mat-icon [fontIcon]="control.icon" class="material-symbols-outlined">
+          </mat-icon>
+        </div>
+        <div class="title-and-description">
+          <p class="title">{{ control.title | translate }}</p>
+          <p class="description">{{ control.description | translate }}</p>
+        </div>
+      </div>
+    }
+  </div>
 </div>

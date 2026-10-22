@@ -120,7 +120,7 @@ export class PublicEventPrincipalComponent implements OnInit, OnDestroy {
       this.store.select(revenueAccountSelector)
     );
     const accountStatus = revenueAccount?.accountStatus;
-    if (accountStatus !== RevenueAccountStatus.healthy) {
+    if (accountStatus !== RevenueAccountStatus.charges_enabled && accountStatus !== RevenueAccountStatus.healthy) {
       const messages: string[] = [
         'create-event.public-event.notifications.incomplete-business-profile',
       ];
