@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "149845212886",
+    "project_id": "tuuska-incorp",
+    "storage_bucket": "tuuska-incorp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149845212886:android:4206376972e10836fe5377",
+        "android_client_info": {
+          "package_name": "com.tuuska.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnCpLT3MffEohZBWiGyrgt5Hl0h3jIYDU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
