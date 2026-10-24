@@ -3,11 +3,15 @@ import {
   OnDestroy,
   OnInit,
   ChangeDetectionStrategy,
+  NgZone,
 } from '@angular/core';
+import { Location } from '@angular/common';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { TranslateService } from '@ngx-translate/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { Observable, Subscription } from 'rxjs';
+import { App } from '@capacitor/app';
+import { PluginListenerHandle } from '@capacitor/core';
 
 import { Device } from '@domain-data-models/app-domain.enums';
 import { SideNavService } from '@domain-services/side-nav/side-nav.service';
@@ -32,12 +36,15 @@ export class RootComponent implements OnInit, OnDestroy {
   private sideNavSubscription: Observable<boolean> =
     this.sideNav.isOpenSubscription;
   private subscriptions = new Subscription();
+  private backButtonListener: Promise<PluginListenerHandle> | null = null;
 
   constructor(
     private breakpoint: BreakpointObserver,
     private translator: TranslateService,
     private sideNav: SideNavService,
-    private breakPoint: BreakPointService
+    private breakPoint: BreakPointService,
+    private location: Location,
+    private zone: NgZone
   ) {}
 
   public ngOnInit(): void {
@@ -77,15 +84,38 @@ export class RootComponent implements OnInit, OnDestroy {
     });
 
     this.subscriptions.add(navSubscription);
+
+    this.listenForBackButton();
   }
 
   public ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
+    void this.backButtonListener?.then(handle => handle.remove());
+    this.backButtonListener = null;
   }
 
   public configureI18n(): void {
     this.translator.addLangs(['us-english']);
     this.translator.setDefaultLang('us-english');
     this.translator.use('us-english');
+  }
+
+  private listenForBackButton(): void {
+    this.backButtonListener = App.addListener('backButton', ({ canGoBack }) => {
+      this.zone.run(() => {
+        if (this.sideNavStatus) {
+          this.sideNavStatus = false;
+          this.sideNav.updateIsOpen();
+          return;
+        }
+
+        if (canGoBack) {
+          this.location.back();
+          return;
+        }
+
+        void App.exitApp();
+      });
+    });
   }
 }

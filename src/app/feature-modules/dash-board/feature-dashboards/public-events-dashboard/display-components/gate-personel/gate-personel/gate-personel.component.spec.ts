@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { GatePersonelComponent } from './gate-personel/gate-personel.component';
+import { GatePersonelComponent } from './gate-personel.component';
 
 describe('GatePersonelComponent', () => {
   let component: GatePersonelComponent;
