@@ -75,16 +75,16 @@ export class VenueProfileHeaderComponent implements OnInit, OnDestroy {
     if (venueToken?.profileImage) {
       const imagePath = venueToken?.profileImage;
       this.profileImage = `url(${imagePath}) center center / contain no-repeat`;
-
-      this.venueName = venueToken.venueName;
-
-      const vendorLocation = venueToken.venueLocation;
-      const vendorCity = vendorLocation.city;
-      const vendorState = vendorLocation.state;
-      this.venueAddress = vendorLocation.address;
-      this.venueLocation = `${vendorCity}, ${vendorState}`;
-
-      this.venueDescription = venueToken.venueDescription;
     }
+
+    this.venueName = venueToken.venueName;
+
+    const venueLocation = venueToken.venueLocation;
+    const venueCity = venueLocation.city;
+    const venueState = venueLocation.state;
+    this.venueAddress = venueLocation.address;
+    this.venueLocation = `${venueCity}, ${venueState}`;
+
+    this.venueDescription = venueToken.venueDescription;
   }
 }
